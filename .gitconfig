@@ -1,0 +1,20 @@
+[user]
+	name = Matthew Rankin
+	email = matthew@cumulusware.com
+[color]
+	status = auto
+	branch = auto
+	diff = auto
+	interactive = auto
+[github]
+	user = cumulusware
+	token = e47f16b29ef81430f50d8bc2ab0f187e
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	br = branch
+[core]
+	excludesfile = /Users/matthew/.gitignore
+[gui]
+	recentrepo = /Users/matthew/development/python/cloneqsvn
