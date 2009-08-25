@@ -16,19 +16,26 @@ fi
 
 # .bash_profile settings specific to Mac OS X
 if [ $os_name == 'Darwin' ]; then
-    # Set EDITOR variables for TextMate
-    export EDITOR='mate -w'
-    export GIT_EDITOR='mate -wl1'
-    export TEXEDIT='mate -w -l %d "%s"'
-    export LC_CTYPE=en_US.UTF-8
-
-    # Setting PATH for MacPython 2.6
-    PATH="/Library/Frameworks/Python.framework/Versions/2.6/bin:${PATH}"
-    export PATH
-
+	
+    # Set EDITOR variables for TextMate if TextMate is installed
+	if [ -x /usr/bin/mate ]; then
+	    export EDITOR='mate -w'
+	    export GIT_EDITOR='mate -wl1'
+	    export TEXEDIT='mate -w -l %d "%s"'
+	    export LC_CTYPE=en_US.UTF-8
+	fi
+	
+    # Set PATH for MacPython 2.6 if Python2.6 is installed
+	if [ -x /Library/Frameworks/Python.framework/Version/2.6/bin/python2.6 ]; then
+	    PATH="/Library/Frameworks/Python.framework/Versions/2.6/bin:${PATH}"
+	    export PATH
+	fi
+	
     # MDR April 23, 2009: Added for virtualenvwrapper
-    export WORKON_HOME=$HOME/.virtualenvs
-    export PIP_VIRTUALENV_BASE=$WORKON_HOME
-    source /Library/Frameworks/Python.framework/Versions/2.6/bin/virtualenvwrapper_bashrc
-    
+	if [ -x /Library/Frameworks/Python.framework/Version/2.6/bin/virtualenvwrapper_bashrc ]; then
+	    export WORKON_HOME=$HOME/.virtualenvs
+	    export PIP_VIRTUALENV_BASE=$WORKON_HOME
+	    source /Library/Frameworks/Python.framework/Versions/2.6/bin/virtualenvwrapper_bashrc
+    fi
+
 fi
