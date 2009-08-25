@@ -11,6 +11,7 @@ if [ "$TERM" != "dumb" ]; then
 fi
 
 # Alias ls some more
+alias lla='ls -lAF'
 alias ll='ls -l'
 alias la='ls -AF'
 alias l='ls -CF'

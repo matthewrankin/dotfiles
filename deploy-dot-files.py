@@ -19,6 +19,7 @@ dot_files_to_deploy = (
     '.bashrc',
     '.gitconfig',
     '.gitignore',
+	'.hgrc',
 )
 
 def is_already_linked(link_to_check, check_against_file):
