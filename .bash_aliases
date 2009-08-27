@@ -56,7 +56,6 @@ alias gco='git checkout'
 alias gcob='git checkout -b'
 alias gcot='git checkout -t'
 alias gcotb='git checkout --track -b'
-alias glog='git log'
 alias glogp='git log --pretty=format:"%h %s"'
 
 # Alias Apache2 if the file /etc/init.d/apache2 exists
