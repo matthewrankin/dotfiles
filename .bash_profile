@@ -26,13 +26,13 @@ if [ $os_name == 'Darwin' ]; then
 	fi
 	
     # Set PATH for MacPython 2.6 if Python2.6 is installed
-	if [ -x /Library/Frameworks/Python.framework/Version/2.6/bin/python2.6 ]; then
+	if [ -x /Library/Frameworks/Python.framework/Versions/2.6/bin/python2.6 ]; then
 	    PATH="/Library/Frameworks/Python.framework/Versions/2.6/bin:${PATH}"
 	    export PATH
 	fi
 	
     # MDR April 23, 2009: Added for virtualenvwrapper
-	if [ -x /Library/Frameworks/Python.framework/Version/2.6/bin/virtualenvwrapper_bashrc ]; then
+	if [ -x /Library/Frameworks/Python.framework/Versions/2.6/bin/virtualenvwrapper_bashrc ]; then
 	    export WORKON_HOME=$HOME/.virtualenvs
 	    export PIP_VIRTUALENV_BASE=$WORKON_HOME
 	    source /Library/Frameworks/Python.framework/Versions/2.6/bin/virtualenvwrapper_bashrc
