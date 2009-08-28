@@ -19,6 +19,7 @@ dot_files_to_deploy = (
     '.bashrc',
     '.gitconfig',
     '.gitignore',
+    '.git-completion.bash',
 	'.hgrc',
 )
 
