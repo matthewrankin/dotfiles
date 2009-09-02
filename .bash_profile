@@ -18,7 +18,7 @@ fi
 if [ $os_name == 'Darwin' ]; then
 	
     # Set EDITOR variables for TextMate if TextMate is installed
-	if [ -x /usr/bin/mate ]; then
+	if [ -x /Users/matthew/bin/mate ]; then
 	    export EDITOR='mate -w'
 	    export GIT_EDITOR='mate -wl1'
 	    export TEXEDIT='mate -w -l %d "%s"'
