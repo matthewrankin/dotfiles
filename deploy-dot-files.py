@@ -12,6 +12,7 @@ import sys
 import os
 import shutil
 
+
 # Tuple containing files in dot-files project
 dot_files_to_deploy = (
     '.bash_profile',
@@ -35,8 +36,8 @@ def is_already_linked(link_to_check, check_against_file):
 def main():
     '''
     Check to see if the .bash and .git files are already symbolic links. If
-    they are then don't make a backup. If they are not symbolic links, then
-    make a backup and create the links.
+    they are then don't make a backup, delete the link, and create a new one.
+    If they are not symbolic links, then make a backup and create the links.
     '''
     user_home_dir = os.path.expanduser('~')
     dot_files_dir = os.getcwd()
@@ -47,17 +48,21 @@ def main():
         dot_file_with_home_path = os.path.join(user_home_dir, dot_file)
         # print 'dot_file_with_home_path = ' + dot_file_with_home_path
         dot_file_with_dot_file_path = os.path.join(dot_files_dir, dot_file)
-        if os.path.isfile(dot_file_with_dot_file_path) and ( not
-                is_already_linked(dot_file_with_home_path,
-                    dot_file_with_dot_file_path)):
-            # dot_file exists in dot_file working directory but is not 
-            # already linked to the user's home directory, so backup the
-            # user's existing dot_files and then make links
-            if os.path.isfile(dot_file_with_home_path):
-                # dot-file already exists in home directory, so backup
-                print 'Backing up ' + dot_file_with_home_path
-                shutil.move(dot_file_with_home_path,
-                    dot_file_with_home_path + '.bak')
+
+        if os.path.isfile(dot_file_with_dot_file_path):
+            # This particular dot file does exist in the dot file directory
+            # So let's delete the already existing symlink, copy an existing
+            # dot-file to .bak, and create a new symlink as needed
+            if os.path.islink(dot_file_with_home_path):
+                # dot_file is a link in the home directory, so delete the link
+                os.remove(dot_file_with_home_path)
+            else:
+                if os.path.isfile(dot_file_with_home_path):
+                    # Home directory dot-file is not a link, but is a file;
+                    # therefore, let's backup this file before we delete it
+                    print 'Backing up' + dot_file_with_home_path
+                    shutil.move(dot_file_with_home_path,
+                        dot_file_with_home_path + '.bak')
             print 'Creating link to ' + dot_file_with_dot_file_path
             os.symlink(dot_file_with_dot_file_path, dot_file_with_home_path)
         else:
