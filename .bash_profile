@@ -38,4 +38,9 @@ if [ $os_name == 'Darwin' ]; then
 	    source /Library/Frameworks/Python.framework/Versions/2.6/bin/virtualenvwrapper_bashrc
     fi
 
+    # Set PYTHONPATH if Mercurial is installed
+	if [ -d /usr/local/lib/python2.6/site-packages/mercurial ]; then
+	    export PYTHONPATH=/usr/local/lib/python2.6/site-packages:${PYTHONPATH}
+	fi
+
 fi
