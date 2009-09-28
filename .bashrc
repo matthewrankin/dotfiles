@@ -15,7 +15,7 @@ if [ $os_name == 'Darwin' ]; then
     fi
     
     # Git auto-completion
-    if [ -x /usr/local/git/bin/git ]; then
+    if [ -x /usr/local/bin/git ]; then
         source ~/.git-completion.bash
     fi
     
