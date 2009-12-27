@@ -15,6 +15,7 @@
 	co = checkout
 	br = branch
 	unstage = reset HEAD --
+	last = log -1 HEAD
 [core]
 	excludesfile = /Users/matthew/.gitignore
 [gui]
