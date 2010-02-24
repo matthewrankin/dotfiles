@@ -35,6 +35,7 @@ if [ $os_name == 'Darwin' ]; then
 	if [ -x /Library/Frameworks/Python.framework/Versions/2.6/bin/virtualenvwrapper_bashrc ]; then
 	    export WORKON_HOME=$HOME/.virtualenvs
 	    export PIP_VIRTUALENV_BASE=$WORKON_HOME
+	    export PIP_REQUIRE_VIRTUALENV=true
 	    source /Library/Frameworks/Python.framework/Versions/2.6/bin/virtualenvwrapper_bashrc
     fi
 
