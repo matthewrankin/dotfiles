@@ -48,7 +48,12 @@ fi # end if [ $os_name == 'Darwin' ]; then
 # .bash_profile settings specific to Linux
 if [ $os_name == 'Linux' ]; then
     # MDR 28-Feb-10: Added for virtualenvwrapper
+    # TODO 28-Feb-10: Change this such that it checks to see if ~/.virtualenvs
+    # exists and if not to create it.
     if [ -x /usr/local/bin/virtualenvwrapper_bashrc ]; then
+        if [ ! -d $HOME/.virtualenvs ]; then
+            mkdir $HOME/.virtualenvs
+        fi
         export WORKON_HOME=$HOME/.virtualenvs
         export PIP_VIRTUALENV_BASE=$WORKON_HOME
         export PIP_REQUIRE_VIRTUALENV=true
