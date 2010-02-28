@@ -56,7 +56,7 @@ if [ $os_name == 'Linux' ]; then
         fi
         export WORKON_HOME=$HOME/.virtualenvs
         export PIP_VIRTUALENV_BASE=$WORKON_HOME
-        export PIP_REQUIRE_VIRTUALENV=true
+        # export PIP_REQUIRE_VIRTUALENV=true
         source /usr/local/bin/virtualenvwrapper_bashrc
     fi
 fi
