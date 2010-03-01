@@ -83,3 +83,13 @@ if [ -f /etc/init.d/postgresql-8.3 ]; then
     alias p83restart='sudo /etc/init.d/postgresql-8.3 restart'
     alias p83reload='sudo /etc/init.d/postgresql-8.3 reload'
 fi
+
+# Alias Postgres 8.4 if the file /etc/init.d/postgresql-8.4 exists
+if [ -f /etc/init.d/postgresql-8.4 ]; then
+    alias p84stop='sudo /etc/init.d/postgresql-8.4 stop'
+    alias p84start='sudo /etc/init.d/postgresql-8.4 start'
+    alias p84restart='sudo /etc/init.d/postgresql-8.4 restart'
+    alias p84reload='sudo /etc/init.d/postgresql-8.4 reload'
+    alias p84dropdb='sudo -u postgres dropdb'
+    alias p84createdb='sudo -u postgres createdb'
+fi
