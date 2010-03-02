@@ -42,6 +42,8 @@ alias djshell='python manage.py shell'
 alias djdbshell='python manage.py dbshell'
 alias djvalidate='python manage.py validate'
 alias djsqlall='python manage.py sqlall'
+alias djdumpdata='python manage.py dumpdata'
+alias djloaddata='python manage.py loaddata'
 
 # Alias git commands (always create these aliases)
 alias gst='git status'
