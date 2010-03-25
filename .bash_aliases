@@ -34,16 +34,17 @@ if which apt-get &> /dev/null; then
 fi
 
 # Alias Django commands (always create these aliases)
-alias djsyncdb='python manage.py syncdb'
-alias djrunserver='python manage.py runserver'
-alias djstartproject='django-admin.py startproject'
-alias djstartapp='python manage.py startapp'
-alias djshell='python manage.py shell'
 alias djdbshell='python manage.py dbshell'
-alias djvalidate='python manage.py validate'
-alias djsqlall='python manage.py sqlall'
 alias djdumpdata='python manage.py dumpdata'
+alias djinspectdb='python manage.py inspectdb'
 alias djloaddata='python manage.py loaddata'
+alias djshell='python manage.py shell'
+alias djrunserver='python manage.py runserver'
+alias djsqlall='python manage.py sqlall'
+alias djstartapp='python manage.py startapp'
+alias djstartproject='django-admin.py startproject'
+alias djsyncdb='python manage.py syncdb'
+alias djvalidate='python manage.py validate'
 
 # Alias git commands (always create these aliases)
 alias gst='git status'
