@@ -16,6 +16,8 @@ alias ll='ls -l'
 alias la='ls -AF'
 alias l='ls -CF'
 
+alias myaliases='less ~/.bash_aliases'
+
 # Alias cd
 alias ..='cd ..'
 alias ...='cd ../..'
