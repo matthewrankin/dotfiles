@@ -47,6 +47,7 @@ alias djstartapp='python manage.py startapp'
 alias djstartproject='django-admin.py startproject'
 alias djsyncdb='python manage.py syncdb'
 alias djvalidate='python manage.py validate'
+alias djtest='python manage.py test'
 
 # Alias git commands (always create these aliases)
 alias gst='git status'
@@ -62,8 +63,7 @@ alias gco='git checkout'
 alias gcob='git checkout -b'
 alias gcot='git checkout -t'
 alias gcotb='git checkout --track -b'
-alias glog='git log'
-alias glogp='git log --pretty=format:"%h %s" --graph'
+alias glog='git log --oneline --graph'
 
 # Alias Apache2 if the file /etc/init.d/apache2 exists
 if [ -f /etc/init.d/apache2 ]; then
@@ -97,4 +97,10 @@ if [ -f /etc/init.d/postgresql-8.4 ]; then
     alias p84reload='sudo /etc/init.d/postgresql-8.4 reload'
     alias p84dropdb='sudo -u postgres dropdb'
     alias p84createdb='sudo -u postgres createdb'
+fi
+
+# Alias Cherokee
+if [ -f /usr/local/cherokee ]; then
+    alias cherokee='sudo cherokee'
+    alias cherokee-admin='sudo cherokee-admin'
 fi

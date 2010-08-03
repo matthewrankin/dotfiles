@@ -1,23 +1,24 @@
 [user]
-	name = Matthew Rankin
-	email = matthew@cumulusware.com
+    name = Matthew Rankin
+    email = matthew@cumulusware.com
 [color]
-	status = auto
-	branch = auto
-	diff = auto
-	interactive = auto
+    status = auto
+    branch = auto
+    diff = auto
+    interactive = auto
 [github]
-	user = cumulusware
-	token = e47f16b29ef81430f50d8bc2ab0f187e
+    user = cumulusware
+    token = e47f16b29ef81430f50d8bc2ab0f187e
 [alias]
-	st = status
-	ci = commit
-	co = checkout
-	br = branch
-	unstage = reset HEAD --
-	last = log -1 HEAD
-	stash-unapply = !git stash show -p | git apply -R
+    st = status
+    ci = commit
+    co = checkout
+    br = branch
+    unstage = reset HEAD --
+    last = log -1 HEAD
+    logp = log --oneline --graph
+    stash-unapply = !git stash show -p | git apply -R
 [core]
-	excludesfile = /Users/matthew/.gitignore
+    excludesfile = /Users/matthew/.gitignore
 [gui]
-	recentrepo = /Users/matthew/development/python/cloneqsvn
+    recentrepo = /Users/matthew/development/python/cloneqsvn
