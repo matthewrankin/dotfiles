@@ -99,8 +99,8 @@ if [ -f /etc/init.d/postgresql-8.4 ]; then
     alias p84createdb='sudo -u postgres createdb'
 fi
 
-# Alias Cherokee
-if [ -f /usr/local/cherokee ]; then
-    alias cherokee='sudo cherokee'
-    alias cherokee-admin='sudo cherokee-admin'
+# Alias Cherokee if the directory /usr/local/cherokee exists
+if [ -d /usr/local/cherokee ]; then
+    alias cherokee='sudo /usr/local/cherokee/sbin/cherokee'
+    alias cherokee-admin='sudo /usr/local/cherokee/sbin/cherokee-admin'
 fi

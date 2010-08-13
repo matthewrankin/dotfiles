@@ -31,6 +31,12 @@ if [ $os_name == 'Darwin' ]; then
         export PATH
     fi
     
+    # Set PATH for MacPython 2.6 if Python2.6 is installed
+    if [ -x /Library/Frameworks/Python.framework/Versions/2.6/bin/python2.6 ]; then
+        PATH="/Library/Frameworks/Python.framework/Versions/2.6/bin:${PATH}"
+        export PATH
+    fi
+    
     # Setting PATH for MacPython 2.7 if it is installed (I want Python2.6
     # to be the default, so prepend Python2.7 1st and then 2.6.
     if [ -x /Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7 ]; then
@@ -38,28 +44,14 @@ if [ $os_name == 'Darwin' ]; then
         export PATH
     fi
     
-    # Set PATH for MacPython 2.6 if Python2.6 is installed
-    if [ -x /Library/Frameworks/Python.framework/Versions/2.6/bin/python2.6 ]; then
-        PATH="/Library/Frameworks/Python.framework/Versions/2.6/bin:${PATH}"
-        export PATH
-    fi
-    
     # MDR 20-Apr-10: Added for virtualenvwrapper v2.x support
-    if [ -x /Library/Frameworks/Python.framework/Versions/2.6/bin/virtualenvwrapper.sh ]; then
+    if [ -x /Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh ]; then
         export WORKON_HOME=$HOME/.virtualenvs
         export PIP_VIRTUALENV_BASE=$WORKON_HOME
         export PIP_REQUIRE_VIRTUALENV=true
-        source /Library/Frameworks/Python.framework/Versions/2.6/bin/virtualenvwrapper.sh
+        source /Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh
     fi
 
-    # MDR April 23, 2009: Added for virtualenvwrapper v1.x
-    if [ -x /Library/Frameworks/Python.framework/Versions/2.6/bin/virtualenvwrapper_bashrc ]; then
-        export WORKON_HOME=$HOME/.virtualenvs
-        export PIP_VIRTUALENV_BASE=$WORKON_HOME
-        export PIP_REQUIRE_VIRTUALENV=true
-        source /Library/Frameworks/Python.framework/Versions/2.6/bin/virtualenvwrapper_bashrc
-    fi
-    
     # Set PYTHONPATH if Mercurial is installed
     if [ -d /usr/local/lib/python2.6/site-packages/mercurial ]; then
         export PYTHONPATH=/usr/local/lib/python2.6/site-packages:${PYTHONPATH}
@@ -85,3 +77,8 @@ fi
 # end if os_name Linux'
 
 
+
+# Setting PATH for Python 2.7
+# The orginal version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+export PATH
