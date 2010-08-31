@@ -3,23 +3,21 @@
 # Created by Matthew D. Rankin
 # Copyright (c) 2010 Matthew D. Rankin. All rights reserved.
 
-# Set operating system / kernel name to either 'Darwin' or 'Linux'
+# Determine the operating system (used in bashrc)
 os_name=`uname -s`
 
-# Include .bashrc if it exists
+# Include the non-login shell settings
 if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 
-# Add the user's private bin to PATH if it exists
+# Add the user's bin to the PATH
 if [ -d ~/bin ]; then
     PATH=~/bin:"${PATH}"
 fi
 
-# .bash_profile settings specific to Mac OS X
-if [ $os_name == 'Darwin' ]; then
-    
-    # Set EDITOR variables for TextMate if TextMate is installed
+# Mac OS X specific settings
+if [ ${os_name} == 'Darwin' ]; then
     if [ -x /Users/matthew/bin/mate ]; then
         export EDITOR='mate -w'
         export GIT_EDITOR='mate -wl1'
@@ -55,16 +53,13 @@ if [ $os_name == 'Darwin' ]; then
     
     # Enable virtualenvwrapper
     if [ -x ${PY_FW}/${DEFAULT_PY}/bin/virtualenvwrapper.sh ]; then
-        source ${PY_FW}/2.7/bin/virtualenvwrapper.sh
+        source ${PY_FW}/${DEFAULT_PY}/bin/virtualenvwrapper.sh
     fi
+fi
 
-fi # end if [ $os_name == 'Darwin' ]; then
-
-# .bash_profile settings specific to Linux
-if [ $os_name == 'Linux' ]; then
-    # MDR 28-Feb-10: Added for virtualenvwrapper
-    # TODO 28-Feb-10: Change this such that it checks to see if ~/.virtualenvs
-    # exists and if not to create it.
+# Linux specific settings
+if [ ${os_name} == 'Linux' ]; then
+    # Enable virtualenvwrapper
     if [ -x /usr/local/bin/virtualenvwrapper_bashrc ]; then
         if [ ! -d $HOME/.virtualenvs ]; then
             mkdir $HOME/.virtualenvs
@@ -75,5 +70,3 @@ if [ $os_name == 'Linux' ]; then
         source /usr/local/bin/virtualenvwrapper_bashrc
     fi
 fi
-# end if os_name Linux'
-

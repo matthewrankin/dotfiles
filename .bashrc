@@ -1,12 +1,15 @@
-# MDR 7/07/08 -- Created this file (~/.bashrc) based off Ubuntu slices
 # ~/.bashrc: executed by bash(1) for non-login shells.
+#
+# Created by Matthew D. Rankin
+# Copyright (c) 2010 Matthew D. Rankin. All rights reserved.
 
 # TODO Consolidate configuration for Mac and Linux
 
-if [ "$os_name" = "Darwin" ]; then
+if [ ${os_name} = 'Darwin' ]; then
     
+    # Set the command prompt
     if [ -n "$PS1" ]; then
-    	PS1='\[\e[01;32m\]\u@\h\[\e[m\]:\[\e[01;34m\]\w\[\e[m\]\n$ '
+        PS1='\[\e[01;32m\]\u@\h\[\e[m\]:\[\e[01;34m\]\w\[\e[m\]\n$ '
     fi
     
     # Alias definitions
@@ -19,7 +22,7 @@ if [ "$os_name" = "Darwin" ]; then
         source ~/.git-completion.bash
     fi
     
-elif [ "$os_name" = "Linux" ]; then
+elif [ ${os_name} = 'Linux' ]; then
     # ~/.bashrc: executed by bash(1) for non-login shells.
     # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
     # for examples
