@@ -16,6 +16,7 @@ fi
 
 # .bash_profile settings specific to Mac OS X
 if [ $os_name == 'Darwin' ]; then
+    
     # Set EDITOR variables for TextMate if TextMate is installed
     if [ -x /Users/matthew/bin/mate ]; then
         export EDITOR='mate -w'
@@ -24,37 +25,44 @@ if [ $os_name == 'Darwin' ]; then
         export LC_CTYPE=en_US.UTF-8
     fi
     
-    # Setting PATH for MacPython 3.1 if it is installed (I want Python2.6
-    # to be the default, so prepend Python2.7 1st and then 2.6.
-    if [ -x /Library/Frameworks/Python.framework/Versions/3.1/bin/python3.1 ]; then
-        PATH="/Library/Frameworks/Python.framework/Versions/3.1/bin:${PATH}"
+    # The last Python added to PATH will be the default Python
+    PY_VER=( '3.1', '2.6', '2.7')
+    PY_VER_ELEMENTS=${#PY_VER[@]}
+    PY_FRAMEWORK="/Library/Frameworks/Python.framework/Versions"
+    
+    for (( i=0;i<$PY_ELEMENTS;i++)); do
+    if [ -x ${PY_FRAMEWORK}/${PY_VER[${i}]}/bin/python${PY_VER[${i}]} ]; then
+        PATH="${PY_FRAMEWORK}/${PY_VER[${i}]}/bin:${PATH}"
         export PATH
     fi
     
-    # Set PATH for MacPython 2.6 if Python2.6 is installed
-    if [ -x /Library/Frameworks/Python.framework/Versions/2.6/bin/python2.6 ]; then
-        PATH="/Library/Frameworks/Python.framework/Versions/2.6/bin:${PATH}"
+    if [ -x ${PY_FRAMEWORK}/2.6/bin/python2.6 ]; then
+        PATH="${PY_FRAMEWORK}/2.6/bin:${PATH}"
         export PATH
     fi
     
-    # Setting PATH for MacPython 2.7 if it is installed (I want Python2.6
-    # to be the default, so prepend Python2.7 1st and then 2.6.
-    if [ -x /Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7 ]; then
-        PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+    if [ -x ${PY_FRAMEWORK}/2.7/bin/python2.7 ]; then
+        PATH="${PY_FRAMEWORK}/2.7/bin:${PATH}"
         export PATH
     fi
     
-    # MDR 20-Apr-10: Added for virtualenvwrapper v2.x support
-    if [ -x /Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh ]; then
+    # Check for virtualenv
+    if [ -x ${PY_FRAMEWORK}/2.7/bin/virtualenv ]; then
+        export VIRTUALENV_USE_DISTRIBUTE=true
         export WORKON_HOME=$HOME/.virtualenvs
         export PIP_VIRTUALENV_BASE=$WORKON_HOME
         export PIP_REQUIRE_VIRTUALENV=true
-        source /Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh
+        export PIP_DOWNLOAD_CAHCE=$HOME/.pip_download_cache
     fi
-
-    # Set PYTHONPATH if Mercurial is installed
-    if [ -d /usr/local/lib/python2.6/site-packages/mercurial ]; then
-        export PYTHONPATH=/usr/local/lib/python2.6/site-packages:${PYTHONPATH}
+    
+    # Check for pip
+    if [ -x ${PY_FRAMEWORK}/2.7/bin/pip ]; then
+        
+    fi
+    
+    # Enable virtualenvwrapper
+    if [ -x ${PY_FRAMEWORK}/2.7/bin/virtualenvwrapper.sh ]; then
+        source ${PY_FRAMEWORK}/2.7/bin/virtualenvwrapper.sh
     fi
 
 fi # end if [ $os_name == 'Darwin' ]; then
@@ -76,9 +84,3 @@ if [ $os_name == 'Linux' ]; then
 fi
 # end if os_name Linux'
 
-
-
-# Setting PATH for Python 2.7
-# The orginal version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
-export PATH
