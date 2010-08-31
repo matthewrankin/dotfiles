@@ -1,5 +1,7 @@
-# MDR 7/07/08 -- Created this file based off Ubuntu slices.
 # ~/.bash_profile: executed by bash(1) for login shells
+#
+# Created by Matthew D. Rankin
+# Copyright (c) 2010 Matthew D. Rankin. All rights reserved.
 
 # Set operating system / kernel name to either 'Darwin' or 'Linux'
 os_name=`uname -s`
@@ -9,7 +11,7 @@ if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 
-# Set PATH so it includes user's private bin if it exists
+# Add the user's private bin to PATH if it exists
 if [ -d ~/bin ]; then
     PATH=~/bin:"${PATH}"
 fi
@@ -26,8 +28,9 @@ if [ $os_name == 'Darwin' ]; then
     fi
     
     # The last Python added to PATH will be the default Python
-    PY_VER=( '3.1', '2.6', '2.7')
+    PY_VER=( '3.1' '2.6' '2.7')
     PY_VER_ELEMENTS=${#PY_VER[@]}
+    DEFAULT_PY=${PY_VER[${PY_VER_ELEMENTS}-1]}
     PY_FW="/Library/Frameworks/Python.framework/Versions"
     
     for (( i=0;i<$PY_VER_ELEMENTS;i++)); do
@@ -37,21 +40,21 @@ if [ $os_name == 'Darwin' ]; then
         fi
     done
     
-    # Check for virtualenv
-    if [ -x ${PY_FW}/2.7/bin/virtualenv ]; then
+    # Check for virtualenv in the default Python
+    if [ -x ${PY_FW}/${DEFAULT_PY}/bin/virtualenv ]; then
         export VIRTUALENV_USE_DISTRIBUTE=true
         export WORKON_HOME=$HOME/.virtualenvs
     fi
     
     # Check for pip
-    if [ -x ${PY_FW}/2.7/bin/pip ]; then
+    if [ -x ${PY_FW}/${DEFAULT_PY}/bin/pip ]; then
         export PIP_VIRTUALENV_BASE=$WORKON_HOME
         export PIP_REQUIRE_VIRTUALENV=true
         export PIP_DOWNLOAD_CAHCE=$HOME/.pip_download_cache        
     fi
     
     # Enable virtualenvwrapper
-    if [ -x ${PY_FW}/2.7/bin/virtualenvwrapper.sh ]; then
+    if [ -x ${PY_FW}/${DEFAULT_PY}/bin/virtualenvwrapper.sh ]; then
         source ${PY_FW}/2.7/bin/virtualenvwrapper.sh
     fi
 
