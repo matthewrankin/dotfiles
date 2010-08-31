@@ -28,41 +28,31 @@ if [ $os_name == 'Darwin' ]; then
     # The last Python added to PATH will be the default Python
     PY_VER=( '3.1', '2.6', '2.7')
     PY_VER_ELEMENTS=${#PY_VER[@]}
-    PY_FRAMEWORK="/Library/Frameworks/Python.framework/Versions"
+    PY_FW="/Library/Frameworks/Python.framework/Versions"
     
-    for (( i=0;i<$PY_ELEMENTS;i++)); do
-    if [ -x ${PY_FRAMEWORK}/${PY_VER[${i}]}/bin/python${PY_VER[${i}]} ]; then
-        PATH="${PY_FRAMEWORK}/${PY_VER[${i}]}/bin:${PATH}"
-        export PATH
-    fi
-    
-    if [ -x ${PY_FRAMEWORK}/2.6/bin/python2.6 ]; then
-        PATH="${PY_FRAMEWORK}/2.6/bin:${PATH}"
-        export PATH
-    fi
-    
-    if [ -x ${PY_FRAMEWORK}/2.7/bin/python2.7 ]; then
-        PATH="${PY_FRAMEWORK}/2.7/bin:${PATH}"
-        export PATH
-    fi
+    for (( i=0;i<$PY_VER_ELEMENTS;i++)); do
+        if [ -x ${PY_FW}/${PY_VER[${i}]}/bin/python${PY_VER[${i}]} ]; then
+            PATH="${PY_FW}/${PY_VER[${i}]}/bin:${PATH}"
+            export PATH
+        fi
+    done
     
     # Check for virtualenv
-    if [ -x ${PY_FRAMEWORK}/2.7/bin/virtualenv ]; then
+    if [ -x ${PY_FW}/2.7/bin/virtualenv ]; then
         export VIRTUALENV_USE_DISTRIBUTE=true
         export WORKON_HOME=$HOME/.virtualenvs
-        export PIP_VIRTUALENV_BASE=$WORKON_HOME
-        export PIP_REQUIRE_VIRTUALENV=true
-        export PIP_DOWNLOAD_CAHCE=$HOME/.pip_download_cache
     fi
     
     # Check for pip
-    if [ -x ${PY_FRAMEWORK}/2.7/bin/pip ]; then
-        
+    if [ -x ${PY_FW}/2.7/bin/pip ]; then
+        export PIP_VIRTUALENV_BASE=$WORKON_HOME
+        export PIP_REQUIRE_VIRTUALENV=true
+        export PIP_DOWNLOAD_CAHCE=$HOME/.pip_download_cache        
     fi
     
     # Enable virtualenvwrapper
-    if [ -x ${PY_FRAMEWORK}/2.7/bin/virtualenvwrapper.sh ]; then
-        source ${PY_FRAMEWORK}/2.7/bin/virtualenvwrapper.sh
+    if [ -x ${PY_FW}/2.7/bin/virtualenvwrapper.sh ]; then
+        source ${PY_FW}/2.7/bin/virtualenvwrapper.sh
     fi
 
 fi # end if [ $os_name == 'Darwin' ]; then
