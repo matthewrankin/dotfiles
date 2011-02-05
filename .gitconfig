@@ -3,8 +3,8 @@
 [color]
     ui = auto
 [github]
-    user = cumulusware
-    token = e47f16b29ef81430f50d8bc2ab0f187e
+    user = matthewrankin
+    token = 318a9333affe87faeeda4685e0649730
 [alias]
     st = status
     ci = commit
