@@ -6,7 +6,7 @@ These are the configuration files (dot files) that I use for my MacBook and Ubun
 
 * .bash\_profile
 * .bash\_alias
-* .bashrc
+* `.bashrc`
 * .gitconfig
 * .gitignore
 
