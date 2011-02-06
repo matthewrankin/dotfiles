@@ -4,17 +4,17 @@
 
 These are the configuration files (dot files) that I use for my MacBook and Ubuntu servers/slices. Files include:
 
-* .bash\_profile
-* .bash\_alias
+* `.bash\_aliases`
+* `.bash\_profile`
 * `.bashrc`
-* .gitconfig
-* .gitignore
+* `.gitconfig`
+* `.gitignore`
 
 ## Initial Setup ##
 
 Only need to run the following commands the first time:
 
-1. Clone the github repository using `git clone git://github.com/mdr22github/dot-files.git`
+1. Clone the github repository using `git clone git://github.com/cumulusware/dot-files.git`
 2. Deploy the dot-files by running `deploy_dot_files.py`
 
 ## Update from Github ##
