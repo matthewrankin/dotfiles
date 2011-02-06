@@ -4,8 +4,8 @@
 
 These are the configuration files (dot files) that I use for my MacBook and Ubuntu servers/slices. Files include:
 
+* `.bash\_aliases`
 * .bash\_profile
-* .bash\_alias
 * .bashrc
 * .gitconfig
 * .gitignore
