@@ -14,7 +14,7 @@ These are the configuration files (dot files) that I use for my MacBook and Ubun
 
 Only need to run the following commands the first time:
 
-1. Clone the github repository using `git clone git://github.com/mdr22github/dot-files.git`
+1. Clone the github repository using `git clone git://github.com/cumulusware/dot-files.git`
 2. Deploy the dot-files by running `deploy_dot_files.py`
 
 ## Update from Github ##
