@@ -18,12 +18,16 @@ fi
 
 # Mac OS X specific settings
 if [ ${os_name} == 'Darwin' ]; then
+    
+    ## TexMate stuff starts here
     if [ -x /Users/matthew/bin/mate ]; then
         export EDITOR='mate -w'
         export GIT_EDITOR='mate -wl1'
         export TEXEDIT='mate -w -l %d "%s"'
         export LC_CTYPE=en_US.UTF-8
     fi
+    
+    ## Python stuff starts here
     
     # The last Python added to PATH will be the default Python
     PY_VER=( '3.1' '2.6' '2.7')
@@ -55,6 +59,13 @@ if [ ${os_name} == 'Darwin' ]; then
     if [ -x ${PY_FW}/${DEFAULT_PY}/bin/virtualenvwrapper.sh ]; then
         source ${PY_FW}/${DEFAULT_PY}/bin/virtualenvwrapper.sh
     fi
+    
+    ## Ruby stuff starts here
+    
+    # This loads RVM into a shell session.
+    [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+    # Setup RVM BASH completion
+    [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 fi
 
 # Linux specific settings
