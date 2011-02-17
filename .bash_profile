@@ -57,15 +57,19 @@ if [ ${os_name} == 'Darwin' ]; then
     
     # Enable virtualenvwrapper
     if [ -x ${PY_FW}/${DEFAULT_PY}/bin/virtualenvwrapper.sh ]; then
-        source ${PY_FW}/${DEFAULT_PY}/bin/virtualenvwrapper.sh
+        . ${PY_FW}/${DEFAULT_PY}/bin/virtualenvwrapper.sh
     fi
     
     ## Ruby stuff starts here
     
-    # This loads RVM into a shell session.
-    [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-    # Setup RVM BASH completion
-    [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
+    # If RVM is installed, load it into a shell session
+    if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
+        . "$HOME/.rvm/scripts/rvm"
+        # Setup RVM BASH completion
+        if [[ -r $rvm_path/scripts/completion ]]; then
+            . $rvm_path/scripts/completion
+        fi
+    fi
 fi
 
 # Linux specific settings
@@ -78,6 +82,6 @@ if [ ${os_name} == 'Linux' ]; then
         export WORKON_HOME=$HOME/.virtualenvs
         export PIP_VIRTUALENV_BASE=$WORKON_HOME
         # export PIP_REQUIRE_VIRTUALENV=true
-        source /usr/local/bin/virtualenvwrapper_bashrc
+        . /usr/local/bin/virtualenvwrapper_bashrc
     fi
 fi
