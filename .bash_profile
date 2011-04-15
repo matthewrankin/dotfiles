@@ -22,6 +22,7 @@ if [ ${os_name} == 'Darwin' ]; then
     ## TextMate stuff starts here
     if [ -x /Users/matthew/bin/mate ]; then
         export EDITOR='mvim -f'
+        export GIT_EDITOR='mvim -f'
         # export EDITOR='mate -w'
         # export GIT_EDITOR='mate -wl1'
         export TEXEDIT='mate -w -l %d "%s"'
