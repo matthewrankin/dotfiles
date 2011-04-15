@@ -22,6 +22,8 @@ dot_files_to_deploy = (
     '.gitignore',
     '.git-completion.bash',
 	'.hgrc',
+    '.vimrc.local',
+    '.gvimrc.local',
 )
 
 def is_already_linked(link_to_check, check_against_file):
