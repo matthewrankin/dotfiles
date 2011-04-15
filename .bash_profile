@@ -13,13 +13,13 @@ fi
 
 # Add the user's bin to the PATH
 if [ -d ~/bin ]; then
-    PATH=~/bin:"${PATH}"
+    PATH=~/bin:/usr/local/bin:/usr/local/sbin:"${PATH}"
 fi
 
 # Mac OS X specific settings
 if [ ${os_name} == 'Darwin' ]; then
     
-    ## TexMate stuff starts here
+    ## TextMate stuff starts here
     if [ -x /Users/matthew/bin/mate ]; then
         export EDITOR='mate -w'
         export GIT_EDITOR='mate -wl1'
@@ -85,3 +85,4 @@ if [ ${os_name} == 'Linux' ]; then
         . /usr/local/bin/virtualenvwrapper_bashrc
     fi
 fi
+
