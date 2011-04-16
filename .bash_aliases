@@ -48,6 +48,8 @@ alias djstartproject='django-admin.py startproject'
 alias djsyncdb='python manage.py syncdb'
 alias djvalidate='python manage.py validate'
 alias djtest='python manage.py test'
+alias djschemamigration='python manage.py schemamigration'
+alias djmigrate='python manage.py migrate'
 
 # Alias git commands (always create these aliases)
 alias gst='git status'
