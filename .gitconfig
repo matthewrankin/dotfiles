@@ -7,7 +7,7 @@
     token = 318a9333affe87faeeda4685e0649730
 [alias]
     st = status
-    ci = commit
+    ci = commit -v
     co = checkout
     br = branch
     unstage = reset HEAD --
