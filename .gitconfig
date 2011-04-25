@@ -3,8 +3,8 @@
 [color]
     ui = auto
 [github]
-    user = matthewrankin
-    token = 318a9333affe87faeeda4685e0649730
+    user = !cat ~/.github_user
+    token = !cat ~/.github_token
 [alias]
     st = status
     ci = commit
