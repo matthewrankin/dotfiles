@@ -24,6 +24,7 @@ dot_files_to_deploy = (
 	'.hgrc',
     '.vimrc.local',
     '.gvimrc.local',
+    '.rvmrc',
 )
 
 def is_already_linked(link_to_check, check_against_file):
