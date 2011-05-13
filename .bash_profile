@@ -13,8 +13,12 @@ fi
 
 # Add the user's bin to the PATH
 if [ -d ~/bin ]; then
-    PATH=~/bin:/usr/local/bin:/usr/local/sbin:"${PATH}"
+    PATH=~/bin:"${PATH}"
 fi
+
+# Add /usr/local/bin and ./sbin to $PATH since OS X 10.6 adds
+# /usr/local/bin after /usr/bin
+PATH=/usr/local/bin:/usr/local/sbin:"${PATH}"
 
 # Mac OS X specific settings
 if [ ${os_name} == 'Darwin' ]; then
