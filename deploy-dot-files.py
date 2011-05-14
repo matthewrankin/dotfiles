@@ -24,6 +24,7 @@ dot_files_to_deploy = (
 	'.hgrc',
     '.vimrc.local',
     '.gvimrc.local',
+    '.janus.rake',
     '.rvmrc',
 )
 
