@@ -3,18 +3,17 @@
 # Created by Matthew D. Rankin
 # Copyright (c) 2010 Matthew D. Rankin. All rights reserved.
 
-# TODO Consolidate configuration for Mac and Linux
 
+# Alias definitions
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+    
 if [ ${os_name} = 'Darwin' ]; then
     
     # Set the command prompt
     if [ -n "$PS1" ]; then
         PS1='\[\e[01;32m\]\u@\h\[\e[m\]:\[\e[01;34m\]\w\[\e[m\]\n$ '
-    fi
-    
-    # Alias definitions
-    if [ -f ~/.bash_aliases ]; then
-        . ~/.bash_aliases
     fi
     
 elif [ ${os_name} = 'Linux' ]; then
@@ -60,11 +59,6 @@ elif [ ${os_name} = 'Linux' ]; then
     *)
         ;;
     esac
-    
-    # Alias definitions.
-    if [ -f ~/.bash_aliases ]; then
-        . ~/.bash_aliases
-    fi
     
     # enable programmable completion features (you don't need to enable
     # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
