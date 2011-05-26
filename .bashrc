@@ -17,11 +17,6 @@ if [ ${os_name} = 'Darwin' ]; then
         . ~/.bash_aliases
     fi
     
-    # Git auto-completion
-    if [ -x /usr/local/git/bin/git ]; then
-        source ~/.git-completion.bash
-    fi
-    
 elif [ ${os_name} = 'Linux' ]; then
     # ~/.bashrc: executed by bash(1) for non-login shells.
     # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
