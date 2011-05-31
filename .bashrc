@@ -15,6 +15,11 @@ if [ ${os_name} = 'Darwin' ]; then
     if [ -n "$PS1" ]; then
         PS1='\[\e[01;32m\]\u@\h\[\e[m\]:\[\e[01;34m\]\w\[\e[m\]\n$ '
     fi
+
+    # Enable git bash completion (installed via Homebrew)
+    if [ -f `brew --prefix`/etc/bash_completion ]; then
+      . `brew --prefix`/etc/bash_completion
+    fi
     
 elif [ ${os_name} = 'Linux' ]; then
     # ~/.bashrc: executed by bash(1) for non-login shells.
