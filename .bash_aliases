@@ -50,6 +50,7 @@ alias djvalidate='python manage.py validate'
 alias djtest='python manage.py test'
 alias djschemamigration='python manage.py schemamigration'
 alias djmigrate='python manage.py migrate'
+alias djharvest='python manage.py harvest'
 
 # Alias git commands (always create these aliases)
 alias gst='git status'
