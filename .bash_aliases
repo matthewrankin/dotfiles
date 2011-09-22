@@ -36,6 +36,7 @@ if which apt-get &> /dev/null; then
 fi
 
 # Alias Django commands (always create these aliases)
+alias djmng='python manage.py'
 alias djdbshell='python manage.py dbshell'
 alias djdumpdata='python manage.py dumpdata'
 alias djinspectdb='python manage.py inspectdb'
