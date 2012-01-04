@@ -50,6 +50,7 @@ alias djsyncdb='python manage.py syncdb'
 alias djvalidate='python manage.py validate'
 alias djtest='python manage.py test'
 alias djschemamigration='python manage.py schemamigration'
+alias djdatamigration='python manage.py datamigration'
 alias djmigrate='python manage.py migrate'
 alias djharvest='python manage.py harvest'
 
