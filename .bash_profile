@@ -80,6 +80,11 @@ if [ ${os_name} == 'Darwin' ]; then
             . $rvm_path/scripts/completion
         fi
     fi
+
+    ## Node.js stuff starts here
+    if [ -x /usr/local/bin/node ]; then
+      export NODE_PATH=/usr/local/lib/node_modules
+    fi
 fi
 
 # Linux specific settings
