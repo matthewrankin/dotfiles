@@ -1,5 +1,0 @@
-autocmd FileType python set ft=python.django " For SnipMate
-autocmd FileType html set ft=htmldjango.html " For SnipMate
-" autocmd BufNewFile,BufRead *.asm, *.ASM set ft=asm8051
-autocmd BufNewFile,BufRead *.SRC set ft=asm8051
-autocmd BufNewFile,BufRead *.html.erb set ft=html.eruby.eruby-rails
