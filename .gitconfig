@@ -1,20 +1,21 @@
 [user]
-    name = Matthew Rankin
+  name = Matthew Rankin
 [color]
-    ui = auto
+  ui = auto
 [github]
-    user = matthewrankin
-    token = 318a9333affe87faeeda4685e0649730
+  user = matthewrankin
+  token = 318a9333affe87faeeda4685e0649730
 [alias]
-    st = status
-    ci = commit -v
-    co = checkout
-    br = branch
-    unstage = reset HEAD --
-    last = log -1 HEAD
-    logp = log --oneline --graph
-    stash-unapply = !git stash show -p | git apply -R
+  st = status
+  ci = commit -v
+  co = checkout
+  br = branch
+  unstage = reset HEAD --
+  last = log -1 HEAD
+  logp = log --oneline --graph
+  stash-unapply = !git stash show -p | git apply -R
 [core]
-    excludesfile = /Users/matthew/.gitignore
+  excludesfile = /Users/matthew/.gitignore
+  editor = vim
 [gui]
-    recentrepo = /Users/matthew/development/python/cloneqsvn
+  recentrepo = /Users/matthew/development/python/cloneqsvn

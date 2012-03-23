@@ -20,15 +20,11 @@ fi
 # /usr/local/bin after /usr/bin
 PATH=/usr/local/bin:/usr/local/sbin:"${PATH}"
 
+# Set the editor to vim regardless of OS
+export EDITOR='vim'
+
 # Mac OS X specific settings
 if [ ${os_name} == 'Darwin' ]; then
-    
-  ## MacVim stuff starts here
-  if [ -x /usr/local/bin/mvim ]; then
-    export EDITOR='mvim -f'
-    export GIT_EDITOR='mvim -f'
-  fi
-    
   ## TextMate stuff starts here
   if [ -x /Users/matthew/bin/mate ]; then
     # export EDITOR='mate -w'
