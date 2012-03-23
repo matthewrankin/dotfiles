@@ -16,6 +16,6 @@
   stash-unapply = !git stash show -p | git apply -R
 [core]
   excludesfile = /Users/matthew/.gitignore
-  editor = vim
+  editor = vim -f
 [gui]
   recentrepo = /Users/matthew/development/python/cloneqsvn
