@@ -22,9 +22,8 @@ dot_files_to_deploy = (
     '.gitignore',
     '.git-completion.bash',
     '.hgrc',
-    '.vimrc.local',
-    '.gvimrc.local',
-    '.janus.rake',
+    '.vimrc.after',
+    '.gvimrc.after',
     '.rvmrc',
 )
 
