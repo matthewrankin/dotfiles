@@ -70,7 +70,6 @@ if [ ${os_name} == 'Darwin' ]; then
     
     # If RVM is installed, load it into a shell session
     if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
-      PATH=$HOME/.rvm/bin:"${PATH}"
         . "$HOME/.rvm/scripts/rvm"
         # Setup RVM BASH completion
         if [[ -r $rvm_path/scripts/completion ]]; then
