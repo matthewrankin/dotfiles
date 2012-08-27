@@ -57,7 +57,7 @@ if [ ${os_name} == 'Darwin' ]; then
     # Check for pip
     if [ -x ${PY_FW}/${DEFAULT_PY}/bin/pip ]; then
         export PIP_VIRTUALENV_BASE=$WORKON_HOME
-        export PIP_REQUIRE_VIRTUALENV=true
+        export PIP_REQUIRE_VIRTUALENV=false
         export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
     fi
     
