@@ -1,5 +1,5 @@
 [user]
-  name = Matthew Rankin
+  name = "Matthew Rankin"
 [color]
   ui = auto
 [github]
@@ -19,3 +19,9 @@
   editor = vim -f
 [gui]
   recentrepo = /Users/matthew/development/python/cloneqsvn
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
