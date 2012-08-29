@@ -3,7 +3,9 @@
 # Created by Matthew D. Rankin
 # Copyright (c) 2010 Matthew D. Rankin. All rights reserved.
 
-##### Non-OS Specific Configurations #####
+################################
+##### OS Agnostic Settings #####
+################################
 
 # Alias definitions
 if [ -f ~/.bash_aliases ]; then
@@ -14,7 +16,9 @@ fi
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] &&
   source $HOME/.tmuxinator/scripts/tmuxinator
 
-##### OS X Specific Configuraiton #####
+##################################
+##### OS X Specific Settings #####
+##################################
 if [ ${os_name} = 'Darwin' ]; then
 
   # Set the command prompt
@@ -28,7 +32,10 @@ if [ ${os_name} = 'Darwin' ]; then
     . `brew --prefix`/etc/bash_completion
   fi
 
-# <<<< Linux Configuraiton >>>> #
+###################################
+##### Linux Specific Settings #####
+###################################
+
 elif [ ${os_name} = 'Linux' ]; then
   # ~/.bashrc: executed by bash(1) for non-login shells.
   # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)

@@ -3,6 +3,10 @@
 # Created by Matthew D. Rankin
 # Copyright (c) 2010 Matthew D. Rankin. All rights reserved.
 
+################################
+##### OS Agnostic Settings #####
+################################
+
 # Determine the operating system (used in bashrc)
 os_name=`uname -s`
 
@@ -23,7 +27,9 @@ PATH=/usr/local/bin:/usr/local/sbin:"${PATH}"
 # Set the editor to vim regardless of OS
 export EDITOR='vim'
 
-# Mac OS X specific settings
+##################################
+##### OS X Specific Settings #####
+##################################
 if [ ${os_name} == 'Darwin' ]; then
     ## Python stuff starts here
     
@@ -75,7 +81,9 @@ if [ ${os_name} == 'Darwin' ]; then
     fi
 fi
 
-# Linux specific settings
+###################################
+##### Linux Specific Settings #####
+###################################
 if [ ${os_name} == 'Linux' ]; then
     # Enable virtualenvwrapper
     if [ -x /usr/local/bin/virtualenvwrapper_bashrc ]; then
