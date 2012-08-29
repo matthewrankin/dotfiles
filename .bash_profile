@@ -25,14 +25,6 @@ export EDITOR='vim'
 
 # Mac OS X specific settings
 if [ ${os_name} == 'Darwin' ]; then
-  ## TextMate stuff starts here
-  if [ -x /Users/matthew/bin/mate ]; then
-    # export EDITOR='mate -w'
-    # export GIT_EDITOR='mate -wl1'
-    export TEXEDIT='mate -w -l %d "%s"'
-    export LC_CTYPE=en_US.UTF-8
-  fi
-  
     ## Python stuff starts here
     
     # The last Python added to PATH will be the default Python
