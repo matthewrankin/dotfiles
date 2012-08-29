@@ -22,7 +22,7 @@ fi
 
 # Add /usr/local/bin and ./sbin to $PATH since OS X 10.6 adds
 # /usr/local/bin after /usr/bin
-PATH=/usr/local/bin:/usr/local/sbin:"${PATH}"
+export PATH=/usr/local/bin:/usr/local/sbin:"${PATH}"
 
 # Set the editor to vim regardless of OS
 export EDITOR='vim'
@@ -36,36 +36,28 @@ export EDITOR='vim'
 
 if [ ${os_name} == 'Darwin' ]; then
     ## Python stuff starts here
-    
-    # The last Python added to PATH will be the default Python
-    PY_VER=( '3.1' '2.6' '2.7')
-    PY_VER_ELEMENTS=${#PY_VER[@]}
-    DEFAULT_PY=${PY_VER[${PY_VER_ELEMENTS}-1]}
-    PY_FW="/Library/Frameworks/Python.framework/Versions"
-    
-    for (( i=0;i<$PY_VER_ELEMENTS;i++)); do
-        if [ -x ${PY_FW}/${PY_VER[${i}]}/bin/python${PY_VER[${i}]} ]; then
-            PATH="${PY_FW}/${PY_VER[${i}]}/bin:${PATH}"
-            export PATH
-        fi
-    done
-    
+    # Note: 29-Aug-12. I'm no longer installing mupltiple versions
+    # of Python using the python.org DMGs. Instead, I installed
+    # python 2.7.3 using homebrew.
+    PY_INSTALL_SCRIPTS_DIR="/usr/local/share/python"
+    export PATH="${PY_INSTALL_SCRIPTS_DIR}":"${PATH}"
+
     # Check for virtualenv in the default Python
-    if [ -x ${PY_FW}/${DEFAULT_PY}/bin/virtualenv ]; then
+    if [ -x ${PY_INSTALL_SCRIPTS_DIR}/virtualenv ]; then
         export VIRTUALENV_USE_DISTRIBUTE=true
         export WORKON_HOME=$HOME/.virtualenvs
     fi
     
     # Check for pip
-    if [ -x ${PY_FW}/${DEFAULT_PY}/bin/pip ]; then
+    if [ -x ${PY_INSTALL_SCRIPTS_DIR}/pip ]; then
         export PIP_VIRTUALENV_BASE=$WORKON_HOME
         export PIP_REQUIRE_VIRTUALENV=false
         export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
     fi
     
     # Enable virtualenvwrapper
-    if [ -x ${PY_FW}/${DEFAULT_PY}/bin/virtualenvwrapper.sh ]; then
-        . ${PY_FW}/${DEFAULT_PY}/bin/virtualenvwrapper.sh
+    if [ -x ${PY_INSTALL_SCRIPTS_DIR}/virtualenvwrapper.sh ]; then
+        . ${PY_INSTALL_SCRIPTS_DIR}/virtualenvwrapper.sh
     fi
     
     ## Ruby stuff starts here
