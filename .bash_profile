@@ -30,6 +30,10 @@ export EDITOR='vim'
 ##################################
 ##### OS X Specific Settings #####
 ##################################
+
+# Note: OS X Terminal.app runs a login shell by default
+# (i.e., shells open with the default login shell (/usr/bin/login)
+
 if [ ${os_name} == 'Darwin' ]; then
     ## Python stuff starts here
     
