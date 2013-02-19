@@ -41,6 +41,7 @@ if [ ${os_name} == 'Darwin' ]; then
     # python 2.7.3 using homebrew.
     PY_INSTALL_SCRIPTS_DIR="/usr/local/share/python"
     export PATH="${PY_INSTALL_SCRIPTS_DIR}":"${PATH}"
+    export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
 
     # Check for virtualenv in the default Python
     if [ -x ${PY_INSTALL_SCRIPTS_DIR}/virtualenv ]; then
@@ -61,7 +62,6 @@ if [ ${os_name} == 'Darwin' ]; then
     fi
     
     ## Ruby stuff starts here
-    
     # If RVM is installed, load it into a shell session
     if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
         . "$HOME/.rvm/scripts/rvm"
@@ -74,6 +74,7 @@ if [ ${os_name} == 'Darwin' ]; then
     ## Node.js stuff starts here
     if [ -x /usr/local/bin/node ]; then
       export NODE_PATH=/usr/local/lib/node_modules
+      export PATH=/usr/local/share/npm/bin:"${PATH}"
     fi
 fi
 

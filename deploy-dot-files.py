@@ -25,6 +25,7 @@ dot_files_to_deploy = (
     '.vimrc.after',
     '.gvimrc.after',
     '.rvmrc',
+    '.tmux.conf',
 )
 
 def is_already_linked(link_to_check, check_against_file):
