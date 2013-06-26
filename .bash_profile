@@ -1,4 +1,4 @@
-# ~/.bash_profile: executed by bash(1) for login shells
+# ~/.bash_profile: executed by bash(2) for login shells
 #
 # Created by Matthew D. Rankin
 # Copyright (c) 2010 Matthew D. Rankin. All rights reserved.
@@ -20,7 +20,9 @@ if [ -d ~/bin ]; then
     PATH=~/bin:"${PATH}"
 fi
 
-# Add /usr/local/bin and ./sbin to $PATH since OS X 10.6 adds
+# TODO(mdr): Is this just an OS X issue with /usr/local/bin?
+# If so, move this to the OS X Specific Settings
+# Add /usr/local/bin and ./sbin to $PATH since OS X adds
 # /usr/local/bin after /usr/bin
 export PATH=/usr/local/bin:/usr/local/sbin:"${PATH}"
 
@@ -39,28 +41,37 @@ if [ ${os_name} == 'Darwin' ]; then
     # Note: 29-Aug-12. I'm no longer installing mupltiple versions
     # of Python using the python.org DMGs. Instead, I installed
     # python 2.7.3 using homebrew.
-    PY_INSTALL_SCRIPTS_DIR="/usr/local/share/python"
-    export PATH="${PY_INSTALL_SCRIPTS_DIR}":"${PATH}"
-    export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
+    # Homebrew Python changed and is no longer using /usr/local/share/python
+    # Homebrew is now installing to /usr/local/bin
+    PY_INSTALL_SCRIPTS_DIR="$(brew --prefix)/bin"
+    #PY_INSTALL_SCRIPTS_DIR="/usr/local/share/python"
+    #export PATH="${PY_INSTALL_SCRIPTS_DIR}":"${PATH}"
+    #export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
 
-    # Check for virtualenv in the default Python
-    if [ -x ${PY_INSTALL_SCRIPTS_DIR}/virtualenv ]; then
-        export VIRTUALENV_USE_DISTRIBUTE=true
-        export WORKON_HOME=$HOME/.virtualenvs
-    fi
-    
     # Check for pip
     if [ -x ${PY_INSTALL_SCRIPTS_DIR}/pip ]; then
         export PIP_VIRTUALENV_BASE=$WORKON_HOME
         export PIP_REQUIRE_VIRTUALENV=false
         export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
+    else
+      echo "WARNING: Can't find pip"
     fi
-    
+
+    # Check for virtualenv in the default Python
+    if [ -x ${PY_INSTALL_SCRIPTS_DIR}/virtualenv ]; then
+        export VIRTUALENV_USE_DISTRIBUTE=true
+        export WORKON_HOME=$HOME/.virtualenvs
+    else
+      echo "WARNING: Can't find virtualenv"
+    fi
+
     # Enable virtualenvwrapper
     if [ -x ${PY_INSTALL_SCRIPTS_DIR}/virtualenvwrapper.sh ]; then
         . ${PY_INSTALL_SCRIPTS_DIR}/virtualenvwrapper.sh
+    else
+      echo "WARNING: Can't find virtualenvwrapper"
     fi
-    
+
     ## Ruby stuff starts here
     # If RVM is installed, load it into a shell session
     if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
@@ -70,6 +81,12 @@ if [ ${os_name} == 'Darwin' ]; then
             . $rvm_path/scripts/completion
         fi
     fi
+
+    # Since this uses the rvm command it needs to come
+    # after rvm is started
+    # FIXME: Not sure why this is failing.
+    #[[ -s "`rvm gemdir`/bin/tmuxinator_completion" ]] &&
+      #source "`rvm gemdir`/bin/tmuxinator_completion"
 
     ## Node.js stuff starts here
     if [ -x /usr/local/bin/node ]; then
