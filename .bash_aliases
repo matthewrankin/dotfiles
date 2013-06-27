@@ -10,19 +10,21 @@ if [ "$TERM" != "dumb" ]; then
     fi
 fi
 
+alias myaliases='less ~/.bash_aliases'
+
 # Alias ls some more
 alias lla='ls -lAF'
 alias ll='ls -l'
 alias la='ls -AF'
 alias l='ls -CF'
 
-alias myaliases='less ~/.bash_aliases'
-
 # Alias cd
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
+# Alias Vim
+alias v='vim'
 
 # TODO(mdr): Change so these are not aliased on OSX
 # or set to check for apt-get
