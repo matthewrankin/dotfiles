@@ -24,6 +24,8 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 
 
+# TODO(mdr): Change so these are not aliased on OSX
+# or set to check for apt-get
 # Alias apt-get if the command exists
 if which apt-get &> /dev/null; then
     alias agi='sudo apt-get install'
@@ -55,6 +57,7 @@ alias djmigrate='python manage.py migrate'
 alias djharvest='python manage.py harvest'
 
 # Alias git commands (always create these aliases)
+alias g='git'
 alias gst='git status'
 alias gl='git pull'
 alias gp='git push'
