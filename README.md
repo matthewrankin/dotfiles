@@ -8,15 +8,23 @@ and Ubuntu servers/slices. Files include:
 * `.bash\_aliases`
 * `.bash\_profile`
 * `.bashrc`
+* `.git-completion.bash`
 * `.gitconfig`
 * `.gitignore`
+* `.gvimrc.after`
+* `.gvimrc.before`
+* `.hgrc`
+* `.rvmrc`
+* `.tmux.conf`
+* `.vimrc.after`
+* `.vimrc.before`
 
 ## Initial Setup ##
 
 Only need to run the following commands the first time:
 
-1. Clone the github repository using `git clone
-   git://github.com/cumulusware/dot-files.git`
+1. Clone the Github repositoiry using `git clone
+   https://github.com/matthewrankin/dotfiles.git`
 2. Deploy the dot-files by running `deploy_dot_files.py`
 
 ## Update from Github ##
