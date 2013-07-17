@@ -10,14 +10,16 @@
 # Determine the operating system (used in bashrc)
 os_name=`uname -s`
 
-# Include the non-login shell settings
-if [ -f ~/.bashrc ]; then
-    . ~/.bashrc
+# Include the non-login shell settings if brunning bash
+if [ -n "$BASH_VERSION" ]; then
+  if [ -f "$HOME/.bashrc" ]; then
+      . "$HOME/.bashrc"
+  fi
 fi
 
 # Add the user's bin to the PATH
-if [ -d ~/bin ]; then
-    PATH=~/bin:"${PATH}"
+if [ -d "$HOME/bin" ]; then
+    PATH="$HOME/bin:${PATH}"
 fi
 
 # TODO(mdr): Is this just an OS X issue with /usr/local/bin?
@@ -28,6 +30,9 @@ export PATH=/usr/local/bin:/usr/local/sbin:"${PATH}"
 
 # Set the editor to vim regardless of OS
 export EDITOR='vim'
+
+# If NVM is installed, load it
+[[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"
 
 ##################################
 ##### OS X Specific Settings #####
