@@ -7,10 +7,11 @@ Created by Matthew Rankin on 2009-06-04.
 Copyright (c) 2009 Cumulusware, LLC. All rights reserved.
 """
 
-
-import sys
+import fileinput
 import os
 import shutil
+import subprocess
+import sys
 
 
 # Tuple containing files in dot-files project
@@ -40,6 +41,45 @@ def is_already_linked(link_to_check, check_against_file):
     return False
 
 
+def compare_versions(v1, v2):
+    def normalize_version(v):
+        parts = [int(x) for x in v.split(".")]
+        while parts[-1] == 0:
+            parts.pop()
+        return parts
+    return cmp(normalize_version(v1), normalize_version(v2))
+
+
+def knows_push_simple(git_version):
+    return True if compare_versions(git_version, '1.7.11') >= 0 else False
+
+def add_git_default_push():
+    """Add the default push to Git based on version.
+
+    If Git >= v1.7.11, then use the simple push.
+    If Git < v1.7.11, then use the current push.
+    """
+    raw_git_version = subprocess.check_output(['git', '--version'])
+    git_version = raw_git_version.replace("git version", "").strip()
+
+    # Determine which version of push to use as default
+    if knows_push_simple(git_version):
+        desired_push_default = "simple"
+    else:
+        desired_push_default = "current"
+
+    found_push_section = False
+    for line in fileinput.input(".gitconfig", inplace=True):
+        if line.startswith('[push]'):
+            found_push_section = True
+            sys.stdout.write(line)
+        elif found_push_section and line.startswith('  default ='):
+            sys.stdout.write('  default = {}'.format(desired_push_default))
+            found_push_section = False
+        else:
+            sys.stdout.write(line)
+
+
 def main():
     '''
     Check to see if the .bash and .git files are already symbolic links. If
@@ -50,6 +90,9 @@ def main():
     dot_files_dir = os.getcwd()
     print 'user_home_dir = ' + user_home_dir
     print 'dot_files_dir = ' + dot_files_dir
+
+    if '.gitconfig' in dot_files_to_deploy:
+        add_git_default_push()
 
     for dot_file in dot_files_to_deploy:
         dot_file_with_home_path = os.path.join(user_home_dir, dot_file)
