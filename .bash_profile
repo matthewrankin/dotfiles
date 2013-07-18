@@ -34,7 +34,6 @@ export EDITOR='vim'
 # If NVM is installed, load it
 # Grabbed from https://github.com/startup-class/dotfiles
 if [ -s ~/.nvm/nvm.sh ]; then
-  NVM_DIR = ~/.nvm
   source ~/.nvm/nvm.sh
   nvm use v0.10.12 &> /dev/null # silence nvm use; needed for rsync
 fi
