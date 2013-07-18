@@ -72,12 +72,12 @@ def add_git_default_push():
     for line in fileinput.input(".gitconfig", inplace=True):
         if line.startswith('[push]'):
             found_push_section = True
-            sys.stdout.write(line)
         elif found_push_section and line.startswith('  default ='):
-            sys.stdout.write('  default = {}'.format(desired_push_default))
+            line = '  default = {}\n'.format(desired_push_default)
             found_push_section = False
-        else:
-            sys.stdout.write(line)
+        elif found_push_section and line.startswith('['):
+            found_push_section = False
+        sys.stdout.write(line)
 
 
 def main():
