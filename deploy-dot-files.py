@@ -38,7 +38,8 @@ def is_already_linked(link_to_check, check_against_file):
         if os.path.realpath(link_to_check) == check_against_file:
             return True
     return False
-    
+
+
 def main():
     '''
     Check to see if the .bash and .git files are already symbolic links. If
@@ -49,7 +50,7 @@ def main():
     dot_files_dir = os.getcwd()
     print 'user_home_dir = ' + user_home_dir
     print 'dot_files_dir = ' + dot_files_dir
-    
+
     for dot_file in dot_files_to_deploy:
         dot_file_with_home_path = os.path.join(user_home_dir, dot_file)
         # print 'dot_file_with_home_path = ' + dot_file_with_home_path
@@ -73,6 +74,7 @@ def main():
             os.symlink(dot_file_with_dot_file_path, dot_file_with_home_path)
         else:
             print 'Skipping ' + dot_file_with_dot_file_path
+
 
 if __name__ == '__main__':
 	main()
