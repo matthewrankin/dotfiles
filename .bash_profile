@@ -19,7 +19,7 @@ fi
 
 # Add the user's bin to the PATH
 if [ -d "$HOME/bin" ]; then
-    PATH="$HOME/bin:${PATH}"
+  PATH="$HOME/bin:${PATH}"
 fi
 
 # TODO(mdr): Is this just an OS X issue with /usr/local/bin?
@@ -35,7 +35,7 @@ export EDITOR='vim'
 # Grabbed from https://github.com/startup-class/dotfiles
 if [ -s ~/.nvm/nvm.sh ]; then
   source ~/.nvm/nvm.sh
-  nvm use v0.10.12 &> /dev/null # silence nvm use; needed for rsync
+  #nvm use v0.10.12 &> /dev/null # silence nvm use; needed for rsync
 fi
 
 ##################################
@@ -59,17 +59,16 @@ if [ ${os_name} == 'Darwin' ]; then
 
     # Check for pip
     if [ -x ${PY_INSTALL_SCRIPTS_DIR}/pip ]; then
-        export PIP_VIRTUALENV_BASE=$WORKON_HOME
-        export PIP_REQUIRE_VIRTUALENV=false
-        export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
+      export PIP_VIRTUALENV_BASE=$WORKON_HOME
+      export PIP_REQUIRE_VIRTUALENV=false
+      export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
     else
       echo "WARNING: Can't find pip"
     fi
 
     # Check for virtualenv in the default Python
     if [ -x ${PY_INSTALL_SCRIPTS_DIR}/virtualenv ]; then
-        export VIRTUALENV_USE_DISTRIBUTE=true
-        export WORKON_HOME=$HOME/.virtualenvs
+      export WORKON_HOME=$HOME/.virtualenvs
     else
       echo "WARNING: Can't find virtualenv"
     fi
@@ -98,10 +97,10 @@ if [ ${os_name} == 'Darwin' ]; then
       #source "`rvm gemdir`/bin/tmuxinator_completion"
 
     ## Node.js stuff starts here
-    if [ -x /usr/local/bin/node ]; then
-      export NODE_PATH=/usr/local/lib/node_modules
-      export PATH=/usr/local/share/npm/bin:"${PATH}"
-    fi
+    #if [ -x /usr/local/bin/node ]; then
+      #export NODE_PATH=/usr/local/lib/node_modules
+      #export PATH=/usr/local/share/npm/bin:"${PATH}"
+    #fi
 fi
 
 ###################################
