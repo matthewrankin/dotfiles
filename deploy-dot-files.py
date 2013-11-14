@@ -60,7 +60,7 @@ def add_git_default_push():
     If Git < v1.7.11, then use the current push.
     """
     raw_git_version = subprocess.check_output(['git', '--version'])
-    git_version = raw_git_version.replace("git version", "").strip()
+    git_version = raw_git_version.replace("git version", "").strip().split()[0]
 
     # Determine which version of push to use as default
     if knows_push_simple(git_version):
