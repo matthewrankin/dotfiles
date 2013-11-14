@@ -18,6 +18,10 @@ alias ll='ls -l'
 alias la='ls -AF'
 alias l='ls -CF'
 
+# Alias history
+alias 'h=history | tail'
+alias 'hg=history | grep'
+
 # Alias cd
 alias ..='cd ..'
 alias ...='cd ../..'
