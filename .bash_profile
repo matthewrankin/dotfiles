@@ -90,12 +90,6 @@ if [ ${os_name} == 'Darwin' ]; then
         fi
     fi
 
-    # Since this uses the rvm command it needs to come
-    # after rvm is started
-    # FIXME: Not sure why this is failing.
-    #[[ -s "`rvm gemdir`/bin/tmuxinator_completion" ]] &&
-      #source "`rvm gemdir`/bin/tmuxinator_completion"
-
     ## Node.js stuff starts here
     #if [ -x /usr/local/bin/node ]; then
       #export NODE_PATH=/usr/local/lib/node_modules

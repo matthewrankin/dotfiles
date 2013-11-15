@@ -13,8 +13,9 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # Setup tmuxinator
-[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] &&
-  source $HOME/.tmuxinator/scripts/tmuxinator
+if [ -f $HOME/.bin/tmuxinator.bash ]; then
+  source $HOME/.bin/tmuxinator.bash
+fi
 
 ##################################
 ##### OS X Specific Settings #####
