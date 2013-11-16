@@ -90,11 +90,6 @@ if [ ${os_name} == 'Darwin' ]; then
         fi
     fi
 
-    ## Node.js stuff starts here
-    #if [ -x /usr/local/bin/node ]; then
-      #export NODE_PATH=/usr/local/lib/node_modules
-      #export PATH=/usr/local/share/npm/bin:"${PATH}"
-    #fi
 fi
 
 ###################################
