@@ -35,6 +35,7 @@ export EDITOR='vim'
 # Grabbed from https://github.com/startup-class/dotfiles
 if [ -s ~/.nvm/nvm.sh ]; then
   source ~/.nvm/nvm.sh
+  [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
   #nvm use v0.10.12 &> /dev/null # silence nvm use; needed for rsync
 fi
 
