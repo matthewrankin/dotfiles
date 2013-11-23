@@ -15,9 +15,6 @@ function s:setupWrapping()
   set wrap
   set wrapmargin=2
   set textwidth=72
-<<<<<<< HEAD
   set nolist
-=======
->>>>>>> 96b3e596da6d3eead0afda796b5b2c6f0e51a7de
 endfunction
 au FileType tex call s:setupWrapping()
