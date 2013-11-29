@@ -26,6 +26,7 @@ alias 'hg=history | grep'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias ..l='cd ..;l;'
 
 # Alias Vim
 alias v='vim'
