@@ -48,15 +48,7 @@ fi
 
 if [ ${os_name} == 'Darwin' ]; then
     ## Python stuff starts here
-    # Note: 29-Aug-12. I'm no longer installing mupltiple versions
-    # of Python using the python.org DMGs. Instead, I installed
-    # python 2.7.3 using homebrew.
-    # Homebrew Python changed and is no longer using /usr/local/share/python
-    # Homebrew is now installing to /usr/local/bin
     PY_INSTALL_SCRIPTS_DIR="$(brew --prefix)/bin"
-    #PY_INSTALL_SCRIPTS_DIR="/usr/local/share/python"
-    #export PATH="${PY_INSTALL_SCRIPTS_DIR}":"${PATH}"
-    #export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
 
     # Check for pip
     if [ -x ${PY_INSTALL_SCRIPTS_DIR}/pip ]; then
