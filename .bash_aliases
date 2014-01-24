@@ -10,8 +10,6 @@ if [ "$TERM" != "dumb" ]; then
     fi
 fi
 
-alias myaliases='less ~/.bash_aliases'
-
 # Alias ls some more
 alias lla='ls -lAF'
 alias ll='ls -l'
