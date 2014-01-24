@@ -16,20 +16,23 @@ import sys
 
 # Tuple containing files in dot-files project
 dot_files_to_deploy = (
-    '.bash_profile',
     '.bash_aliases',
+    '.bash_profile',
     '.bashrc',
+    '.chktexrc',
+    '.git-completion.bash',
     '.gitconfig',
     '.gitignore',
-    '.git-completion.bash',
-    '.hgrc',
-    '.vimrc.before',
-    '.vimrc.after',
-    '.gvimrc.before',
     '.gvimrc.after',
+    '.gvimrc.before',
+    '.hgrc',
+    '.inputrc',
     '.rvmrc',
     '.tmux.conf',
+    '.vimrc.after',
+    '.vimrc.before',
 )
+
 
 def is_already_linked(link_to_check, check_against_file):
     '''
@@ -52,6 +55,7 @@ def compare_versions(v1, v2):
 
 def knows_push_simple(git_version):
     return True if compare_versions(git_version, '1.7.11') >= 0 else False
+
 
 def add_git_default_push():
     """Add the default push to Git based on version.
@@ -112,7 +116,7 @@ def main():
                     # therefore, let's backup this file before we delete it
                     print 'Backing up' + dot_file_with_home_path
                     shutil.move(dot_file_with_home_path,
-                        dot_file_with_home_path + '.bak')
+                                dot_file_with_home_path + '.bak')
             print 'Creating link to ' + dot_file_with_dot_file_path
             os.symlink(dot_file_with_dot_file_path, dot_file_with_home_path)
         else:
@@ -120,5 +124,4 @@ def main():
 
 
 if __name__ == '__main__':
-	main()
-
+    main()
