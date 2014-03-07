@@ -22,6 +22,7 @@ dot_files_to_deploy = (
     '.chktexrc',
     '.git-completion.bash',
     '.gitconfig',
+    '.gitconfig.local',
     '.gitignore',
     '.gvimrc.after',
     '.gvimrc.before',

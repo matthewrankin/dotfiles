@@ -1,10 +1,9 @@
 [user]
   name = "Matthew Rankin"
+;[include]
+  ;path = ~/.gitconfig.local
 [color]
   ui = auto
-[github]
-  user = matthewrankin
-  token = 318a9333affe87faeeda4685e0649730
 [alias]
   st = status
   ci = commit -v
@@ -27,3 +26,6 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
