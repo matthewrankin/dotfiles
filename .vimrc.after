@@ -3,6 +3,9 @@ color ir_black
 " Allow AngularJS directives in HTML (appease Tidy HTML lint)
 let g:syntastic_html_tidy_ignore_errors = ['proprietary attribute "ng-']
 
+" Add a space after NERDcomment
+let g:NERDSpaceDelims=1
+
 " Setup ~ to toggle lower case, UPPER CASE, and Title Case
 function! TwiddleCase(str)
   if a:str ==# toupper(a:str)
