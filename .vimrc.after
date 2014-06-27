@@ -6,6 +6,9 @@ let g:syntastic_html_tidy_ignore_errors = ['proprietary attribute "ng-']
 " Add a space after NERDcomment
 let g:NERDSpaceDelims=1
 
+" Enable json filetype for syntastic and syntax highlighting
+au BufRead,BufNewFile *.json set filetype=json
+
 " Setup ~ to toggle lower case, UPPER CASE, and Title Case
 function! TwiddleCase(str)
   if a:str ==# toupper(a:str)
