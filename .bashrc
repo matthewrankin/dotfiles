@@ -91,3 +91,6 @@ elif [ ${os_name} = 'Linux' ]; then
 fi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# added by travis gem
+[ -f /Users/matthew/.travis/travis.sh ] && source /Users/matthew/.travis/travis.sh
