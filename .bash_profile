@@ -92,14 +92,14 @@ fi
 ###################################
 if [ ${os_name} == 'Linux' ]; then
     # Enable virtualenvwrapper
-    if [ -x /usr/local/bin/virtualenvwrapper_bashrc ]; then
+    if [ -x /usr/local/bin/virtualenvwrapper.sh ]; then
         if [ ! -d $HOME/.virtualenvs ]; then
             mkdir $HOME/.virtualenvs
         fi
         export WORKON_HOME=$HOME/.virtualenvs
         export PIP_VIRTUALENV_BASE=$WORKON_HOME
         # export PIP_REQUIRE_VIRTUALENV=true
-        . /usr/local/bin/virtualenvwrapper_bashrc
+        . /usr/local/bin/virtualenvwrapper.sh
     fi
 fi
 
