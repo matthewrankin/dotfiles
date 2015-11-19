@@ -22,12 +22,6 @@ if [ -d "$HOME/bin" ]; then
   PATH="$HOME/bin:${PATH}"
 fi
 
-# TODO(mdr): Is this just an OS X issue with /usr/local/bin?
-# If so, move this to the OS X Specific Settings
-# Add /usr/local/bin and ./sbin to $PATH since OS X adds
-# /usr/local/bin after /usr/bin
-export PATH=/usr/local/bin:/usr/local/sbin:"${PATH}"
-
 # Set the editor to vim regardless of OS
 export EDITOR='vim'
 
