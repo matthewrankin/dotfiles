@@ -31,3 +31,41 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
+
+" Go related changes per Mike Perham
+" http://www.mikeperham.com/2014/10/15/stupid-go-tricks-in-janus/
+au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap gd <Plug>(go-def)
+au FileType go nmap <leader>r <Plug>(go-rename)
+
+" format with goimports instead of gofmt
+" Source: https://robots.thoughtbot.com/writing-go-in-vim
+let g:go_fmt_command = "goimports"
+
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
