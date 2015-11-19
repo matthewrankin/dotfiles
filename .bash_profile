@@ -39,7 +39,6 @@ if [ ${os_name} == 'Darwin' ]; then
     # If pip is installed set the download cache
     if [ -x ${PY_INSTALL_SCRIPTS_DIR}/pip ]; then
       export PIP_REQUIRE_VIRTUALENV=false
-      export PIP_DOWNLOAD_CACHE=$HOME/.pip_download_cache
     else
       echo "WARNING: Can't find pip"
     fi
@@ -91,4 +90,3 @@ if [ ${os_name} == 'Linux' ]; then
         . /usr/local/bin/virtualenvwrapper.sh
     fi
 fi
-
