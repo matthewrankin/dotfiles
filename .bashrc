@@ -17,13 +17,17 @@ if [ -f $HOME/.bin/tmuxinator.bash ]; then
   source $HOME/.bin/tmuxinator.bash
 fi
 
+# Load nvm if it exists
+if [ -s "${NVM_DIR}/nvm.sh" ]; then
+  export NVM_DIR="${HOME}/.nvm"
+  . "${NVM_DIR}/nvm.sh"
+fi
+
 ##################################
 ##### OS X Specific Settings #####
 ##################################
 if [ ${os_name} = 'Darwin' ]; then
 
-  export NVM_DIR="/Users/matthew/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
   # Set the command prompt
   if [ -n "$PS1" ]; then
