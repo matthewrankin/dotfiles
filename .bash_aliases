@@ -119,3 +119,7 @@ if [ -d /usr/local/cherokee ]; then
     alias cherokee='sudo /usr/local/cherokee/sbin/cherokee'
     alias cherokee-admin='sudo /usr/local/cherokee/sbin/cherokee-admin'
 fi
+
+if [ -f /usr/local/etc/mongod.conf ]; then
+  alias mongostart='mongod --config /usr/local/etc/mongod.conf'
+fi
