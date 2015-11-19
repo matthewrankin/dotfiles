@@ -22,6 +22,9 @@ fi
 ##################################
 if [ ${os_name} = 'Darwin' ]; then
 
+  export NVM_DIR="/Users/matthew/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
   # Set the command prompt
   if [ -n "$PS1" ]; then
     PS1='\[\e[01;32m\]\u@\h\[\e[m\]:\[\e[01;34m\]\w\[\e[m\]\n$ '
