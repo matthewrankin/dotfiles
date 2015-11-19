@@ -6,6 +6,11 @@ let g:syntastic_html_tidy_ignore_errors = ['proprietary attribute "ng-']
 " Set Syntastic to use multiple JavaScript checkers
 let g:syntastic_javascript_checkers = ['jshint', 'jscs']
 
+" Activate mustache/handlebars abbreviations
+let g:mustache_abbreviations = 1
+let g:syntastic_filetype_map = { "handlebars.html": "handlebars"}
+let g:syntastic_filetype_map = { "html.handlebars": "handlebars"}
+
 " Add a space after NERDcomment
 let g:NERDSpaceDelims=1
 
