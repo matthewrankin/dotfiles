@@ -12,9 +12,9 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# Setup tmuxinator
-if [ -f $HOME/.bin/tmuxinator.bash ]; then
-  source $HOME/.bin/tmuxinator.bash
+# Setup tmuxinator if it exists
+if [ -f "${HOME}/.bin/tmuxinator.bash" ]; then
+  . "${HOME}/.bin/tmuxinator.bash"
 fi
 
 # Load nvm if it exists
@@ -26,8 +26,7 @@ fi
 ##################################
 ##### OS X Specific Settings #####
 ##################################
-if [ ${os_name} = 'Darwin' ]; then
-
+if [ "${os_name}" = 'Darwin' ]; then
 
   # Set the command prompt
   if [ -n "$PS1" ]; then
@@ -44,7 +43,7 @@ if [ ${os_name} = 'Darwin' ]; then
 ##### Linux Specific Settings #####
 ###################################
 
-elif [ ${os_name} = 'Linux' ]; then
+elif [ "${os_name}" = 'Linux' ]; then
   # ~/.bashrc: executed by bash(1) for non-login shells.
   # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
   # for examples
