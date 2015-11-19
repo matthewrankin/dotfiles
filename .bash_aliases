@@ -2,9 +2,9 @@
 
 # Alias ls to enable color support
 if [ "$TERM" != "dumb" ]; then
-    if [ $os_name == 'Darwin' ]; then
+    if [ "$os_name" == 'Darwin' ]; then
         alias ls='ls -G'
-    elif [ $os_name == 'Linux' ]; then
+    elif [ "$os_name" == 'Linux' ]; then
         eval "`dircolors -b`"
         alias ls='ls --color=auto'
     fi
