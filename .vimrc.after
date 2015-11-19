@@ -11,6 +11,10 @@ let g:mustache_abbreviations = 1
 let g:syntastic_filetype_map = { "handlebars.html": "handlebars"}
 let g:syntastic_filetype_map = { "html.handlebars": "handlebars"}
 
+" Enable the Elixir checker
+let g:syntastic_elixir_checkers = ['elixir']
+let g:syntastic_enable_elixir_checker = 1
+
 " Add a space after NERDcomment
 let g:NERDSpaceDelims=1
 
