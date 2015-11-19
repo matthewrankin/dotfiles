@@ -10,7 +10,7 @@
 # Determine the operating system (used in bashrc)
 os_name=`uname -s`
 
-# Include the non-login shell settings if brunning bash
+# Include the non-login shell settings if running bash
 if [ -n "$BASH_VERSION" ]; then
   if [ -f "$HOME/.bashrc" ]; then
       . "$HOME/.bashrc"
@@ -30,14 +30,6 @@ export PATH=/usr/local/bin:/usr/local/sbin:"${PATH}"
 
 # Set the editor to vim regardless of OS
 export EDITOR='vim'
-
-# If NVM is installed, load it
-# Grabbed from https://github.com/startup-class/dotfiles
-if [ -s ~/.nvm/nvm.sh ]; then
-  source ~/.nvm/nvm.sh
-  [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
-  #nvm use v0.10.12 &> /dev/null # silence nvm use; needed for rsync
-fi
 
 ##################################
 ##### OS X Specific Settings #####
