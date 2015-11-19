@@ -100,3 +100,9 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # added by travis gem
 [ -f /Users/matthew/.travis/travis.sh ] && source /Users/matthew/.travis/travis.sh
+
+### Add Go
+export GOPATH=$HOME/development/go
+export PATH="$GOPATH/bin:$PATH"
+# Added per Homebrew go info
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
