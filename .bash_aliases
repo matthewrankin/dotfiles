@@ -28,6 +28,9 @@ alias ....='cd ../../..'
 # Alias Vim
 alias v='vim'
 
+# Aliases for Node
+alias npmout='npm outdated -g --depth=0'
+
 # TODO(mdr): Change so these are not aliased on OSX
 # or set to check for apt-get
 # Alias apt-get if the command exists
