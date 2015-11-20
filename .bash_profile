@@ -70,9 +70,6 @@ if [ ${os_name} == 'Darwin' ]; then
         fi
     fi
 
-    # Homebrew token to avoid rate limiting
-    export HOMEBREW_GITHUB_API_TOKEN=733aa845f52cf7192629e761c6bf70c47762a9f8
-
 fi
 
 ###################################
