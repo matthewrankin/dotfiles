@@ -3,8 +3,11 @@ color ir_black
 " Allow AngularJS directives in HTML (appease Tidy HTML lint)
 let g:syntastic_html_tidy_ignore_errors = ['proprietary attribute "ng-']
 
-" Set Syntastic to use multiple JavaScript checkers
+" Set Syntastic to use multiple JavaScript/TypeScript checkers
 let g:syntastic_javascript_checkers = ['jshint', 'jscs']
+let g:syntastic_typescript_checkers = ['tslint', 'tsc']
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_typescript_tsc_fname = ''
 
 " Activate mustache/handlebars abbreviations
 let g:mustache_abbreviations = 1
