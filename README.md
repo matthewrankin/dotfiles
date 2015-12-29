@@ -5,9 +5,11 @@
 These are the configuration files (dot files) that I use for my MacBook
 and Ubuntu servers/slices. Files have been included for:
 
-- [Bash][] and the [Readline library][readline]
+- [Bash][]
 - [ChkTeX][]
 - [Git][]
+- [GNU Readline Library][readline] to enable `vi` command line editing
+  mode
 - [Mercurial][]
 - [npm][]
 - [RVM][]
