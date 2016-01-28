@@ -31,8 +31,6 @@ alias v='vim'
 # Aliases for Node
 alias npmout='npm outdated -g --depth=0'
 
-# TODO(mdr): Change so these are not aliased on OSX
-# or set to check for apt-get
 # Alias apt-get if the command exists
 if which apt-get &> /dev/null; then
     alias agi='sudo apt-get install'
@@ -44,40 +42,10 @@ if which apt-get &> /dev/null; then
     alias agv='sudo apt-show-versions'
 fi
 
-# Alias Django commands (always create these aliases)
-alias djmng='python manage.py'
-alias djdbshell='python manage.py dbshell'
-alias djdumpdata='python manage.py dumpdata'
-alias djinspectdb='python manage.py inspectdb'
-alias djloaddata='python manage.py loaddata'
-alias djshell='python manage.py shell'
-alias djrunserver='python manage.py runserver'
-alias djsqlall='python manage.py sqlall'
-alias djstartapp='python manage.py startapp'
-alias djstartproject='django-admin.py startproject'
-alias djsyncdb='python manage.py syncdb'
-alias djvalidate='python manage.py validate'
-alias djtest='python manage.py test'
-alias djschemamigration='python manage.py schemamigration'
-alias djdatamigration='python manage.py datamigration'
-alias djmigrate='python manage.py migrate'
-alias djharvest='python manage.py harvest'
-
 # Alias git commands (always create these aliases)
-alias g='git'
 alias gst='git status'
-alias gl='git pull'
-alias gp='git push'
-alias gd='git diff | mate'
-alias gau='git add --update'
-alias gc='git commit -v'
-alias gca='git commit -v -a'
 alias gb='git branch'
 alias gba='git branch -a'
-alias gco='git checkout'
-alias gcob='git checkout -b'
-alias gcot='git checkout -t'
-alias gcotb='git checkout --track -b'
 alias glog='git log --oneline --graph'
 
 # Alias Apache2 if the file /etc/init.d/apache2 exists

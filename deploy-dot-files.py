@@ -1,10 +1,10 @@
 #!/usr/bin/env python
-# encoding: utf-8
-"""
-deploy-dot-files.py
-
-Created by Matthew Rankin on 2009-06-04.
-Copyright (c) 2009 Cumulusware, LLC. All rights reserved.
+# -*- coding: utf-8 -*-
+# Copyright (c) 2009-2016 Matthew Rankin. All rights reserved.
+# Project site: https://github.com/matthewrankin/dotfiles
+# Use of this source code is governed by a MIT-style license that
+# can be found in the LICENSE.txt file for the project.
+"""Deploy dot-files
 """
 
 import fileinput
@@ -13,6 +13,10 @@ import shutil
 import subprocess
 import sys
 
+
+# TODO(mdr): Should create a folder with the dot-files to deploy that way I
+# don't need to update a tuple. I could just scan the deploy folder and deploy
+# any dot-file found.
 
 # Tuple containing files in dot-files project
 dot_files_to_deploy = (
