@@ -89,5 +89,5 @@ if [ -d /usr/local/cherokee ]; then
 fi
 
 if [ -f /usr/local/etc/mongod.conf ]; then
-  alias mongostart='mongod --config /usr/local/etc/mongod.conf'
+  alias mongostart='mongod --config /usr/local/etc/mongod.conf --fork'
 fi
