@@ -19,9 +19,8 @@ function s:setupWrapping()
 endfunction
 au FileType tex call s:setupWrapping()
 
-" http://0value.com/my-Go-centric-Vim-setup
-" Regenerate tags file automatically.
-" au BufWritePost *.go silent! !ctags -R &
-
 " Show relative line numbers
 set rnu
+
+" https://github.com/fatih/vim-go/wiki/FAQ-Troubleshooting
+filetype plugin indent on
