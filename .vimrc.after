@@ -2,6 +2,9 @@ color ir_black
 
 " Allow AngularJS directives in HTML (appease Tidy HTML lint)
 let g:syntastic_html_tidy_ignore_errors = ['proprietary attribute "ng-']
+" Use HTML Tidy for HTML5
+" https://github.com/scrooloose/syntastic/wiki/HTML:---tidy
+let g:syntastic_html_tidy_exec = '/usr/local/bin/tidy'
 
 " Set Syntastic to use multiple JavaScript/TypeScript checkers
 let g:syntastic_javascript_checkers = ['jshint', 'jscs']
