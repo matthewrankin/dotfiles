@@ -1,17 +1,21 @@
 [user]
   name = "Matthew Rankin"
+	; email = matthewrankin@users.noreply.github.com
 ;[include]
   ;path = ~/.gitconfig.local
 [color]
   ui = auto
 [alias]
   st = status
+  ac = !git add . && git commit -am
   ci = commit -v
   co = checkout
+  cob = checkout -b
   br = branch
   unstage = reset HEAD --
   last = log -1 HEAD
-  logp = log --oneline --graph
+  l = log --oneline --graph --decorate
+  ls = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
   stash-unapply = !git stash show -p | git apply -R
 [core]
   excludesfile = /Users/matthew/.gitignore
