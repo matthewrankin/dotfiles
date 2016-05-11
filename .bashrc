@@ -52,6 +52,9 @@ elif [ "${os_name}" = 'Linux' ]; then
 
   # If not running interactively, don't do anything
   [ -z "$PS1" ] && return
+  if [ -n "$PS1" ]; then
+    PS1='\[\e[01;32m\]\u@\h\[\e[m\]:\[\e[01;34m\]\w\[\e[m\]\n$ '
+  fi
 
   # don't put duplicate lines in the history. See bash(1) for more options
   export HISTCONTROL=ignoredups
