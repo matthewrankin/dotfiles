@@ -41,6 +41,9 @@ if [ "${os_name}" = 'Darwin' ]; then
     . $(brew --prefix)/etc/bash_completion
   fi
 
+  # Added per Homebrew go info
+  export PATH=$PATH:/usr/local/opt/go/libexec/bin
+
 ###################################
 ##### Linux Specific Settings #####
 ###################################
@@ -52,9 +55,6 @@ elif [ "${os_name}" = 'Linux' ]; then
 
   # If not running interactively, don't do anything
   [ -z "$PS1" ] && return
-  if [ -n "$PS1" ]; then
-    PS1='\[\e[01;32m\]\u@\h\[\e[m\]:\[\e[01;34m\]\w\[\e[m\]\n$ '
-  fi
 
   # don't put duplicate lines in the history. See bash(1) for more options
   export HISTCONTROL=ignoredups
@@ -72,7 +72,7 @@ elif [ "${os_name}" = 'Linux' ]; then
 
   # set a fancy prompt (non-color, unless we know we "want" color)
   case "$TERM" in
-  xterm-color)
+  xterm-color|xterm-256color)
       PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n\$ '
       ;;
     *)
@@ -91,6 +91,9 @@ elif [ "${os_name}" = 'Linux' ]; then
   *)
       ;;
   esac
+
+  # FIXME(mdr): Should check to see if Go is intalled
+  export PATH=$PATH:/usr/local/go/bin
 
   # enable programmable completion features (you don't need to enable
   # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -112,5 +115,3 @@ export PATH="/usr/local/heroku/bin:$PATH"
 ### Add Go
 export GOPATH=$HOME/development/go
 export PATH="$GOPATH/bin:$PATH"
-# Added per Homebrew go info
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
