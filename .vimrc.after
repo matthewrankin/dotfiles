@@ -12,6 +12,11 @@ let g:syntastic_typescript_checkers = ['tslint', 'tsc']
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_typescript_tsc_fname = ''
 
+" Setup for vim-go
+let g:syntastic_go_checkers = ['go']
+" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+" let g:go_list_type = "quickfix"
+
 " Activate mustache/handlebars abbreviations
 let g:mustache_abbreviations = 1
 let g:syntastic_filetype_map = { "handlebars.html": "handlebars"}
