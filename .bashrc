@@ -41,15 +41,6 @@ if [ "${os_name}" = 'Darwin' ]; then
     . $(brew --prefix)/etc/bash_completion
   fi
 
-  # Fix for matplotlib 1.5+ requiring a framework build, and I'm using venv
-  function frameworkpython {
-      if [[ ! -z "$VIRTUAL_ENV" ]]; then
-          PYTHONHOME=$VIRTUAL_ENV /usr/local/bin/python "$@"
-      else
-          /usr/local/bin/python "$@"
-      fi
-  }
-
   # Added per Homebrew go info
   export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
