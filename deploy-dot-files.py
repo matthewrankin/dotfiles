@@ -33,7 +33,6 @@ dot_files_to_deploy = (
     '.hgrc',
     '.inputrc',
     '.npmrc',
-    '.rvmrc',
     '.tmux.conf',
     '.vimrc.after',
     '.vimrc.before',
