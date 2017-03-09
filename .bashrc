@@ -43,6 +43,11 @@ if [ "${os_name}" = 'Darwin' ]; then
   # Added per Homebrew go info
   export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
+  # Enable Yarn if installed
+  if [ -x $(brew --prefix)/bin/yarn ]; then
+    export PATH="$PATH:`yarn global bin`"
+  fi
+
 ###################################
 ##### Linux Specific Settings #####
 ###################################
