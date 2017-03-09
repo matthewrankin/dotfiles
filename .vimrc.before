@@ -20,7 +20,7 @@ endfunction
 au FileType tex call s:setupWrapping()
 
 " Show relative line numbers
-set rnu
+set relativenumber
 
 " https://github.com/fatih/vim-go/wiki/FAQ-Troubleshooting
 filetype plugin indent on
