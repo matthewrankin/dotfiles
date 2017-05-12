@@ -34,6 +34,7 @@ dot_files_to_deploy = (
     '.inputrc',
     '.npmrc',
     '.tmux.conf',
+    '.tmux.mac.conf',
     '.vimrc.after',
     '.vimrc.before',
 )
