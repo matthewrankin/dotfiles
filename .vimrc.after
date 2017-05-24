@@ -18,6 +18,9 @@ let g:airline_mode_map = {
   \ '': 'V-BLCK',
   \ }
 
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_auto_loc_list = 0
+
 " Allow AngularJS directives in HTML (appease Tidy HTML lint)
 let g:syntastic_html_tidy_ignore_errors = ['proprietary attribute "ng-']
 " Use HTML Tidy for HTML5
@@ -27,7 +30,6 @@ let g:syntastic_html_tidy_exec = '/usr/local/bin/tidy'
 " Set Syntastic to use multiple JavaScript/TypeScript checkers
 let g:syntastic_javascript_checkers = ['jshint', 'jscs']
 let g:syntastic_typescript_checkers = ['tslint', 'tsc']
-let g:syntastic_aggregate_errors = 1
 let g:syntastic_typescript_tsc_fname = ''
 
 " Setup for vim-go
