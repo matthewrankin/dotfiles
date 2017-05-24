@@ -1,5 +1,9 @@
 color ir_black
 
+let g:syntastic_mode_map = {
+  \ "mode": "active",
+  \ "passive_filetypes": ["go"] }
+
 " Airline setup
 let g:airline_powerline_fonts = 1
 let g:airline_symbols.branch = ''
@@ -28,8 +32,6 @@ let g:syntastic_typescript_tsc_fname = ''
 
 " Setup for vim-go
 let g:syntastic_go_checkers = ['go']
-" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-" let g:go_list_type = "quickfix"
 
 " Activate mustache/handlebars abbreviations
 let g:mustache_abbreviations = 1
