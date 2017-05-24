@@ -1,5 +1,19 @@
 color ir_black
 
+" Airline setup
+let g:airline_powerline_fonts = 1
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_mode_map = {
+  \ 'n' : 'N',
+  \ 'i' : 'I',
+  \ 'R' : 'REPLACE',
+  \ 'v' : 'VISUAL',
+  \ 'V' : 'V-LINE',
+  \ 'c' : 'CMD   ',
+  \ '': 'V-BLCK',
+  \ }
+
 " Allow AngularJS directives in HTML (appease Tidy HTML lint)
 let g:syntastic_html_tidy_ignore_errors = ['proprietary attribute "ng-']
 " Use HTML Tidy for HTML5
