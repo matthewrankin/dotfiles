@@ -2,7 +2,7 @@ color ir_black
 
 let g:syntastic_mode_map = {
   \ "mode": "active",
-  \ "passive_filetypes": ["go"] }
+  \ "passive_filetypes": [] }
 
 " Airline setup
 let g:airline_powerline_fonts = 1
