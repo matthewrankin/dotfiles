@@ -42,6 +42,37 @@ fi
 # Note: OS X Terminal.app runs a login shell by default
 # (i.e., shells open with the default login shell (/usr/bin/login)
 
+if [ ${os_name} == 'Darwin' ]; then
+    ## Python stuff starts here
+    PY_INSTALL_SCRIPTS_DIR="$(brew --prefix)/bin"
+
+    # If pip is installed set the download cache
+    if [ -x ${PY_INSTALL_SCRIPTS_DIR}/pip ]; then
+      export PIP_REQUIRE_VIRTUALENV=false
+    else
+      echo "WARNING: Can't find pip"
+    fi
+
+    # If virtualenv is installed, set some related config info
+    if [ -x ${PY_INSTALL_SCRIPTS_DIR}/virtualenv ]; then
+      export WORKON_HOME=$HOME/.virtualenvs
+      if [ -x ${PY_INSTALL_SCRIPTS_DIR}/pip ]; then
+        export PIP_VIRTUALENV_BASE=$WORKON_HOME
+      fi
+    else
+      echo "WARNING: Can't find virtualenv"
+    fi
+
+    # Enable virtualenvwrapper
+    if [ -x ${PY_INSTALL_SCRIPTS_DIR}/virtualenvwrapper.sh ]; then
+        . ${PY_INSTALL_SCRIPTS_DIR}/virtualenvwrapper.sh
+    else
+      echo "WARNING: Can't find virtualenvwrapper"
+    fi
+
+
+fi
+
 ###################################
 ##### Linux Specific Settings #####
 ###################################
