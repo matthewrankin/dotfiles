@@ -47,7 +47,7 @@ if [ ${os_name} == 'Darwin' ]; then
     PY_INSTALL_SCRIPTS_DIR="$(brew --prefix)/bin"
 
     # If pip is installed set the download cache
-    if [ -x ${PY_INSTALL_SCRIPTS_DIR}/pip ]; then
+    if [ -x ${PY_INSTALL_SCRIPTS_DIR}/pip2 ]; then
       export PIP_REQUIRE_VIRTUALENV=false
     else
       echo "WARNING: Can't find pip"
@@ -55,8 +55,9 @@ if [ ${os_name} == 'Darwin' ]; then
 
     # If virtualenv is installed, set some related config info
     if [ -x ${PY_INSTALL_SCRIPTS_DIR}/virtualenv ]; then
+      VIRTUALENVWRAPPER_PYTHON=${PY_INSTALL_SCRIPTS_DIR}/python2
       export WORKON_HOME=$HOME/.virtualenvs
-      if [ -x ${PY_INSTALL_SCRIPTS_DIR}/pip ]; then
+      if [ -x ${PY_INSTALL_SCRIPTS_DIR}/pip2 ]; then
         export PIP_VIRTUALENV_BASE=$WORKON_HOME
       fi
     else
