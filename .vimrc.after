@@ -14,6 +14,11 @@ let g:airline_mode_map = {
   \ '': 'V-BLCK',
   \ }
 
+" ALE setup
+let g:ale_python_mypy_options = '--ignore-missing-imports'
+let g:ale_open_list = 1
+let g:airline#extensions#ale#enabled = 1
+
 " Setup for elm-vim
 let g:elm_format_autosave = 1
 
