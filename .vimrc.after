@@ -1,9 +1,5 @@
 color ir_black
 
-let g:syntastic_mode_map = {
-  \ "mode": "active",
-  \ "passive_filetypes": [] }
-
 " Airline setup
 let g:airline_powerline_fonts = 1
 let g:airline_symbols.branch = ''
@@ -18,41 +14,11 @@ let g:airline_mode_map = {
   \ '': 'V-BLCK',
   \ }
 
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_auto_loc_list = 0
-
-" Allow AngularJS directives in HTML (appease Tidy HTML lint)
-let g:syntastic_html_tidy_ignore_errors = ['proprietary attribute "ng-']
-" Use HTML Tidy for HTML5
-" https://github.com/scrooloose/syntastic/wiki/HTML:---tidy
-let g:syntastic_html_tidy_exec = '/usr/local/bin/tidy'
-
-" Set Syntastic to use multiple JavaScript/TypeScript checkers
-let g:syntastic_javascript_checkers = ['jshint', 'jscs']
-let g:syntastic_typescript_checkers = ['tslint', 'tsc']
-let g:syntastic_typescript_tsc_fname = ''
-
-let g:syntastic_python_checkers = ['python', 'flake8', 'pep8', 'pyflakes']
-
-" Setup for vim-go
-let g:syntastic_go_checkers = ['go']
-
 " Setup for elm-vim
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-let g:elm_syntastic_show_warnings = 1
 let g:elm_format_autosave = 1
 
 " Activate mustache/handlebars abbreviations
 let g:mustache_abbreviations = 1
-let g:syntastic_filetype_map = { "handlebars.html": "handlebars"}
-let g:syntastic_filetype_map = { "html.handlebars": "handlebars"}
-
-" Enable the Elixir checker
-let g:syntastic_elixir_checkers = ['elixir']
-let g:syntastic_enable_elixir_checker = 1
-let g:syntastic_elixir_elixir_exe = 'elixirc'
-let g:syntastic_elixir_elixir_args = '+elixirc'
 
 " Add a space after NERDcomment
 let g:NERDSpaceDelims=1

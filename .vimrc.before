@@ -1,5 +1,7 @@
 let mapleader = ","
 
+call janus#disable_plugin('syntastic')
+
 set laststatus=2
 
 " Per Single Page Web Applications Section 3.4.1
