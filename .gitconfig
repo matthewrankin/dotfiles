@@ -1,6 +1,5 @@
 [user]
   name = "Matthew Rankin"
-	; email = matthewrankin@users.noreply.github.com
 ;[include]
   ;path = ~/.gitconfig.local
 [color]
@@ -17,6 +16,7 @@
   l = log --oneline --graph --decorate
   ls = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
   stash-unapply = !git stash show -p | git apply -R
+  email = config user.email
 [core]
   excludesfile = /Users/matthew/.gitignore
   editor = vim -f
