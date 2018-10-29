@@ -10,6 +10,9 @@
 # Determine the operating system (used in bashrc)
 os_name=`uname -s`
 
+# Ensure user-install binaries take precedence
+export PATH=/usr/local/bin:$PATH
+
 # Include the non-login shell settings if running bash
 if [ -n "$BASH_VERSION" ]; then
   if [ -f "$HOME/.bashrc" ]; then
