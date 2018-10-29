@@ -43,15 +43,14 @@ fi
 # (i.e., shells open with the default login shell (/usr/bin/login)
 
 if [ ${os_name} == 'Darwin' ]; then
+
+    # Added per Homebrew.
+    if [ -f "$(brew --prefix)"/etc/bash_completion ]; then
+        source $(brew --prefix)/etc/bash_completion
+    fi
+
     ## Python stuff starts here
     PY_INSTALL_SCRIPTS_DIR="$(brew --prefix)/bin"
-
-    # If pip is installed set the download cache
-    if [ -x ${PY_INSTALL_SCRIPTS_DIR}/pip2 ]; then
-      export PIP_REQUIRE_VIRTUALENV=false
-    else
-      echo "WARNING: Can't find pip"
-    fi
 
     # If virtualenv is installed, set some related config info
     if [ -x ${PY_INSTALL_SCRIPTS_DIR}/virtualenv ]; then
