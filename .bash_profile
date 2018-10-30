@@ -10,15 +10,15 @@
 # Determine the operating system (used in bashrc)
 os_name=`uname -s`
 
-# Ensure user-install binaries take precedence
-export PATH=/usr/local/bin:$PATH
-
 # Include the non-login shell settings if running bash
 if [ -n "$BASH_VERSION" ]; then
   if [ -f "$HOME/.bashrc" ]; then
       . "$HOME/.bashrc"
   fi
 fi
+
+# Ensure user-install binaries take precedence
+export PATH=/usr/local/bin:$PATH
 
 # Add the user's bin to the PATH if dir exists.
 [ -d "$HOME/bin" ] && PATH="$HOME/bin:${PATH}"
@@ -44,6 +44,9 @@ fi
 # (i.e., shells open with the default login shell (/usr/bin/login)
 
 if [ ${os_name} == 'Darwin' ]; then
+
+  # Enable bash completion per Homebrew
+  [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
     ## Python stuff starts here
     PY_DIR="$(brew --prefix)/bin"

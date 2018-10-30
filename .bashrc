@@ -22,7 +22,6 @@ export NVM_DIR="${HOME}/.nvm"
 if [ -s "${NVM_DIR}/nvm.sh" ]; then
   . "${NVM_DIR}/nvm.sh"
   [ -r "${NVM_DIR}/bash_completion" ] && . "${NVM_DIR}/bash_completion"
-  #nvm use v0.10.12 &> /dev/null # silence nvm use; needed for rsync
 fi
 
 ##################################
