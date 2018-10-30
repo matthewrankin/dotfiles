@@ -35,10 +35,8 @@ if [ "${os_name}" = 'Darwin' ]; then
     PS1='\[\e[01;32m\]\u@\h\[\e[m\]:\[\e[01;34m\]\w\[\e[m\]\n$ '
   fi
 
-  # Enable git bash completion (installed via Homebrew)
-  if [ -f "$(brew --prefix)"/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
-  fi
+  # Enable bash completion per Homebrew
+  [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
   # Added per Homebrew go info
   export PATH=$PATH:/usr/local/opt/go/libexec/bin
