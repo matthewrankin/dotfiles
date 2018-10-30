@@ -29,11 +29,11 @@ export EDITOR='vim'
 ## Ruby stuff starts here
 # If RVM is installed, load it into a shell session
 if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
-    . "$HOME/.rvm/scripts/rvm"
-    # Setup RVM BASH completion
-    if [[ -r $rvm_path/scripts/completion ]]; then
-        . $rvm_path/scripts/completion
-    fi
+  . "$HOME/.rvm/scripts/rvm"
+  # Setup RVM BASH completion
+  if [[ -r $rvm_path/scripts/completion ]]; then
+    . $rvm_path/scripts/completion
+  fi
 fi
 
 ##################################
