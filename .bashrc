@@ -36,7 +36,7 @@ if [ "${os_name}" = 'Darwin' ]; then
   fi
 
   # Enable git bash completion (installed via Homebrew)
-  if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  if [ -f "$(brew --prefix)"/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
   fi
 
