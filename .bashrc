@@ -121,3 +121,4 @@ export GOPATH=$HOME/development/go
 export PATH="$GOPATH/bin:$PATH"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
