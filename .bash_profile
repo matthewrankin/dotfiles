@@ -20,10 +20,8 @@ if [ -n "$BASH_VERSION" ]; then
   fi
 fi
 
-# Add the user's bin to the PATH
-if [ -d "$HOME/bin" ]; then
-  PATH="$HOME/bin:${PATH}"
-fi
+# Add the user's bin to the PATH if dir exists.
+[ -d "$HOME/bin" ] && PATH="$HOME/bin:${PATH}"
 
 # Set the editor to vim regardless of OS
 export EDITOR='vim'
