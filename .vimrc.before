@@ -1,6 +1,10 @@
 let mapleader = ","
 
 call janus#disable_plugin('syntastic')
+" call janus#disable_plugin('ctrlp')
+
+set rtp+=/usr/local/opt/fzf
+nmap <silent> <leader>m :Files<CR>
 
 set laststatus=2
 

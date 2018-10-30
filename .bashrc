@@ -119,3 +119,5 @@ export PATH="/usr/local/heroku/bin:$PATH"
 ### Add Go
 export GOPATH=$HOME/development/go
 export PATH="$GOPATH/bin:$PATH"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
