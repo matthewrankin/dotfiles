@@ -48,9 +48,7 @@ fi
 if [ ${os_name} == 'Darwin' ]; then
 
     # Added per Homebrew.
-    if [ -f "$(brew --prefix)"/etc/bash_completion ]; then
-        source $(brew --prefix)/etc/bash_completion
-    fi
+    [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
     ## Python stuff starts here
     PY_DIR="$(brew --prefix)/bin"
