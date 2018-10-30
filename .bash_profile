@@ -1,7 +1,7 @@
 # ~/.bash_profile: executed by bash(2) for login shells
 #
 # Created by Matthew D. Rankin
-# Copyright (c) 2010 Matthew D. Rankin. All rights reserved.
+# Copyright (c) 2010-2018 Matthew D. Rankin. All rights reserved.
 
 ################################
 ##### OS Agnostic Settings #####

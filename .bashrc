@@ -1,7 +1,7 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 #
 # Created by Matthew D. Rankin
-# Copyright (c) 2010 Matthew D. Rankin. All rights reserved.
+# Copyright (c) 2010-2018 Matthew D. Rankin. All rights reserved.
 
 ################################
 ##### OS Agnostic Settings #####
