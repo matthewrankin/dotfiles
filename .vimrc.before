@@ -8,12 +8,6 @@ nmap <silent> <leader>m :Files<CR>
 
 set laststatus=2
 
-" Per Single Page Web Applications Section 3.4.1
-" ;q --> Convert visual selection from HTML to JavaScript string
-" ;h --> Convert visual selection from JavaScript string to HTML
-vmap <silent> ;h :s?^\(\s*\)+ '\([^']\+\)',*\s*$?\1\2?g<CR>
-vmap <silent> ;q :s?^\(\s*\)\(.*\)\s*$? \1 + '\2'?<CR>
-
 " Set wrapping to be like Markdown on LaTeX files.
 function s:setupWrapping()
   set wrap
