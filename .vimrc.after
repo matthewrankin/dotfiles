@@ -41,7 +41,6 @@ let g:airline_mode_map = {
   \ }
 
 " ALE setup
-let g:ale_linters_explicit = 1
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   'javascript': ['prettier'],
@@ -49,7 +48,6 @@ let g:ale_fixers = {
 \}
 let g:ale_echo_msg_format = '%linter% - %s'
 let g:ale_python_mypy_options = '--ignore-missing-imports'
-" let g:ale_open_list = 1
 let g:airline#extensions#ale#enabled = 1
 
 " Setup for elm-vim
@@ -95,12 +93,12 @@ endif
 " Go related changes per Mike Perham
 " http://www.mikeperham.com/2014/10/15/stupid-go-tricks-in-janus/
 " au FileType go nmap <leader>c <Plug>(go-coverage)
-au FileType go nmap gd <Plug>(go-def)
-au FileType go nmap <leader>r <Plug>(go-rename)
+" au FileType go nmap gd <Plug>(go-def)
+" au FileType go nmap <leader>r <Plug>(go-rename)
 
 " format with goimports instead of gofmt
 " Source: https://robots.thoughtbot.com/writing-go-in-vim
-let g:go_fmt_command = "goimports"
+" let g:go_fmt_command = "goimports"
 
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
