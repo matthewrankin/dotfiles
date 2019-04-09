@@ -98,7 +98,7 @@ endif
 
 " format with goimports instead of gofmt
 " Source: https://robots.thoughtbot.com/writing-go-in-vim
-" let g:go_fmt_command = "goimports"
+let g:go_fmt_command = "goimports"
 
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
