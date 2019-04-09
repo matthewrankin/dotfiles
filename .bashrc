@@ -93,8 +93,6 @@ elif [ "${os_name}" = 'Linux' ]; then
   fi
 
 fi
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 #######################################
 ##### End of OS Specific Settings #####
 #######################################
