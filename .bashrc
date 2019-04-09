@@ -33,11 +33,6 @@ if [ "${os_name}" = 'Darwin' ]; then
   fi
 
 
-  # Enable Yarn if installed
-  if [ -x $(brew --prefix)/bin/yarn ]; then
-    export PATH="$PATH:`yarn global bin`"
-  fi
-
 ###################################
 ##### Linux Specific Settings #####
 ###################################
