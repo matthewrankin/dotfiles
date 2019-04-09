@@ -23,6 +23,10 @@ fi
 # Set the editor to vim regardless of OS
 export EDITOR='vim'
 
+### Add Go
+export GOPATH=$HOME/development/go
+PATH="$GOPATH/bin:$PATH"
+
 ## Ruby stuff starts here
 # If RVM is installed, load it into a shell session
 if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
