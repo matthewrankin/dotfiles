@@ -52,20 +52,20 @@ if [ ${os_name} == 'Darwin' ]; then
   # Enable bash completion per Homebrew
   [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
-    ## Python stuff starts here
-    PY_DIR="$(brew --prefix)/bin"
+  ## Python stuff starts here
+  py_bin_dir="$(brew --prefix)/bin"
 
-    # Enable virtualenvwrapper
-    if [ -x ${PY_DIR}/virtualenvwrapper.sh ]; then
-      export VIRTUALENVWRAPPER_PYTHON=${PY_DIR}/python3
-      export WORKON_HOME=$HOME/.virtualenvs
-      if [ -x ${PY_DIR}/pip ]; then
-        export PIP_VIRTUALENV_BASE=$WORKON_HOME
-      fi
-      . ${PY_DIR}/virtualenvwrapper.sh
-    else
-      echo "WARNING: Can't find virtualenvwrapper"
+  # Enable virtualenvwrapper
+  if [ -x ${py_bin_dir}/virtualenvwrapper.sh ]; then
+    export VIRTUALENVWRAPPER_PYTHON=${py_bin_dir}/python3
+    export WORKON_HOME=$HOME/.virtualenvs
+    if [ -x ${py_bin_dir}/pip ]; then
+      export PIP_VIRTUALENV_BASE=$WORKON_HOME
     fi
+    . ${py_bin_dir}/virtualenvwrapper.sh
+  else
+    echo "WARNING: Can't find virtualenvwrapper"
+  fi
 fi
 
 ###################################
@@ -79,7 +79,6 @@ if [ ${os_name} == 'Linux' ]; then
     fi
     export WORKON_HOME=$HOME/.virtualenvs
     export PIP_VIRTUALENV_BASE=$WORKON_HOME
-    # export PIP_REQUIRE_VIRTUALENV=true
     . /usr/local/bin/virtualenvwrapper.sh
   fi
 fi
