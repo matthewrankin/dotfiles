@@ -43,8 +43,11 @@ fi
 
 # Note: OS X Terminal.app runs a login shell by default
 # (i.e., shells open with the default login shell (/usr/bin/login)
+# Also, the paths found in /etc/paths are added by /etc/profile.
 
 if [ ${os_name} == 'Darwin' ]; then
+
+  PATH="/usr/local/sbin:$PATH"
 
   # Enable bash completion per Homebrew
   [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
@@ -80,3 +83,6 @@ if [ ${os_name} == 'Linux' ]; then
     . /usr/local/bin/virtualenvwrapper.sh
   fi
 fi
+#######################################
+##### End of OS Specific Settings #####
+#######################################
