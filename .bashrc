@@ -35,9 +35,6 @@ if [ "${os_name}" = 'Darwin' ]; then
   # Enable bash completion per Homebrew
   [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
-  # Added per Homebrew go info
-  export PATH=$PATH:/usr/local/opt/go/libexec/bin
-
   # Enable Yarn if installed
   if [ -x $(brew --prefix)/bin/yarn ]; then
     export PATH="$PATH:`yarn global bin`"
@@ -46,7 +43,6 @@ if [ "${os_name}" = 'Darwin' ]; then
 ###################################
 ##### Linux Specific Settings #####
 ###################################
-
 elif [ "${os_name}" = 'Linux' ]; then
   # ~/.bashrc: executed by bash(1) for non-login shells.
   # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
@@ -92,7 +88,7 @@ elif [ "${os_name}" = 'Linux' ]; then
   esac
 
   # FIXME(mdr): Should check to see if Go is intalled
-  export PATH=$PATH:/usr/local/go/bin
+  PATH=$PATH:/usr/local/go/bin
 
   # enable programmable completion features (you don't need to enable
   # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -110,11 +106,6 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-
-### Add Go
-export GOPATH=$HOME/development/go
-export PATH="$GOPATH/bin:$PATH"
-
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 #######################################
 ##### End of OS Specific Settings #####
