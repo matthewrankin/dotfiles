@@ -32,6 +32,8 @@ if [ "${os_name}" = 'Darwin' ]; then
     PS1='\[\e[01;32m\]\u@\h\[\e[m\]:\[\e[01;34m\]\w\[\e[m\]\n$ '
   fi
 
+  # Add fuzzy finder.
+  [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 ###################################
 ##### Linux Specific Settings #####
@@ -99,7 +101,6 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 #######################################
 ##### End of OS Specific Settings #####
 #######################################
