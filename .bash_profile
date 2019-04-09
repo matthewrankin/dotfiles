@@ -17,11 +17,8 @@ if [ -n "$BASH_VERSION" ]; then
   fi
 fi
 
-# Ensure user-install binaries take precedence
-export PATH=/usr/local/bin:$PATH
-
-# Add the user's bin to the PATH if dir exists.
-[ -d "$HOME/bin" ] && PATH="$HOME/bin:${PATH}"
+# Add the user's bin to the PATH if dir exists and it's not already on the path.
+[ -d "$HOME/bin" ] && [[ ":$PATH:" != *":$HOME/bin:"* ]] && PATH="$HOME/bin:${PATH}"
 
 # Set the editor to vim regardless of OS
 export EDITOR='vim'
