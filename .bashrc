@@ -19,10 +19,8 @@ fi
 
 # Load nvm if it exists
 export NVM_DIR="${HOME}/.nvm"
-if [ -s "${NVM_DIR}/nvm.sh" ]; then
-  . "${NVM_DIR}/nvm.sh"
-  [ -r "${NVM_DIR}/bash_completion" ] && . "${NVM_DIR}/bash_completion"
-fi
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 ##################################
 ##### OS X Specific Settings #####
@@ -118,4 +116,6 @@ export GOPATH=$HOME/development/go
 export PATH="$GOPATH/bin:$PATH"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#######################################
+##### End of OS Specific Settings #####
+#######################################
