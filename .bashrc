@@ -32,8 +32,6 @@ if [ "${os_name}" = 'Darwin' ]; then
     PS1='\[\e[01;32m\]\u@\h\[\e[m\]:\[\e[01;34m\]\w\[\e[m\]\n$ '
   fi
 
-  # Enable bash completion per Homebrew
-  [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
   # Enable Yarn if installed
   if [ -x $(brew --prefix)/bin/yarn ]; then
