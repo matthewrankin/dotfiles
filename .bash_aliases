@@ -95,3 +95,5 @@ fi
 alias b='buffalo'
 
 alias mkpy3venv='python3 -m venv'
+
+alias ic='ibmcloud'
