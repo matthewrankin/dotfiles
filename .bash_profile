@@ -23,6 +23,14 @@ fi
 # Set the editor to vim regardless of OS
 export EDITOR='vim'
 
+# Set Vim and Neovim variables
+# TODO(mdr): I should probably check to see if Vim and Neovim exist prior to
+# doing this.
+export VIMCONFIG=~/.vim
+export VIMDATA=~/.vim
+export NVIMCONFIG=~/.config/nvim
+export NVIMDATA=~/.local/share/nvim
+
 ### Add Go
 export GOPATH=$HOME/development/go
 PATH="$GOPATH/bin:$PATH"

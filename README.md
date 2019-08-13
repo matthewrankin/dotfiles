@@ -48,11 +48,18 @@ This script does the following:
   script only needs to be run one time. To update simply clone the
   github repository using `git pull`.
 
+## License
+
+[dotfiles][] is released under the MIT license. Please see the
+[LICENSE.txt][] file for more information.
+
 [bash]: https://www.gnu.org/software/bash/bash.html
 [chktex]: http://www.nongnu.org/chktex/
+[dotfiles]: https://github.com/matthewrankin/dotfiles
 [git]: https://git-scm.com
 [github]: https://github.com
 [janus]: https://github.com/carlhuda/janus
+[LICENSE.txt]: https://github.com/matthewrankin/dotfiles/blob/master/LICENSE.txt
 [mercurial]: https://www.mercurial-scm.org
 [npm]: https://docs.npmjs.com
 [readline]: https://cnswww.cns.cwru.edu/php/chet/readline/readline.html

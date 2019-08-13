@@ -1,7 +1,7 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 #
 # Created by Matthew D. Rankin
-# Copyright (c) 2010-2018 Matthew D. Rankin. All rights reserved.
+# Copyright (c) 2010-2019 Matthew D. Rankin. All rights reserved.
 
 ################################
 ##### OS Agnostic Settings #####
@@ -15,6 +15,11 @@ fi
 # Setup tmuxinator if it exists
 if [ -f "${HOME}/.bin/tmuxinator.bash" ]; then
   . "${HOME}/.bin/tmuxinator.bash"
+fi
+
+if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
+  PS1='\[\e[01;32m\]\u@\h\[\e[m\]:\[\e[01;34m\]\w\[\e[m\]\n» '
+  alias nvim='echo "No nesting!"'
 fi
 
 # Load nvm if it exists
@@ -34,6 +39,11 @@ if [ "${os_name}" = 'Darwin' ]; then
 
   # Add fuzzy finder.
   [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+  # Setup IBM Cloud CLI autocomplete if available.
+  if [ -f /usr/local/ibmcloud/autocomplete/bash_autocomplete ]; then
+    source /usr/local/ibmcloud/autocomplete/bash_autocomplete
+  fi
 
 ###################################
 ##### Linux Specific Settings #####
@@ -70,6 +80,8 @@ elif [ "${os_name}" = 'Linux' ]; then
       ;;
   esac
 
+  PATH=/usr/local/pgsql/bin:$PATH
+
   # Comment in the above and uncomment this below for a color prompt
   #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n\$ '
 
@@ -96,3 +108,13 @@ fi
 #######################################
 ##### End of OS Specific Settings #####
 #######################################
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[ -f /Users/matthew/.nvm/versions/node/v10.15.3/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash ] && . /Users/matthew/.nvm/versions/node/v10.15.3/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[ -f /Users/matthew/.nvm/versions/node/v10.15.3/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && . /Users/matthew/.nvm/versions/node/v10.15.3/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[ -f /Users/matthew/.nvm/versions/node/v10.15.3/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash ] && . /Users/matthew/.nvm/versions/node/v10.15.3/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash

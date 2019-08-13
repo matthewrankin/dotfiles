@@ -3,6 +3,8 @@ let mapleader = ","
 call janus#disable_plugin('syntastic')
 " call janus#disable_plugin('ctrlp')
 
+runtime macros/matchit.vim
+
 set rtp+=/usr/local/opt/fzf
 nmap <silent> <leader>m :Files<CR>
 

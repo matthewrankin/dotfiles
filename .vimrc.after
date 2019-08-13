@@ -50,6 +50,10 @@ let g:ale_echo_msg_format = '%linter% - %s'
 let g:ale_python_mypy_options = '--ignore-missing-imports'
 let g:airline#extensions#ale#enabled = 1
 
+" Setup for Svelte
+let g:ale_linter_alias = {'svelte': ['css', 'javascript']}
+let g:ale_linters = {'svelte': ['stylelint', 'eslint']}
+
 " Setup for elm-vim
 let g:elm_format_autosave = 1
 
