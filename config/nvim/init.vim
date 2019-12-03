@@ -10,7 +10,7 @@ else
 	" Additional plugins installed here.
 	call minpac#add('junegunn/fzf')
 	call minpac#add('junegunn/fzf.vim')
-	call minpac#add('w0rp/ale')
+	call minpac#add('dense-analysis/ale')
 	call minpac#add('pangloss/vim-javascript')
 	call minpac#add('tpope/vim-fugitive')
 	call minpac#add('airblade/vim-gitgutter')
@@ -98,6 +98,7 @@ autocmd BufEnter * :syntax sync fromstart
 filetype plugin indent on
 let g:go_fmt_command = 'goimports'
 let g:go_auto_type_info = 1
+au BufRead,BufNewFile *.gohtml set filetype=gohtmltmpl
 
 """"""""""""""""""""""""""""""""""""""""""
 " CoC setup
