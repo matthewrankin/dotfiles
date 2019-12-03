@@ -17,8 +17,7 @@ else
 	call minpac#add('vim-airline/vim-airline')
 	call minpac#add('vim-airline/vim-airline-themes')
 	call minpac#add('scrooloose/nerdtree')
-  call minpac#add('sheerun/vim-polyglot')
-  call minpac#add('fatih/vim-go')
+  call minpac#add('sheerun/vim-polyglot', {'branch': 'release'})
 	call minpac#add('burner/vim-svelte')
 	call minpac#add('posva/vim-vue')
 	call minpac#add('elzr/vim-json')
@@ -26,6 +25,7 @@ else
   call minpac#add('majutsushi/tagbar')
   call minpac#add('tpope/vim-commentary')
   call minpac#add('neoclide/coc.nvim')
+  call minpac#add('fatih/vim-go')
 
 	" minpac utility commands
 	command! PackUpdate call minpac#update()
@@ -92,7 +92,27 @@ autocmd BufEnter * :syntax sync fromstart
 " Go setup
 """"""""""""""""""""""""""""""""""""""""""
 filetype plugin indent on
-let g:go_fmt_command = "goimports"
-" disable vim-go :GoDef short cut (gd)
-" this is handled by LanguageClient [LC]
-let g:go_def_mapping_enabled = 0
+let g:go_fmt_command = 'goimports'
+
+
+""""""""""""""""""""""""""""""""""""""""""
+" CoC setup
+""""""""""""""""""""""""""""""""""""""""""
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" Navigate snippet placeholders using tab
+let g:coc_snippet_next = '<Tab>'
+let g:coc_snippet_prev = '<S-Tab>'
+
+" Use enter to accept snippet expansion
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
