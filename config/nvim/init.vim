@@ -64,6 +64,10 @@ set nowrap
 " The following line isn't necessary (I think), since I'm using vim-polyglot.
 "au Filetype python setlocal tabstop=4 shiftwidth=4
 
+""""""""""""""""""""""""""""""""""""""""""
+" gitgutter setup
+""""""""""""""""""""""""""""""""""""""""""
+set updatetime=200
 
 """"""""""""""""""""""""""""""""""""""""""
 " ALE setup
