@@ -61,18 +61,8 @@ if [ ${os_name} == 'Darwin' ]; then
   [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
   ## Python stuff starts here
-  py_bin_dir="$(brew --prefix)/bin"
-
-  # Enable virtualenvwrapper
-  if [ -x ${py_bin_dir}/virtualenvwrapper.sh ]; then
-    export VIRTUALENVWRAPPER_PYTHON=${py_bin_dir}/python3
-    export WORKON_HOME=$HOME/.virtualenvs
-    if [ -x ${py_bin_dir}/pip ]; then
-      export PIP_VIRTUALENV_BASE=$WORKON_HOME
-    fi
-    . ${py_bin_dir}/virtualenvwrapper.sh
-  else
-    echo "WARNING: Can't find virtualenvwrapper"
+  if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
   fi
 fi
 
