@@ -17,15 +17,16 @@ else
 	call minpac#add('vim-airline/vim-airline')
 	call minpac#add('vim-airline/vim-airline-themes')
 	call minpac#add('scrooloose/nerdtree')
-  call minpac#add('sheerun/vim-polyglot', {'branch': 'release'})
+  call minpac#add('sheerun/vim-polyglot')
 	call minpac#add('burner/vim-svelte')
 	call minpac#add('posva/vim-vue')
 	call minpac#add('elzr/vim-json')
 	call minpac#add('junegunn/vim-slash')
   call minpac#add('majutsushi/tagbar')
+  " call minpac#add('ludovicchabant/vim-gutentags')
   call minpac#add('tpope/vim-commentary')
-  call minpac#add('neoclide/coc.nvim')
   call minpac#add('fatih/vim-go')
+  call minpac#add('neoclide/coc.nvim')
 
 	" minpac utility commands
 	command! PackUpdate call minpac#update()
@@ -50,6 +51,12 @@ if has('nvim')
 	" highlight! link TermCursor Cursor
 	" highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
 endif
+
+
+""""""""""""""""""""""""""""""""""""""""""
+" Tagbar setup
+""""""""""""""""""""""""""""""""""""""""""
+nnoremap <silent> <leader>rt :TagbarToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""
 " Whitespace
