@@ -34,17 +34,23 @@ else
 	command! PackStatus call minpac#status()
 endif
 
+""""""""""""""""""""""""""""""""""""""""""
+" General Neovim setup
+""""""""""""""""""""""""""""""""""""""""""
 let mapleader = ","
 set number
 set relativenumber
 set ignorecase
+
+""""""""""""""""""""""""""""""""""""""""""
+" FZF setup
+""""""""""""""""""""""""""""""""""""""""""
+let $FZF_DEFAULT_COMMAND = 'fd --hidden --type f --exclude .git'
 nnoremap <C-p> :<C-u>FZF<CR>
 
-" Configure NERDTree
-nnoremap <silent> <leader>n :NERDTreeToggle<CR>
-autocmd VimEnter * NERDTree | wincmd p
-
-" Configure Terminal Mode
+""""""""""""""""""""""""""""""""""""""""""
+" Temrinal Mode setup
+""""""""""""""""""""""""""""""""""""""""""
 if has('nvim')
 	tnoremap <Esc> <C-\><C-n>
 	tnoremap <C-v><Esc> <Esc>
@@ -52,6 +58,11 @@ if has('nvim')
 	" highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
 endif
 
+""""""""""""""""""""""""""""""""""""""""""
+" NERDTree setup
+""""""""""""""""""""""""""""""""""""""""""
+nnoremap <silent> <leader>n :NERDTreeToggle<CR>
+autocmd VimEnter * NERDTree | wincmd p
 
 """"""""""""""""""""""""""""""""""""""""""
 " Tagbar setup
