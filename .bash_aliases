@@ -28,6 +28,9 @@ alias ....='cd ../../..'
 # Alias Vim
 alias v='vim'
 
+# Alias for multipass
+alias mp='multipass'
+
 # Aliases for Node
 alias npmout='npm outdated -g --depth=0'
 
