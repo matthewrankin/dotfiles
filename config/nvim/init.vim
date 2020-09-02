@@ -43,6 +43,11 @@ set relativenumber
 set ignorecase
 
 """"""""""""""""""""""""""""""""""""""""""
+" Color setup
+""""""""""""""""""""""""""""""""""""""""""
+set termguicolors
+
+""""""""""""""""""""""""""""""""""""""""""
 " FZF setup
 """"""""""""""""""""""""""""""""""""""""""
 let $FZF_DEFAULT_COMMAND = 'fd --hidden --type f --exclude .git'
