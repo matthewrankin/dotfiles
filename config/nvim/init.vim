@@ -18,7 +18,7 @@ else
 	call minpac#add('vim-airline/vim-airline-themes')
 	call minpac#add('scrooloose/nerdtree')
   call minpac#add('sheerun/vim-polyglot')
-	call minpac#add('burner/vim-svelte')
+	call minpac#add('evanleck/vim-svelte')
 	call minpac#add('posva/vim-vue')
 	call minpac#add('elzr/vim-json')
 	call minpac#add('junegunn/vim-slash')
