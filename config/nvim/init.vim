@@ -17,7 +17,9 @@ else
 	call minpac#add('vim-airline/vim-airline')
 	call minpac#add('vim-airline/vim-airline-themes')
 	call minpac#add('scrooloose/nerdtree')
+	call minpac#add('ryanoasis/vim-devicons')
   call minpac#add('sheerun/vim-polyglot')
+	call minpac#add('prettier/vim-prettier')
 	call minpac#add('evanleck/vim-svelte')
 	call minpac#add('posva/vim-vue')
 	call minpac#add('elzr/vim-json')
@@ -102,7 +104,7 @@ let g:ale_linters = {'svelte': ['stylelint', 'eslint']}
 let g:ale_fixers = {
 \	'javascript': ['prettier', 'eslint'],
 \	'css': ['prettier'],
-\	'svelte': ['prettier'],
+\	'svelte': ['prettier', 'eslint'],
 \	'*': ['remove_trailing_lines', 'trim_whitespace'],
 \}
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
