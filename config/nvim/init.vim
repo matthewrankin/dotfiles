@@ -96,6 +96,13 @@ set nowrap
 "au Filetype python setlocal tabstop=4 shiftwidth=4
 
 """"""""""""""""""""""""""""""""""""""""""
+" html setup
+""""""""""""""""""""""""""""""""""""""""""
+" let g:html_indent_script1 = "inc"
+" let g:html_indent_style1 = "inc"
+" let g:html_indent_inctags = "html,body,head,tbody,div"
+
+""""""""""""""""""""""""""""""""""""""""""
 " gitgutter setup
 """"""""""""""""""""""""""""""""""""""""""
 set updatetime=200
