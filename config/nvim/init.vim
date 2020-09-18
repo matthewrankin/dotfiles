@@ -70,6 +70,12 @@ endif
 """"""""""""""""""""""""""""""""""""""""""
 nnoremap <silent> <leader>n :NERDTreeToggle<CR>
 autocmd VimEnter * NERDTree | wincmd p
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeIgnore = []
+let g:NERDTreeStatusline = ''
+" Automaticaly close nvim if NERDTree is only thing left open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 """"""""""""""""""""""""""""""""""""""""""
 " Tagbar setup
