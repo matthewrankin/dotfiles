@@ -25,7 +25,6 @@ else
 	call minpac#add('elzr/vim-json')
 	call minpac#add('junegunn/vim-slash')
   call minpac#add('majutsushi/tagbar')
-  " call minpac#add('ludovicchabant/vim-gutentags')
   call minpac#add('tpope/vim-commentary')
   call minpac#add('fatih/vim-go')
   call minpac#add('neoclide/coc.nvim')
@@ -85,10 +84,13 @@ nnoremap <silent> <leader>rt :TagbarToggle<CR>
 """"""""""""""""""""""""""""""""""""""""""
 " Whitespace
 """"""""""""""""""""""""""""""""""""""""""
+set autoindent
+set expandtab
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab
+set smarttab
 set list
 set listchars=tab:\ \ ,trail:.,nbsp:+,extends:>,precedes:<
 set nowrap
