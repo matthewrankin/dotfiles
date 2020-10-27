@@ -20,7 +20,7 @@ else
 	call minpac#add('ryanoasis/vim-devicons')
   call minpac#add('sheerun/vim-polyglot')
 	call minpac#add('prettier/vim-prettier')
-	call minpac#add('evanleck/vim-svelte')
+	call minpac#add('leafOfTree/vim-svelte-plugin')
 	call minpac#add('posva/vim-vue')
 	call minpac#add('elzr/vim-json')
 	call minpac#add('junegunn/vim-slash')
@@ -42,6 +42,9 @@ let mapleader = ","
 set number
 set relativenumber
 set ignorecase
+if has ('syntax')
+	syntax enable
+endif
 
 """"""""""""""""""""""""""""""""""""""""""
 " Color setup
@@ -85,6 +88,7 @@ nnoremap <silent> <leader>rt :TagbarToggle<CR>
 " Whitespace
 """"""""""""""""""""""""""""""""""""""""""
 set autoindent
+set smartindent
 set expandtab
 set tabstop=2
 set softtabstop=2
