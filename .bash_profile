@@ -58,7 +58,7 @@ if [ ${os_name} == 'Darwin' ]; then
   PATH="/usr/local/sbin:$PATH"
 
   # Enable bash completion per Homebrew
-  [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+  [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
   ## Python stuff starts here
   if command -v pyenv 1>/dev/null 2>&1; then
