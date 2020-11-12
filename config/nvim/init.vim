@@ -1,5 +1,5 @@
 packadd minpac
-if !exists('*minpac#init')
+if !exists('g:loaded_minpac')
 	" minpac is not available.
 	" Settings for plugin-less environment.
 else
@@ -18,7 +18,7 @@ else
 	call minpac#add('vim-airline/vim-airline-themes')
 	call minpac#add('scrooloose/nerdtree')
 	call minpac#add('ryanoasis/vim-devicons')
-  call minpac#add('sheerun/vim-polyglot')
+  call minpac#add('sheerun/vim-polyglot', {'rev': 'v4.16.0'})
 	call minpac#add('prettier/vim-prettier')
 	call minpac#add('leafOfTree/vim-svelte-plugin')
 	call minpac#add('posva/vim-vue')
