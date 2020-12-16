@@ -27,7 +27,7 @@ else
   call minpac#add('majutsushi/tagbar')
   call minpac#add('tpope/vim-commentary')
   call minpac#add('fatih/vim-go')
-  call minpac#add('neoclide/coc.nvim')
+  call minpac#add('neoclide/coc.nvim', {'rev': 'v0.0.79'})
 	call minpac#add('mattn/emmet-vim')
 
 	" minpac utility commands
