@@ -18,7 +18,7 @@ else
 	call minpac#add('vim-airline/vim-airline-themes')
 	call minpac#add('scrooloose/nerdtree')
 	call minpac#add('ryanoasis/vim-devicons')
-  call minpac#add('sheerun/vim-polyglot', {'rev': 'v4.16.0'})
+  call minpac#add('sheerun/vim-polyglot', {'rev': 'v4.17.0'})
 	call minpac#add('prettier/vim-prettier')
 	call minpac#add('leafOfTree/vim-svelte-plugin')
 	call minpac#add('posva/vim-vue')
