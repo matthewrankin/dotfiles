@@ -1,14 +1,14 @@
 # ~/.bash_profile: executed by bash(2) for login shells
 #
 # Created by Matthew D. Rankin
-# Copyright (c) 2010-2018 Matthew D. Rankin. All rights reserved.
+# Copyright (c) 2010-2021 Matthew D. Rankin. All rights reserved.
 
 ################################
 ##### OS Agnostic Settings #####
 ################################
 
 # Determine the operating system (used in bashrc)
-os_name=`uname -s`
+os_name=$(uname -s)
 
 # Include the non-login shell settings if running bash
 if [ -n "$BASH_VERSION" ]; then
