@@ -17,9 +17,6 @@ if [ -f ~/.zsh_aliases ]; then
     . ~/.zsh_aliases
 fi
 
-# Set the editor to vim regardless of OS
-export EDITOR='vim'
-
 # history file
 HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
 SAVEHIST=20000
@@ -69,3 +66,9 @@ case $(uname) in
     # Add fuzzy finder.
     [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 esac
+
+# Set the editor to vim regardless of OS
+export EDITOR='vim'
+bindkey -v
+bindkey -M viins 'jj' vi-cmd-mode
+bindkey '^R' history-incremental-search-backward
