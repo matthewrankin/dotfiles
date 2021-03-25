@@ -37,6 +37,8 @@ dot_files_to_deploy = (
     '.tmux.mac.conf',
     '.vimrc.after',
     '.vimrc.before',
+    '.zshrc',
+    '.zsh_aliases',
 )
 
 
