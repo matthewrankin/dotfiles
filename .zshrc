@@ -25,6 +25,10 @@ HISTSIZE=50000
 # Setup the path
 path+=~/bin
 
+### Add Go
+export GOPATH=$HOME/development/go
+path+="$GOPATH/bin"
+
 #######################
 ##### Completions #####
 #######################
@@ -65,6 +69,8 @@ case $(uname) in
   Darwin)
     # Add fuzzy finder.
     [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+    PATH="/usr/local/sbin:$PATH"
 esac
 
 # Set the editor to vim regardless of OS
