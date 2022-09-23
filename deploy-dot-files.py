@@ -108,11 +108,15 @@ def main():
 
     for path, subdirs, files in os.walk('dotfiles'):
         for dot_file in files:
+            # dest removes the `dotfiles` from the path. Whereas, the src
+            # directory needs to retain `dotfiles` as part of the path.
             subpath = Path(path).relative_to(Path("dotfiles"))
+            dest_path = Path(user_home_dir, subpath)
+            # Make the destination directory if it is missing.
+            if not dest_path.is_dir():
+                dest_path.mkdir()
             dest = Path(user_home_dir, subpath, dot_file)
             src = Path(cwd, path, dot_file)
-            print(f'dest = {dest}')
-            print(f'src = {src}')
 
             if os.path.isfile(src):
                 # This particular dot file does exist in the dotfile directory,
