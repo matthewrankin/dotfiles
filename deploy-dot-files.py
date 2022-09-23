@@ -16,34 +16,6 @@ import sys
 from pathlib import Path
 
 
-# TODO(mdr): Should create a folder with the dot-files to deploy that way I
-# don't need to update a tuple. I could just scan the deploy folder and deploy
-# any dot-file found.
-
-# Tuple containing files in dot-files project
-dot_files_to_deploy = (
-    '.bash_aliases',
-    '.bash_profile',
-    '.bashrc',
-    '.chktexrc',
-    '.eslintrc.json',
-    '.git-completion.bash',
-    '.gitconfig',
-    '.gitconfig.local',
-    '.gvimrc.after',
-    '.gvimrc.before',
-    '.hgrc',
-    '.inputrc',
-    '.npmrc',
-    '.tmux.conf',
-    '.tmux.mac.conf',
-    '.vimrc.after',
-    '.vimrc.before',
-    '.zshrc',
-    '.zsh_aliases',
-)
-
-
 def is_already_linked(link_to_check, check_against_file):
     '''
     Determine if 'file' is actually a link to the dot-files directory
@@ -114,7 +86,7 @@ def main():
             dest_path = Path(user_home_dir, subpath)
             # Make the destination directory if it is missing.
             if not dest_path.is_dir():
-                dest_path.mkdir(mode=0x777,parents=True)
+                dest_path.mkdir(mode=0o777,parents=True)
             dest = Path(user_home_dir, subpath, dot_file)
             src = Path(cwd, path, dot_file)
 
