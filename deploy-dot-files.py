@@ -126,7 +126,7 @@ def main():
                         # Home directory dot-file is not a link, but is a file;
                         # therefore, let's backup this file before we delete it
                         print(f'Backing up {dest}')
-                        shutil.move(dest, dest + '.bak')
+                        shutil.move(dest, dest.with_suffix('.bak'))
                 print(f'Creating link to {src}')
                 os.symlink(src, dest)
             else:
