@@ -114,7 +114,7 @@ def main():
             dest_path = Path(user_home_dir, subpath)
             # Make the destination directory if it is missing.
             if not dest_path.is_dir():
-                dest_path.mkdir(mode=0x755,parents=True)
+                dest_path.mkdir(mode=0x777,parents=True)
             dest = Path(user_home_dir, subpath, dot_file)
             src = Path(cwd, path, dot_file)
 
