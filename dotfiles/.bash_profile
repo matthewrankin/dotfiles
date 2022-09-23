@@ -45,6 +45,11 @@ if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
   fi
 fi
 
+## Rust stuff starts her
+if [[ -s "$HOME/.cargo/env" ]]; then
+  . "$HOME/.cargo/env"
+fi
+
 ##################################
 ##### OS X Specific Settings #####
 ##################################
@@ -83,5 +88,3 @@ fi
 #######################################
 ##### End of OS Specific Settings #####
 #######################################
-
-. "$HOME/.cargo/env"
