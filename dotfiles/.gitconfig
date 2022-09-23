@@ -19,14 +19,14 @@
   email = config user.email
 [core]
   excludesfile = /Users/matthew/.gitignore
-  editor = vim -f
+  editor = nvim
 [gui]
   recentrepo = /Users/matthew/development/python/cloneqsvn
 [push]
   default = simple
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true

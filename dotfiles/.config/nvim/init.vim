@@ -18,7 +18,7 @@ else
 	call minpac#add('vim-airline/vim-airline-themes')
 	call minpac#add('scrooloose/nerdtree')
 	call minpac#add('ryanoasis/vim-devicons')
-  call minpac#add('sheerun/vim-polyglot', {'rev': 'v4.17.0'})
+  call minpac#add('sheerun/vim-polyglot')
 	call minpac#add('prettier/vim-prettier')
 	call minpac#add('leafOfTree/vim-svelte-plugin')
 	call minpac#add('posva/vim-vue')
@@ -27,8 +27,9 @@ else
   call minpac#add('majutsushi/tagbar')
   call minpac#add('tpope/vim-commentary')
   call minpac#add('fatih/vim-go')
-  call minpac#add('neoclide/coc.nvim', {'rev': 'v0.0.79'})
+	call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
 	call minpac#add('mattn/emmet-vim')
+	call minpac#add('rust-lang/rust.vim')
 
 	" minpac utility commands
 	command! PackUpdate call minpac#update()
@@ -51,7 +52,12 @@ endif
 " Color setup
 """"""""""""""""""""""""""""""""""""""""""
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-set termguicolors
+
+if $TERM =~ '^\(xterm\|putty\)\(-.*\)\?$'
+	set notermguicolors
+elseif $TERM =~ '^\(tmux\|screen\|iterm\)\(-.*\)\?$'
+	set termguicolors
+endif
 
 """"""""""""""""""""""""""""""""""""""""""
 " FZF setup
@@ -100,6 +106,7 @@ set smarttab
 set list
 set listchars=tab:\ \ ,trail:.,nbsp:+,extends:>,precedes:<
 set nowrap
+autocmd FileType text,markdown,tex setlocal textwidth=80
 " The following line isn't necessary (I think), since I'm using vim-polyglot.
 "au Filetype python setlocal tabstop=4 shiftwidth=4
 
@@ -125,6 +132,7 @@ let g:ale_linter_aliases = {'svelte': ['css', 'javascript']}
 let g:ale_linters = {'svelte': ['stylelint', 'eslint']}
 let g:ale_fixers = {
 \	'javascript': ['prettier', 'eslint'],
+\ 'json': ['prettier'],
 \	'css': ['prettier'],
 \	'svelte': ['prettier', 'eslint'],
 \	'*': ['remove_trailing_lines', 'trim_whitespace'],
@@ -143,13 +151,19 @@ autocmd BufEnter * :syntax sync fromstart
 " Go setup
 """"""""""""""""""""""""""""""""""""""""""
 filetype plugin indent on
-let g:go_fmt_command = 'goimports'
+let g:go_fmt_command = "goimports"
 let g:go_auto_type_info = 1
 au BufRead,BufNewFile *.gohtml set filetype=gohtmltmpl
 
 """"""""""""""""""""""""""""""""""""""""""
+" Rust setup
+""""""""""""""""""""""""""""""""""""""""""
+let g:rustfmt_autosave = 1
+
+""""""""""""""""""""""""""""""""""""""""""
 " CoC setup
 """"""""""""""""""""""""""""""""""""""""""
+let g:coc_node_path = '/Users/matthew/.nvm/versions/node/v16.14.2/bin/node'
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 function! s:check_back_space() abort

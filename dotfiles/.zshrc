@@ -62,6 +62,15 @@ zstyle ':completion:*' expand prefix suffix
 ############################
 eval "$(starship init zsh)"
 
+################################
+##### OS Agnostic Settings #####
+################################
+
+# Load nvm if it exists
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
 ###################################
 ##### macOS Specific Settings #####
 ###################################
@@ -71,6 +80,15 @@ case $(uname) in
     [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
     PATH="/usr/local/sbin:$PATH"
+
+    # Setup gmake as make
+    PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
+
+    ## Python stuff starts here
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init --path)"
+    eval "$(pyenv init -)"
 esac
 
 # Set the editor to vim regardless of OS
