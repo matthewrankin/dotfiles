@@ -23,6 +23,7 @@ else
   call minpac#add('sheerun/vim-polyglot')
 	call minpac#add('prettier/vim-prettier')
 	call minpac#add('leafOfTree/vim-svelte-plugin')
+	call minpac#add('norcalli/nvim-colorizer.lua')
 	call minpac#add('posva/vim-vue')
 	call minpac#add('elzr/vim-json')
 	call minpac#add('junegunn/vim-slash')
@@ -59,6 +60,8 @@ if $TERM =~ '^\(xterm\|putty\)\(-.*\)\?$'
 elseif $TERM =~ '^\(tmux\|screen\|iterm\)\(-.*\)\?$'
 	set termguicolors
 endif
+
+lua require'colorizer'.setup()
 
 """"""""""""""""""""""""""""""""""""""""""
 " FZF setup
