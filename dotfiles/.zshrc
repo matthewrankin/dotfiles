@@ -96,3 +96,5 @@ export EDITOR='vim'
 bindkey -v
 bindkey -M viins 'jj' vi-cmd-mode
 bindkey '^R' history-incremental-search-backward
+
+[ -f "/Users/matthew/.ghcup/env" ] && source "/Users/matthew/.ghcup/env" # ghcup-env
