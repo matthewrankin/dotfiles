@@ -80,6 +80,7 @@ case $(uname) in
     [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
     PATH="/usr/local/sbin:$PATH"
+    PATH="$HOME/.luarocks/bin:$PATH"
 
     # Setup gmake as make
     PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
