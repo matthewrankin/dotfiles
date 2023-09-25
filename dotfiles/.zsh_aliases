@@ -5,10 +5,10 @@
 # can be found in the LICENSE file for the project.
 
 # ls aliases
-alias lla='ls -lAF'
-alias ll='ls -l'
-alias la='ls -AF'
-alias l='ls -CF'
+alias lla='ls -lAFG'
+alias ll='ls -lG'
+alias la='ls -AFG'
+alias l='ls -CFG'
 
 # history aliases
 alias 'h=history | tail'
