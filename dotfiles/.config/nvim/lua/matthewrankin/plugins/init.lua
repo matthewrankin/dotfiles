@@ -1,3 +1,5 @@
 return {
-	"christoomey/vim-tmux-navigator"
+	'christoomey/vim-tmux-navigator',
+  'theprimeagen/harpoon',
+  'mbbill/undotree',
 }

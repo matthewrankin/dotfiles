@@ -1,7 +1,7 @@
 return {
-	"bluz71/vim-nightfly-guicolors",
+	"rose-pine/neovim",
 	priority = 1000, -- load before all other plugins.
 	config = function()
-		vim.cmd([[colorscheme nightfly]])
+		vim.cmd([[colorscheme rose-pine]])
 	end,
 }

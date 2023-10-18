@@ -5,10 +5,6 @@ vim.g.loaded_netrwPlugin = 1
 -- Color
 vim.opt.termguicolors = true
 
--- Line numbers
-vim.opt.number = true
-vim.opt.relativenumber = true
-
 -- Tabs and indentation
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
@@ -18,8 +14,14 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.smarttab = true
 
--- Line wrapping
+-- Line numbering, wrapping, and ending
+vim.opt.number = true
+vim.opt.relativenumber = true
 vim.opt.wrap = false
+vim.opt.colorcolumn = "80"
+
+-- 
+-- vim.opt.matchparen = true
 
 -- Undo and backups
 vim.opt.swapfile = false
@@ -36,6 +38,5 @@ vim.opt.scrolloff = 5
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
+-- Fast update time
 vim.opt.updatetime = 50
-
-vim.opt.colorcolumn = "80"
