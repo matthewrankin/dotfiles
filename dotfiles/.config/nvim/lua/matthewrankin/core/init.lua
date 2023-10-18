@@ -1,2 +1,2 @@
-require("matthewrankin.core.set")
-require("matthewrankin.core.remap")
+require("matthewrankin.core.options")
+require("matthewrankin.core.keymaps")
