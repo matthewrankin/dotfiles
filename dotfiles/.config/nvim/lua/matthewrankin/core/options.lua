@@ -1,3 +1,6 @@
+-- Set leader key
+vim.g.mapleader = " "
+
 -- Disable netrw, since I'm using nvim-tree.
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -20,18 +23,15 @@ vim.opt.relativenumber = true
 vim.opt.wrap = false
 vim.opt.colorcolumn = "80"
 
--- 
--- vim.opt.matchparen = true
+-- Search 
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
 
 -- Undo and backups
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
-
--- Search 
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
 
 -- Scrolling
 vim.opt.scrolloff = 5
