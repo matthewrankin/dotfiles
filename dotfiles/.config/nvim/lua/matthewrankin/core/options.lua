@@ -23,7 +23,7 @@ vim.opt.relativenumber = true
 vim.opt.wrap = false
 vim.opt.colorcolumn = "80"
 
--- Search 
+-- Search improvements
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
