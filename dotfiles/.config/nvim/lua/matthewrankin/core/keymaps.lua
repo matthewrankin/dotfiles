@@ -41,7 +41,8 @@ vim.keymap.set("n", "<leader>s", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>x", "<cmd>lprev<CR>zz")
 
 -- Change the current word and all matches
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set(
+  "n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Make file executable
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
