@@ -3,18 +3,20 @@
 ## Included Configuration Files ##
 
 These are the configuration files (dot files) that I use for my MacBook
-and Ubuntu servers/slices. Files have been included for:
+and Ubuntu servers/slices. Some of the configuration files include:
 
-- [Bash][]
-- [ChkTeX][]
-- [Git][]
-- [GNU Readline Library][readline] to enable `vi` command line editing
-  mode
-- [Mercurial][]
+- [bash][]
+- [chktex][]
+- eslint
+- [git][]
+- [neovim][]
 - [npm][]
-- [RVM][]
-- [Tmux][]
-- [Vim][] using [Janus][]
+- [rvm][]
+- [tmux][]
+- zsh
+
+In October 2023, I converted my old Vim configuration using mainly Vim script
+to Neovim using Lua.
 
 ## Initial Setup ##
 
@@ -22,7 +24,8 @@ To start using this repository, run:
 
 1. Clone the repositoiry using `git clone
    https://github.com/matthewrankin/dotfiles.git`
-2. Deploy the dot-files by running `./deploy_dot_files.py`
+2. Deploy the dot-files by running `./deploy_dot_files.py`, which will create
+   aliases in the proper directories.
 
 ## Update from Github ##
 
@@ -58,11 +61,9 @@ This script does the following:
 [dotfiles]: https://github.com/matthewrankin/dotfiles
 [git]: https://git-scm.com
 [github]: https://github.com
-[janus]: https://github.com/carlhuda/janus
 [LICENSE.txt]: https://github.com/matthewrankin/dotfiles/blob/master/LICENSE.txt
-[mercurial]: https://www.mercurial-scm.org
+[neovim]: https://neovim.io/
 [npm]: https://docs.npmjs.com
-[readline]: https://cnswww.cns.cwru.edu/php/chet/readline/readline.html
 [rvm]: http://rvm.io
 [tmux]: https://tmux.github.io
 [vim]: http://www.vim.org
