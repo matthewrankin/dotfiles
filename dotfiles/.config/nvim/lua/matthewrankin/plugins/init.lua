@@ -1,3 +1,4 @@
 return {
-	'christoomey/vim-tmux-navigator',
+  "nvim-lua/plenary.nvim", -- used by many plugins
+  "christoomey/vim-tmux-navigator",
 }
