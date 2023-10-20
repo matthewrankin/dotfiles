@@ -23,6 +23,14 @@ vim.opt.relativenumber = true
 vim.opt.wrap = false
 vim.opt.colorcolumn = "80"
 
+-- List characters
+vim.opt.listchars = {
+  eol = '↲',
+  tab = '▸ ',
+  trail = '·',
+}
+vim.opt.list = true
+
 -- Search improvements
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
