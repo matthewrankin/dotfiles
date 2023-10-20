@@ -20,7 +20,7 @@ return {
     {'rafamadriz/friendly-snippets'},
   },
   config = function()
-		local lsp = require('lsp-zero')
+    local lsp = require('lsp-zero')
     lsp.preset('recommended')
     local cmp = require('cmp')
     local cmp_select = {behavior = cmp.SelectBehavior.Select}
@@ -36,6 +36,7 @@ return {
 
     lsp.on_attach(function(client, bufnr)
       local opts = {buffer = bufnr, remap = false}
+      lsp.buffer_autoformat()
 
       vim.keymap.set("n", "gd",
         function() vim.lsp.buf.definition() end, opts)
