@@ -18,18 +18,19 @@ return {
 
     mason_lspconfig.setup({
       ensure_installed = {
-        "html",
-        "cssls",
-        "tailwindcss",
-        "tsserver",
-        "jsonls",
-        "marksman",
-        "golangci_lint_ls",
-        "ltex",
-        "svelte",
-        "lua_ls",
-        "emmet_ls",
-        "pyright",
+        "html",             -- HTML
+        "cssls",            -- CSS
+        "tailwindcss",      -- Tailwind CSS
+        "tsserver",         -- JavaScript/TypeScript
+        "jsonls",           -- JSON
+        "marksman",         -- Markdown
+        "golangci_lint_ls", -- Go LSP
+        "gopls",            -- Gopls
+        "ltex",             -- LaTeX
+        "svelte",           -- Svelte
+        "lua_ls",           -- Lua
+        "emmet_ls",         -- Emmet HTML/CSS snippets
+        "pyright",          -- Python
       },
       automatic_installation = true,
     })
