@@ -1,6 +1,6 @@
-# README #
+# README
 
-## Included Configuration Files ##
+## Included Configuration Files
 
 These are the configuration files (dot files) that I use for my MacBook
 and Ubuntu servers/slices. Some of the configuration files include:
@@ -18,16 +18,16 @@ and Ubuntu servers/slices. Some of the configuration files include:
 In October 2023, I converted my old Vim configuration using mainly Vim script
 to Neovim using Lua.
 
-## Initial Setup ##
+## Initial Setup
 
 To start using this repository, run:
 
 1. Clone the repositoiry using `git clone
-   https://github.com/matthewrankin/dotfiles.git`
+https://github.com/matthewrankin/dotfiles.git`
 2. Deploy the dot-files by running `./deploy_dot_files.py`, which will create
    aliases in the proper directories.
 
-## Update from Github ##
+## Update from Github
 
 Whenever you want to pull the latest updates from [GitHub][] use:
 
@@ -35,7 +35,7 @@ Whenever you want to pull the latest updates from [GitHub][] use:
 $ git pull
 ```
 
-## What does `deploy_dot_files.py` actually do? ##
+## What does `deploy_dot_files.py` actually do?
 
 This script does the following:
 
