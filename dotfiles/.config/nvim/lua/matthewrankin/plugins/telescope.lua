@@ -29,13 +29,21 @@ return {
 		local keymap = vim.keymap
 		local builtin = require("telescope.builtin")
 
-		keymap.set("n", "<leader>ff", builtin.find_files, {
+		local git_files_with_untracked = function()
+			builtin.git_files({ show_untracked = true })
+		end
+
+		local find_files_include_hidden = function()
+			builtin.find_files({ hidden = true })
+		end
+
+		keymap.set("n", "<leader>ff", find_files_include_hidden, {
 			desc = "Search for files respecting .gitignore",
 		})
 		keymap.set("n", "<leader>fr", builtin.oldfiles, {
 			desc = "Fuzzy find recent files",
 		})
-		keymap.set("n", "<C-p>", builtin.git_files, {
+		keymap.set("n", "<C-p>", git_files_with_untracked, {
 			desc = "Fuzzy search for files tracked by git respecting .gitignore",
 		})
 		keymap.set("n", "<leader>fs", builtin.live_grep, {
