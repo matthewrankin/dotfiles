@@ -25,9 +25,9 @@ vim.opt.colorcolumn = "80"
 
 -- List characters
 vim.opt.listchars = {
-  eol = '↵',
-  tab = '▸ ',
-  trail = '·',
+  eol = "↵",
+  tab = "▸ ",
+  trail = "·",
   precedes = "«",
   extends = "»"
 }
