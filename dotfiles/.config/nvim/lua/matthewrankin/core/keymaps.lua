@@ -13,10 +13,13 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- Greatest remap ever
+-- Greatest remap ever. Delete highlighted word into the void register and then
+-- paste, so that we keep our paste the same in the future.
 vim.keymap.set("x", "<leader>p", '"_dP')
 
--- Next greatest remap ever.
+-- Next greatest remap ever. Yank into the system clipboard using <leader>y in
+-- either normal or visual mode or in normal mode yank to the end of the line
+-- using <leader>Y.
 vim.keymap.set("n", "<leader>y", '"+y')
 vim.keymap.set("v", "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>Y", '"+Y')
