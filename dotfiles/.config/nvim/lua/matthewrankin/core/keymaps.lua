@@ -14,26 +14,25 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- Greatest remap ever. Delete highlighted word into the void register and then
--- paste, so that we keep our paste the same in the future.
+-- paste, so that we keep our paste the same in the future. No longer needed as
+-- of Vim 8.2.4881 and Neovim v0.8.0, as you can paste using P for the same
+-- action.
 vim.keymap.set("x", "<leader>p", '"_dP')
 
 -- Next greatest remap ever. Yank into the system clipboard using <leader>y in
 -- either normal or visual mode or in normal mode yank to the end of the line
 -- using <leader>Y.
-vim.keymap.set("n", "<leader>y", '"+y')
-vim.keymap.set("v", "<leader>y", '"+y')
+vim.keymap.set({ "n", "v" }, "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>Y", '"+Y')
 
-vim.keymap.set("n", "<leader>d", '"_d')
-vim.keymap.set("v", "<leader>d", '"_d')
+vim.keymap.set({ "n", "v" }, "<leader>d", '"_d')
 
 -- Never press Q
 vim.keymap.set("n", "Q", "<nop>")
 
+-- Need to find a different keymap for this command, as I don't want to
+-- overwrite the typical usage of <C-f>.
 -- vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-vim.keymap.set("n", "<leader>f", function()
-  vi.lsp.buf.format()
-end)
 
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")

@@ -34,6 +34,12 @@ return {
       opts.desc = "Smart rename"
       keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
+      -- From ThePrimeagen — Do I actually need/use?
+      opts.desc = "Format buffer using attached language server client"
+      keymap.set("n", "<leader>f", function()
+        vim.lsp.buf.format()
+      end, opts)
+
       opts.desc = "Show buffer diagnostics"
       keymap.set(
         "n",
