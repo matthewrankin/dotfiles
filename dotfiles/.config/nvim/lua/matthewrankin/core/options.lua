@@ -19,10 +19,10 @@ vim.opt.smarttab = true
 
 -- Set textwidth if this is a markdown document.
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "markdown", "text", "tex" },
-	callback = function()
-		vim.opt_local.textwidth = 80
-	end,
+  pattern = { "markdown", "text", "tex" },
+  callback = function()
+    vim.opt_local.textwidth = 80
+  end,
 })
 
 -- Line numbering, wrapping, and ending
@@ -33,11 +33,11 @@ vim.opt.colorcolumn = "80"
 
 -- List characters
 vim.opt.listchars = {
-	eol = "↵",
-	tab = "▸ ",
-	trail = "·",
-	precedes = "«",
-	extends = "»",
+  eol = "↵",
+  tab = "▸ ",
+  trail = "·",
+  precedes = "«",
+  extends = "»",
 }
 vim.opt.list = true
 
