@@ -23,6 +23,11 @@ return {
         async = false,
         timeout_ms = 500,
       },
+      formatters = {
+        golines = {
+          prepend_args = { "-m", "80" },
+        },
+      },
     })
 
     vim.keymap.set({ "n", "v" }, "<leader>mp", function()
