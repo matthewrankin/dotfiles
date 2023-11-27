@@ -25,11 +25,12 @@ return {
       },
       formatters = {
         golines = {
-          prepend_args = { "-m", "80" },
+          prepend_args = { "-m", "100" },
         },
       },
     })
 
+    -- mp = make pretty
     vim.keymap.set({ "n", "v" }, "<leader>mp", function()
       conform.format({
         lsp_fallback = true,
