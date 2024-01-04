@@ -39,7 +39,7 @@ vim.opt.listchars = {
   precedes = "«",
   extends = "»",
 }
-vim.opt.list = true
+-- vim.opt.list = true
 
 -- Search improvements
 vim.opt.ignorecase = true
