@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # Copyright (c) 2009-2023 Matthew Rankin. All rights reserved.
 # Project site: https://github.com/matthewrankin/dotfiles
