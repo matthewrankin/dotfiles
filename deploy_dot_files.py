@@ -59,7 +59,7 @@ def add_git_default_push():
         if line.startswith('[push]'):
             found_push_section = True
         elif found_push_section and line.startswith('  default ='):
-            line = '  default = {}\n'.format(desired_push_default)
+            line = f"  default = {desired_push_default}\n"
             found_push_section = False
         elif found_push_section and line.startswith('['):
             found_push_section = False
@@ -68,9 +68,9 @@ def add_git_default_push():
 
 def main():
     '''
-    Check to see if the .bash and .git files are already symbolic links. If
-    they are then don't make a backup, delete the link, and create a new one.
-    If they are not symbolic links, then make a backup and create the links.
+    Check to see if the dotfiles are already symbolic links. If they are then
+    don't make a backup, delete the link, and create a new one. If they are not
+    symbolic links, then make a backup and create the links.
     '''
     user_home_dir = Path.home()
     cwd = os.getcwd()
@@ -78,7 +78,7 @@ def main():
     print(f'user_home_dir = {user_home_dir}')
     print(f'dot_files_dir = {dot_files_dir}')
 
-    for path, subdirs, files in os.walk('dotfiles'):
+    for path, _, files in os.walk('dotfiles'):
         for dot_file in files:
             # dest removes the `dotfiles` from the path. Whereas, the src
             # directory needs to retain `dotfiles` as part of the path.

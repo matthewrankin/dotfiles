@@ -18,7 +18,7 @@
   stash-unapply = !git stash show -p | git apply -R
   email = config user.email
 [core]
-  excludesfile = /Users/matthew/.gitignore
+  ; excludesfile = /Users/matthew/.gitignore
   editor = nvim
 [gui]
   recentrepo = /Users/matthew/development/python/cloneqsvn
