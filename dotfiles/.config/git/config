@@ -1,6 +1,6 @@
 [user]
   name = "Matthew Rankin"
-	signingkey = 69EC69B34A15E0E1
+	signingkey = 536F1B03E9308185
 ;[include]
   ;path = ~/.gitconfig.local
 [color]
