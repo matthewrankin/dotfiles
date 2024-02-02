@@ -1,5 +1,6 @@
 [user]
   name = "Matthew Rankin"
+	signingkey = 69EC69B34A15E0E1
 ;[include]
   ;path = ~/.gitconfig.local
 [color]
@@ -48,3 +49,5 @@
 	defaultBranch = main
 [pull]
 	rebase = false
+[commit]
+	gpgsign = true

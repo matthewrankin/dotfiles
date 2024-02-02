@@ -97,6 +97,9 @@ case $(uname) in
     export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init --path)"
     eval "$(pyenv init -)"
+
+    # GitHub GPG signing
+    export GPG_TTY=$(tty)
 esac
 
 # Set the editor to vim regardless of OS
