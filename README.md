@@ -7,7 +7,7 @@ and Ubuntu servers/slices. Some of the configuration files include:
 
 - [bash][]
 - [chktex][]
-- eslint
+- [eslint][]
 - [git][]
 - [neovim][]
 - [npm][]
@@ -59,6 +59,7 @@ This script does the following:
 [bash]: https://www.gnu.org/software/bash/bash.html
 [chktex]: http://www.nongnu.org/chktex/
 [dotfiles]: https://github.com/matthewrankin/dotfiles
+[eslint]: https://eslint.org/
 [git]: https://git-scm.com
 [github]: https://github.com
 [LICENSE.txt]: https://github.com/matthewrankin/dotfiles/blob/master/LICENSE.txt
