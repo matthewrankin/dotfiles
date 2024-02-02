@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Copyright (c) 2009-2023 Matthew Rankin. All rights reserved.
+# Copyright (c) 2009-2024 Matthew Rankin. All rights reserved.
 # Project site: https://github.com/matthewrankin/dotfiles
 # Use of this source code is governed by a MIT-style license that
 # can be found in the LICENSE.txt file for the project.
