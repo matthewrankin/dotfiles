@@ -100,6 +100,7 @@ case $(uname) in
 
     # GitHub GPG signing
     export GPG_TTY=$(tty)
+    gpgconf --launch gpg-agent
 esac
 
 # Set the editor to vim regardless of OS

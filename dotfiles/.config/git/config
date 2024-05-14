@@ -1,5 +1,6 @@
 [user]
   name = "Matthew Rankin"
+	email = matthewrankin@users.noreply.github.com
 	signingkey = 536F1B03E9308185
 ;[include]
   ;path = ~/.gitconfig.local
