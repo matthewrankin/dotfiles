@@ -1,3 +1,13 @@
+-- Set leader key
+vim.g.mapleader = " "
+
+vim.keymap.set(
+  "n",
+  "<leader>nh",
+  ":nohl<CR>",
+  { desc = "Clear search highlights" }
+)
+
 -- Allow moving lines when visually selected.
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
