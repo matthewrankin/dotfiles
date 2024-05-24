@@ -4,6 +4,7 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    "nvim-telescope/telescope-ui-select.nvim",
     "nvim-tree/nvim-web-devicons",
   },
   config = function()
@@ -18,13 +19,13 @@ return {
           i = {
             ["<C-k>"] = actions.move_selection_previous,
             ["<C-j>"] = actions.move_selection_next,
-            ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
           },
         },
       },
     })
 
     telescope.load_extension("fzf")
+    telescope.load_extension("ui-select")
 
     -- set keymaps
     local keymap = vim.keymap
