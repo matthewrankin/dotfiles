@@ -1,5 +1,6 @@
 return {
   "goolord/alpha-nvim",
+  event = "VimEnter",
   config = function()
     local alpha = require("alpha")
     local dashboard = require("alpha.themes.dashboard")
@@ -23,6 +24,11 @@ return {
         "SPC ee",
         "  > Toggle file explorer",
         "<cmd>NvimTreeToggle<CR>"
+      ),
+      dashboard.button(
+        "Ctrl-p",
+        "󰱼  > Find File",
+        "<cmd>Telescope git_files<CR>"
       ),
       dashboard.button(
         "SPC ff",
