@@ -12,6 +12,7 @@ return {
 
     telescope.setup({
       defaults = {
+        path_display = { "truncate" },
         layout_strategy = "vertical",
         mappings = {
           i = {
@@ -34,23 +35,29 @@ return {
     end, {
       desc = "Search for files respecting .gitignore",
     })
+
     keymap.set("n", "<leader>fr", builtin.oldfiles, {
       desc = "Fuzzy find recent files",
     })
+
     keymap.set("n", "<C-p>", function()
       builtin.git_files({ show_untracked = true })
     end, {
-      desc = "Fuzzy search for files tracked by git respecting .gitignore",
+      desc = "Search for git tracked & untracked files respecting .gitignore",
     })
+
     keymap.set("n", "<leader>fs", function()
       builtin.live_grep({ additional_args = { "--hidden" } })
     end, {
       desc = "Find string",
     })
+
     keymap.set("n", "<leader>fc", builtin.grep_string, {
       desc = "Find string under cursor",
     })
+
     keymap.set("n", "<leader>fb", builtin.buffers, {})
+
     keymap.set("n", "<leader>fh", builtin.help_tags, {})
   end,
 }
