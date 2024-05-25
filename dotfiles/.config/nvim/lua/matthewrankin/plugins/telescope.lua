@@ -34,17 +34,17 @@ return {
     keymap.set("n", "<leader>ff", function()
       builtin.find_files({ hidden = true })
     end, {
-      desc = "Search for files respecting .gitignore",
-    })
-
-    keymap.set("n", "<leader>fr", builtin.oldfiles, {
-      desc = "Fuzzy find recent files",
+      desc = "Find files (respect .gitignore)",
     })
 
     keymap.set("n", "<C-p>", function()
       builtin.git_files({ show_untracked = true })
     end, {
-      desc = "Search for git tracked & untracked files respecting .gitignore",
+      desc = "Find tracked & untracked git files (respect .gitignore)",
+    })
+
+    keymap.set("n", "<leader>fr", builtin.oldfiles, {
+      desc = "Fuzzy find recent files",
     })
 
     keymap.set("n", "<leader>fs", function()
@@ -59,6 +59,11 @@ return {
 
     keymap.set("n", "<leader>fb", builtin.buffers, {})
 
-    keymap.set("n", "<leader>fh", builtin.help_tags, {})
+    keymap.set(
+      "n",
+      "<leader>fh",
+      builtin.help_tags,
+      { desc = "Find help tags" }
+    )
   end,
 }

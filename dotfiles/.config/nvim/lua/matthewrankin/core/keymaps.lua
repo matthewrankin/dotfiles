@@ -36,16 +36,26 @@ keymap.set("n", "N", "Nzzzv")
 keymap.set({ "n", "v" }, "<leader>y", '"+y')
 keymap.set("n", "<leader>Y", '"+Y')
 
-vim.keymap.set({ "n", "v" }, "<leader>d", '"_d')
+keymap.set({ "n", "v" }, "<leader>d", '"_d')
 
 -- Never press Q
 keymap.set("n", "Q", "<nop>")
 
 -- Quickfix navigation
-keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
-keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
-keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz", { desc = "Next in quickfix" })
+keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz", { desc = "Prev in quickfix" })
+keymap.set(
+  "n",
+  "<leader>j",
+  "<cmd>lnext<CR>zz",
+  { desc = "Next in location list" }
+)
+keymap.set(
+  "n",
+  "<leader>k",
+  "<cmd>lprev<CR>zz",
+  { desc = "Prev in location list" }
+)
 
 -- Change the current word and all matches
 keymap.set(
