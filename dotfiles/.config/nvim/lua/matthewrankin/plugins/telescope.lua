@@ -48,9 +48,15 @@ return {
     })
 
     keymap.set("n", "<leader>fs", function()
-      builtin.live_grep({ additional_args = { "--hidden" } })
+      builtin.live_grep()
     end, {
       desc = "Find string",
+    })
+
+    keymap.set("n", "<leader>fS", function()
+      builtin.live_grep({ additional_args = { "--hidden" } })
+    end, {
+      desc = "Find string (include hidden)",
     })
 
     keymap.set("n", "<leader>fc", builtin.grep_string, {
