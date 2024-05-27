@@ -29,7 +29,7 @@ return {
         "marksman", -- Markdown
         "golangci_lint_ls", -- Go LSP
         "gopls", -- Gopls
-        "ltex", -- LaTeX
+        "texlab", -- LaTeX
         "svelte", -- Svelte
         "lua_ls", -- Lua
         "emmet_ls", -- Emmet HTML/CSS snippets

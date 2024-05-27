@@ -128,7 +128,7 @@ return {
       },
     })
 
-    lspconfig["ltex"].setup({
+    lspconfig["texlab"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
