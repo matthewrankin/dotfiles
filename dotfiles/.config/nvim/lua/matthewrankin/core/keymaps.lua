@@ -33,15 +33,28 @@ keymap.set("n", "N", "Nzzzv")
 -- Next greatest remap ever. Yank into the system clipboard using <leader>y in
 -- either normal or visual mode or in normal mode yank to the end of the line
 -- using <leader>Y.
-keymap.set({ "n", "v" }, "<leader>y", '"+y')
-keymap.set("n", "<leader>Y", '"+Y')
+keymap.set(
+  { "n", "v" },
+  "<leader>y",
+  '"+y',
+  { desc = "Yank to system clipboard" }
+)
+keymap.set("n", "<leader>Y", '"+Y', { desc = "Yank line to sys clipboard" })
 
-keymap.set({ "n", "v" }, "<leader>d", '"_d')
+-- This keymap in normal mode is overwritten in my lspconfig.lua
+keymap.set(
+  { "n", "v" },
+  "<leader>d",
+  '"_d',
+  { desc = "Delete to void register" }
+)
 
--- Never press Q
+-- Never press Q per ThePrimeagen <https://youtu.be/w7i4amO_zaE?t=1692>
 keymap.set("n", "Q", "<nop>")
 
--- Quickfix navigation
+-- Quickfix navigation per ThePrimeagen <https://youtu.be/w7i4amO_zaE?t=1717>
+-- except I swapped j and k so that j goes down and k up the same as all other
+-- vim movements.
 keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz", { desc = "Next in quickfix" })
 keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz", { desc = "Prev in quickfix" })
 keymap.set(

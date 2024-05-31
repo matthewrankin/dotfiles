@@ -35,6 +35,7 @@ return {
       keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
       -- From ThePrimeagen — Do I actually need/use?
+      -- I mainly use <leader>f as a group with a second letter to handle
       opts.desc = "Format buffer using attached language server client"
       keymap.set("n", "<leader>f", function()
         vim.lsp.buf.format()

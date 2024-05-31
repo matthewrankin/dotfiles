@@ -63,7 +63,9 @@ return {
       desc = "Find string under cursor",
     })
 
-    keymap.set("n", "<leader>fb", builtin.buffers, {})
+    keymap.set("n", "<leader>fb", builtin.buffers, {
+      desc = "List open buffers",
+    })
 
     keymap.set(
       "n",

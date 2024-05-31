@@ -27,12 +27,12 @@ return {
       ),
       dashboard.button(
         "Ctrl-p",
-        "󰱼  > Find File",
+        "󰱼  > Find Git Files w/ Untracked",
         "<cmd>Telescope git_files<CR>"
       ),
       dashboard.button(
         "SPC ff",
-        "󰱼  > Find File",
+        "󰱼  > Find Files in Directory",
         "<cmd>Telescope find_files<CR>"
       ),
       dashboard.button(
