@@ -32,7 +32,7 @@ return {
     local builtin = require("telescope.builtin")
 
     keymap.set("n", "<leader>ff", function()
-      builtin.find_files({ hidden = true })
+      builtin.find_files({ hidden = true, no_ignore = false })
     end, {
       desc = "Find files (respect .gitignore)",
     })
