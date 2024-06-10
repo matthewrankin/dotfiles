@@ -12,6 +12,7 @@ return {
       ["<leader>e"] = { name = "+explorer commands" },
       ["<leader>f"] = { name = "+find commands" },
       ["<leader>t"] = { name = "+tab commands" },
+      ["<leader>x"] = { name = "+trouble commands" },
     })
   end,
 }
