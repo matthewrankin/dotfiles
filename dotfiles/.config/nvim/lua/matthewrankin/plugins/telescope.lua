@@ -59,8 +59,15 @@ return {
       desc = "Find string (include hidden)",
     })
 
-    keymap.set("n", "<leader>fc", builtin.grep_string, {
-      desc = "Find string under cursor",
+    keymap.set("n", "<leader>fw", builtin.grep_string, {
+      desc = "Find word under cursor in cwd",
+    })
+
+    keymap.set("n", "<leader>fW", function()
+      local word = vim.fn.expand("<cWORD>")
+      builtin.grep_string({ search = word })
+    end, {
+      desc = "Find WORD under cursor in cwd",
     })
 
     keymap.set("n", "<leader>fb", builtin.buffers, {
