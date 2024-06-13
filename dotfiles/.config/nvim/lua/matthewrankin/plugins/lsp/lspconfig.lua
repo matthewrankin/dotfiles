@@ -108,9 +108,19 @@ return {
       cmd = { "gopls" },
       on_attach = on_attach,
       capabilities = capabilities,
+      filetypes = {
+        "go",
+        "gomod",
+        "gowork",
+        "gohtml",
+        "gotmpl",
+        "go.html",
+        "go.tmpl",
+      },
       settings = {
         gopls = {
           experimentalPostfixCompletions = true,
+          completeUnimported = true,
           analyses = {
             unusedparams = true,
             shadow = true,
