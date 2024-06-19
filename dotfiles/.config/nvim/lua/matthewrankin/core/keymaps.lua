@@ -3,8 +3,6 @@ vim.g.mapleader = " "
 
 local set = vim.keymap.set -- for conciseness
 
--- use jk to exit insert mode
-set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 -- clear search highlights set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- Allow moving lines when visually selected.
