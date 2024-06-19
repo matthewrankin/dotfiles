@@ -34,6 +34,7 @@ return {
         "lua_ls", -- Lua
         "emmet_ls", -- Emmet HTML/CSS snippets
         "pyright", -- Python
+        "zls", -- Zig
       },
       automatic_installation = true,
     })
