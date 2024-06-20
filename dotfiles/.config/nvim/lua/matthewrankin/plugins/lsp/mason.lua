@@ -33,8 +33,8 @@ return {
         "svelte", -- Svelte
         "lua_ls", -- Lua
         "emmet_ls", -- Emmet HTML/CSS snippets
-        "pyright", -- Python
         "zls", -- Zig
+        "ruff_lsp", -- Python
       },
       automatic_installation = true,
     })
@@ -43,14 +43,11 @@ return {
       ensure_installed = {
         "prettier", -- prettier formatter
         "stylua", -- lua formatter
-        "isort", -- python formatter
-        "black", -- python formatter
-        "pylint", -- python linter
         "eslint_d", -- js linter
         "golangci_lint_ls",
-        "flake8",
         "goimports",
         "golines",
+        "ruff", -- python formatter/linter
       },
     })
   end,
