@@ -17,8 +17,8 @@ alias la='ls -AF'
 alias l='ls -CF'
 
 # Alias history
-alias 'h=history | tail'
-alias 'hg=history | grep'
+alias 'h=history | tail -n 15'
+alias 'hg=history | rg'
 
 # Alias cd
 alias ..='cd ..'
