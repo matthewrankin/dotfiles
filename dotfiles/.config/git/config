@@ -19,6 +19,8 @@
   ls = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
   stash-unapply = !git stash show -p | git apply -R
   email = config user.email
+  resetperm = !git diff -p -R --no-ext-diff --no-color --diff-filter=M | rg \"^(diff|(old|new) mode)\" --color=never | git apply
+  aliases = config --get-regexp '^alias\\.'
 [core]
   ; excludesfile = /Users/matthew/.gitignore
   editor = nvim
