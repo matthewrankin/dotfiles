@@ -32,6 +32,7 @@ return {
           "yaml",
           "html",
           "css",
+          "templ",
           "markdown",
           "markdown_inline",
           "dockerfile",

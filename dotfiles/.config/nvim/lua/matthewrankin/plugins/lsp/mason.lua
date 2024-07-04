@@ -24,6 +24,7 @@ return {
         "html", -- HTML
         "cssls", -- CSS
         "tailwindcss", -- Tailwind CSS
+        "templ",
         "tsserver", -- JavaScript/TypeScript
         "jsonls", -- JSON
         "marksman", -- Markdown

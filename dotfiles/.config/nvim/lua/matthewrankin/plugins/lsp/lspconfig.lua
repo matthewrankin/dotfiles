@@ -69,42 +69,56 @@ return {
     end
 
     -- Configure the various language servers.
-    lspconfig["html"].setup({
+    lspconfig.templ.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+    })
+
+    lspconfig.html.setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      filetypes = { "html", "templ" },
+    })
+
+    lspconfig.cssls.setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
-    lspconfig["cssls"].setup({
+    lspconfig.tailwindcss.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+      init_options = { userLanguages = { templ = "html" } },
+    })
+
+    lspconfig.htmx.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      filetypes = { "html", "temp" },
+    })
+
+    lspconfig.tsserver.setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
-    lspconfig["tailwindcss"].setup({
+    lspconfig.jsonls.setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
-    lspconfig["tsserver"].setup({
+    lspconfig.marksman.setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
-    lspconfig["jsonls"].setup({
+    lspconfig.golangci_lint_ls.setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
-    lspconfig["marksman"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-
-    lspconfig["golangci_lint_ls"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-
-    lspconfig["gopls"].setup({
+    lspconfig.gopls.setup({
       cmd = { "gopls" },
       on_attach = on_attach,
       capabilities = capabilities,
@@ -133,12 +147,12 @@ return {
       },
     })
 
-    lspconfig["texlab"].setup({
+    lspconfig.texlab.setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
-    lspconfig["svelte"].setup({
+    lspconfig.svelte.setup({
       capabilities = capabilities,
       on_attach = function(client, bufnr)
         on_attach(client, bufnr)
@@ -154,7 +168,7 @@ return {
       end,
     })
 
-    lspconfig["lua_ls"].setup({
+    lspconfig.lua_ls.setup({
       capabilities = capabilities,
       on_attach = on_attach,
       settings = { -- custom settings for lua
@@ -174,7 +188,7 @@ return {
       },
     })
 
-    lspconfig["emmet_ls"].setup({
+    lspconfig.emmet_ls.setup({
       capabilities = capabilities,
       on_attach = on_attach,
       filetypes = {
@@ -189,22 +203,22 @@ return {
       },
     })
 
-    lspconfig["ruff"].setup({
+    lspconfig.ruff.setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
-    lspconfig["ruff_lsp"].setup({
+    lspconfig.ruff_lsp.setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
-    lspconfig["jqls"].setup({
+    lspconfig.jqls.setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
-    lspconfig["taplo"].setup({
+    lspconfig.taplo.setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
