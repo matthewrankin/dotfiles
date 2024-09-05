@@ -6,6 +6,7 @@ vim.opt.background = "dark"
 vim.opt.cursorline = true
 
 -- Tabs and indentation
+vim.opt.breakindent = true
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
@@ -18,7 +19,7 @@ vim.opt.smarttab = true
 vim.opt.backspace = "indent,eol,start"
 
 -- Clipboard
-vim.opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+vim.opt.clipboard = "unnamedplus" -- use system clipboard as default register
 
 -- Split windows
 vim.opt.splitright = true -- split vertical window to the right
@@ -65,6 +66,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+vim.opt.inccommand = "split"
 
 -- Undo and backups
 vim.opt.swapfile = false
@@ -78,4 +80,5 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 -- Fast update time
-vim.opt.updatetime = 50
+vim.opt.updatetime = 150
+vim.opt.timeoutlen = 300
