@@ -8,11 +8,11 @@ return {
   opts = {},
   config = function()
     local wk = require("which-key")
-    wk.register({
-      ["<leader>e"] = { name = "+explorer commands" },
-      ["<leader>f"] = { name = "+find commands" },
-      ["<leader>t"] = { name = "+tab commands" },
-      ["<leader>x"] = { name = "+trouble commands" },
+    wk.add({
+      { "<leader>e", group = "explorer commands" },
+      { "<leader>f", group = "find commands" },
+      { "<leader>t", group = "tab commands" },
+      { "<leader>x", group = "trouble commands" },
     })
   end,
 }
