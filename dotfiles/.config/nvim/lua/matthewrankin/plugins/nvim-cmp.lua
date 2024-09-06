@@ -58,10 +58,10 @@ return {
     })
 
     -- Luasnip jumping
-    vim.keymap.set({ "i", "s" }, "<C-j>", function()
+    vim.keymap.set({ "i", "s" }, "<C-k>", function()
       luasnip.jump(1)
     end, { silent = true })
-    vim.keymap.set({ "i", "s" }, "<C-k>", function()
+    vim.keymap.set({ "i", "s" }, "<C-j>", function()
       luasnip.jump(-1)
     end, { silent = true })
     vim.keymap.set({ "i", "s" }, "<C-e>", function()
