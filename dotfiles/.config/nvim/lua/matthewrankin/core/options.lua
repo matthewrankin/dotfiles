@@ -19,7 +19,7 @@ vim.opt.smarttab = true
 vim.opt.backspace = "indent,eol,start"
 
 -- Clipboard
-vim.opt.clipboard = "unnamedplus" -- use system clipboard as default register
+vim.opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 
 -- Split windows
 vim.opt.splitright = true -- split vertical window to the right
