@@ -203,14 +203,31 @@ return {
       },
     })
 
-    lspconfig.ruff.setup({
+    lspconfig.htmx.setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
-    lspconfig.ruff_lsp.setup({
+    lspconfig.ruff.setup({
+      init_options = {
+        settings = {},
+      },
+    })
+
+    lspconfig.pyright.setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      settings = {
+        pyright = { autoImportCompletion = true },
+        python = {
+          analysis = {
+            autoSearchPaths = true,
+            diagnosticMode = "openFilesOnly",
+            useLibraryCodeForTypes = true,
+            typeCheckingMode = "off",
+          },
+        },
+      },
     })
 
     lspconfig.jqls.setup({

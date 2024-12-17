@@ -25,7 +25,7 @@ return {
         "cssls", -- CSS
         "tailwindcss", -- Tailwind CSS
         "templ",
-        "tsserver", -- JavaScript/TypeScript
+        -- "tsserver", -- JavaScript/TypeScript
         "jsonls", -- JSON
         "marksman", -- Markdown
         "golangci_lint_ls", -- Go LSP
@@ -35,7 +35,8 @@ return {
         "lua_ls", -- Lua
         "emmet_ls", -- Emmet HTML/CSS snippets
         "zls", -- Zig
-        "ruff_lsp", -- Python
+        "ruff", -- Python linter
+        "pyright", -- Python type checker
       },
       automatic_installation = true,
     })
