@@ -209,8 +209,11 @@ return {
     })
 
     lspconfig.ruff.setup({
+      trace = "messages",
       init_options = {
-        settings = {},
+        settings = {
+          logLevel = "debug",
+        },
       },
     })
 
@@ -218,13 +221,13 @@ return {
       capabilities = capabilities,
       on_attach = on_attach,
       settings = {
-        pyright = { autoImportCompletion = true },
+        pyright = {
+          disableOrganizeImports = true,
+        },
         python = {
           analysis = {
-            autoSearchPaths = true,
-            diagnosticMode = "openFilesOnly",
-            useLibraryCodeForTypes = true,
-            typeCheckingMode = "off",
+            -- Ignore all files for analysis to use Ruff for linting.
+            ignore = { "*" },
           },
         },
       },
