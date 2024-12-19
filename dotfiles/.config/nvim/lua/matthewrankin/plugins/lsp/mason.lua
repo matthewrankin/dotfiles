@@ -35,7 +35,7 @@ return {
         "lua_ls", -- Lua
         "emmet_ls", -- Emmet HTML/CSS snippets
         "zls", -- Zig
-        "ruff", -- Python linter
+        "ruff", -- Python linter/formatter
         "pyright", -- Python type checker
       },
       automatic_installation = true,
@@ -49,7 +49,7 @@ return {
         "golangci_lint_ls",
         "goimports",
         "golines",
-        "ruff", -- python formatter/linter
+        "ruff", -- python linter/formatter
       },
     })
   end,

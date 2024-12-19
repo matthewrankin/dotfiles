@@ -209,6 +209,7 @@ return {
     })
 
     lspconfig.ruff.setup({
+      capabilities = capabilities,
       trace = "messages",
       init_options = {
         settings = {
