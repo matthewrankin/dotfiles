@@ -10,6 +10,7 @@ return {
   config = function()
     local telescope = require("telescope")
     local actions = require("telescope.actions")
+    local builtin = require("telescope.builtin")
 
     telescope.setup({
       defaults = {
@@ -28,53 +29,50 @@ return {
     telescope.load_extension("ui-select")
 
     -- set keymaps
-    local keymap = vim.keymap
-    local builtin = require("telescope.builtin")
-
-    keymap.set("n", "<leader>ff", function()
+    vim.keymap.set("n", "<leader>ff", function()
       builtin.find_files({ hidden = true, no_ignore = false })
     end, {
       desc = "Find files (respect .gitignore)",
     })
 
-    keymap.set("n", "<C-p>", function()
+    vim.keymap.set("n", "<C-p>", function()
       builtin.git_files({ show_untracked = true })
     end, {
       desc = "Find tracked & untracked git files (respect .gitignore)",
     })
 
-    keymap.set("n", "<leader>fr", builtin.oldfiles, {
+    vim.keymap.set("n", "<leader>fr", builtin.oldfiles, {
       desc = "Fuzzy find recent files",
     })
 
-    keymap.set("n", "<leader>fs", function()
+    vim.keymap.set("n", "<leader>fs", function()
       builtin.live_grep()
     end, {
       desc = "Find string",
     })
 
-    keymap.set("n", "<leader>fS", function()
+    vim.keymap.set("n", "<leader>fS", function()
       builtin.live_grep({ additional_args = { "--hidden" } })
     end, {
       desc = "Find string (include hidden)",
     })
 
-    keymap.set("n", "<leader>fw", builtin.grep_string, {
+    vim.keymap.set("n", "<leader>fw", builtin.grep_string, {
       desc = "Find word under cursor in cwd",
     })
 
-    keymap.set("n", "<leader>fW", function()
+    vim.keymap.set("n", "<leader>fW", function()
       local word = vim.fn.expand("<cWORD>")
       builtin.grep_string({ search = word })
     end, {
       desc = "Find WORD under cursor in cwd",
     })
 
-    keymap.set("n", "<leader>fb", builtin.buffers, {
+    vim.keymap.set("n", "<leader>fb", builtin.buffers, {
       desc = "List open buffers",
     })
 
-    keymap.set(
+    vim.keymap.set(
       "n",
       "<leader>fh",
       builtin.help_tags,

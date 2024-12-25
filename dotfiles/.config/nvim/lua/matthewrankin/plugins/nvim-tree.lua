@@ -1,4 +1,7 @@
 return {
+  -- TODO(mdr): Research replacing with oil.nvim.
+  -- oil.nvim is a file explorer, whereas nvim-tree.lua is a file tree, so
+  -- these aren't identical.
   "nvim-tree/nvim-tree.lua",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()

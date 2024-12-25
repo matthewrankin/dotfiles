@@ -1,4 +1,5 @@
 return {
+  -- TODO(mdr): Research replacing nvim-cmp with blink.cmp
   "hrsh7th/nvim-cmp",
   lazy = false,
   priority = 100,
