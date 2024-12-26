@@ -1,126 +1,46 @@
 return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
-  dependencies = {
-    "hrsh7th/cmp-nvim-lsp",
-    { "antosha417/nvim-lsp-file-operations", config = true },
-    { "folke/neodev.nvim", opts = {} },
-  },
+  dependencies = { "saghen/blink.cmp" },
   config = function()
     local lspconfig = require("lspconfig")
-    local cmp_nvim_lsp = require("cmp_nvim_lsp")
-    local keymap = vim.keymap
-    local opts = { noremap = true, silent = true }
-    local on_attach = function(client, bufnr)
-      opts.buffer = bufnr
-
-      opts.desc = "Go to LSP references"
-      keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
-
-      opts.desc = "Go to LSP declaration"
-      keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-
-      opts.desc = "Go to LSP definitions"
-      keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
-
-      opts.desc = "Go to LSP implementations"
-      keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
-
-      opts.desc = "Go to LSP type definitions"
-      keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
-
-      opts.desc = "See available code actions"
-      keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
-
-      opts.desc = "Smart rename"
-      keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-
-      opts.desc = "Show buffer diagnostics"
-      keymap.set(
-        "n",
-        "<leader>D",
-        "<cmd>Telescope diagnostics bufnr=0<CR>",
-        opts
-      )
-
-      opts.desc = "Show line diagnostics"
-      keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
-
-      opts.desc = "Show previous diagnostics"
-      keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-
-      opts.desc = "Show next diagnostics"
-      keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
-
-      opts.desc = "Show documentation for what is under cursor"
-      keymap.set("n", "K", vim.lsp.buf.hover, opts)
-
-      opts.desc = "Restart LSP"
-      keymap.set("n", "<leader>rs", "<cmd>LspRestart<CR>", opts)
-    end
-
-    local capabilities = cmp_nvim_lsp.default_capabilities()
-
-    local signs =
-      { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-    for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-    end
+    local capabilities = require("blink.cmp").get_lsp_capabilities()
 
     -- Configure the various language servers.
-    lspconfig.templ.setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
-    })
+    lspconfig["templ"].setup({ capabilities = capabilities })
 
     lspconfig.html.setup({
       capabilities = capabilities,
-      on_attach = on_attach,
       filetypes = { "html", "templ" },
     })
 
-    lspconfig.cssls.setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
+    lspconfig.cssls.setup({ capabilities = capabilities })
 
     lspconfig.tailwindcss.setup({
-      on_attach = on_attach,
       capabilities = capabilities,
       filetypes = { "templ", "astro", "javascript", "typescript", "react" },
       init_options = { userLanguages = { templ = "html" } },
     })
 
     lspconfig.htmx.setup({
-      on_attach = on_attach,
       capabilities = capabilities,
       filetypes = { "html", "temp" },
     })
 
-    lspconfig.ts_ls.setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
+    lspconfig.ts_ls.setup({ capabilities = capabilities })
 
-    lspconfig.jsonls.setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
+    lspconfig.jsonls.setup({ capabilities = capabilities })
 
     lspconfig.marksman.setup({
       capabilities = capabilities,
-      on_attach = on_attach,
     })
 
     lspconfig.golangci_lint_ls.setup({
       capabilities = capabilities,
-      on_attach = on_attach,
     })
 
     lspconfig.gopls.setup({
       cmd = { "gopls" },
-      on_attach = on_attach,
       capabilities = capabilities,
       filetypes = {
         "go",
@@ -149,14 +69,11 @@ return {
 
     lspconfig.texlab.setup({
       capabilities = capabilities,
-      on_attach = on_attach,
     })
 
     lspconfig.svelte.setup({
       capabilities = capabilities,
       on_attach = function(client, bufnr)
-        on_attach(client, bufnr)
-
         vim.api.nvim_create_autocmd("BufWritePost", {
           pattern = { "*.js", "*.ts" },
           callback = function(ctx)
@@ -170,7 +87,6 @@ return {
 
     lspconfig.lua_ls.setup({
       capabilities = capabilities,
-      on_attach = on_attach,
       settings = { -- custom settings for lua
         Lua = {
           -- make the language server recognize "vim" global
@@ -190,7 +106,6 @@ return {
 
     lspconfig.emmet_ls.setup({
       capabilities = capabilities,
-      on_attach = on_attach,
       filetypes = {
         "html",
         "typescriptreact",
@@ -205,7 +120,6 @@ return {
 
     lspconfig.htmx.setup({
       capabilities = capabilities,
-      on_attach = on_attach,
     })
 
     lspconfig.ruff.setup({
@@ -220,7 +134,6 @@ return {
 
     lspconfig.pyright.setup({
       capabilities = capabilities,
-      on_attach = on_attach,
       settings = {
         pyright = {
           disableOrganizeImports = true,
@@ -236,12 +149,10 @@ return {
 
     lspconfig.jqls.setup({
       capabilities = capabilities,
-      on_attach = on_attach,
     })
 
     lspconfig.taplo.setup({
       capabilities = capabilities,
-      on_attach = on_attach,
     })
   end,
 }
