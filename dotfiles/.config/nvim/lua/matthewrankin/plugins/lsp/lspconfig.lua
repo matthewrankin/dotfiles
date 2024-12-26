@@ -7,19 +7,25 @@ return {
     local capabilities = require("blink.cmp").get_lsp_capabilities()
 
     -- Configure the various language servers.
-    lspconfig["templ"].setup({ capabilities = capabilities })
+    lspconfig.cssls.setup({ capabilities = capabilities })
+
+    lspconfig.emmet_ls.setup({
+      capabilities = capabilities,
+      filetypes = {
+        "html",
+        "typescriptreact",
+        "javascriptreact",
+        "css",
+        "sass",
+        "scss",
+        "less",
+        "svelte",
+      },
+    })
 
     lspconfig.html.setup({
       capabilities = capabilities,
       filetypes = { "html", "templ" },
-    })
-
-    lspconfig.cssls.setup({ capabilities = capabilities })
-
-    lspconfig.tailwindcss.setup({
-      capabilities = capabilities,
-      filetypes = { "templ", "astro", "javascript", "typescript", "react" },
-      init_options = { userLanguages = { templ = "html" } },
     })
 
     lspconfig.htmx.setup({
@@ -27,13 +33,9 @@ return {
       filetypes = { "html", "temp" },
     })
 
-    lspconfig.ts_ls.setup({ capabilities = capabilities })
-
     lspconfig.jsonls.setup({ capabilities = capabilities })
 
-    lspconfig.marksman.setup({
-      capabilities = capabilities,
-    })
+    lspconfig.jqls.setup({ capabilities = capabilities })
 
     lspconfig.golangci_lint_ls.setup({
       capabilities = capabilities,
@@ -67,24 +69,6 @@ return {
       },
     })
 
-    lspconfig.texlab.setup({
-      capabilities = capabilities,
-    })
-
-    lspconfig.svelte.setup({
-      capabilities = capabilities,
-      on_attach = function(client, bufnr)
-        vim.api.nvim_create_autocmd("BufWritePost", {
-          pattern = { "*.js", "*.ts" },
-          callback = function(ctx)
-            if client.name == "svelte" then
-              client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.file })
-            end
-          end,
-        })
-      end,
-    })
-
     lspconfig.lua_ls.setup({
       capabilities = capabilities,
       settings = { -- custom settings for lua
@@ -104,33 +88,7 @@ return {
       },
     })
 
-    lspconfig.emmet_ls.setup({
-      capabilities = capabilities,
-      filetypes = {
-        "html",
-        "typescriptreact",
-        "javascriptreact",
-        "css",
-        "sass",
-        "scss",
-        "less",
-        "svelte",
-      },
-    })
-
-    lspconfig.htmx.setup({
-      capabilities = capabilities,
-    })
-
-    lspconfig.ruff.setup({
-      capabilities = capabilities,
-      trace = "messages",
-      init_options = {
-        settings = {
-          logLevel = "debug",
-        },
-      },
-    })
+    lspconfig.marksman.setup({ capabilities = capabilities })
 
     lspconfig.pyright.setup({
       capabilities = capabilities,
@@ -147,12 +105,42 @@ return {
       },
     })
 
-    lspconfig.jqls.setup({
+    lspconfig.ruff.setup({
       capabilities = capabilities,
+      trace = "messages",
+      init_options = {
+        settings = {
+          logLevel = "debug",
+        },
+      },
     })
 
-    lspconfig.taplo.setup({
+    lspconfig.svelte.setup({
       capabilities = capabilities,
+      on_attach = function(client, bufnr)
+        vim.api.nvim_create_autocmd("BufWritePost", {
+          pattern = { "*.js", "*.ts" },
+          callback = function(ctx)
+            if client.name == "svelte" then
+              client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.file })
+            end
+          end,
+        })
+      end,
     })
+
+    lspconfig.tailwindcss.setup({
+      capabilities = capabilities,
+      filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+      init_options = { userLanguages = { templ = "html" } },
+    })
+
+    lspconfig.taplo.setup({ capabilities = capabilities })
+
+    lspconfig.templ.setup({ capabilities = capabilities })
+
+    lspconfig.texlab.setup({ capabilities = capabilities })
+
+    lspconfig.ts_ls.setup({ capabilities = capabilities })
   end,
 }
