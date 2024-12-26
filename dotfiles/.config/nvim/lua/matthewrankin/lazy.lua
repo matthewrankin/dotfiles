@@ -22,6 +22,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+  defaults = {
+    lazy = false,
+    version = "*", -- try installing latest stable semver
+  },
   spec = {
     { import = "matthewrankin.plugins" },
     { import = "matthewrankin.plugins.lsp" },
