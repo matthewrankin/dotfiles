@@ -30,5 +30,5 @@ require("lazy").setup({
     { import = "matthewrankin.plugins" },
     { import = "matthewrankin.plugins.lsp" },
   },
-  checker = { enabled = true },
+  checker = { enabled = false },
 })
