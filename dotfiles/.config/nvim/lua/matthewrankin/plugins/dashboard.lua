@@ -37,7 +37,7 @@ return {
       ),
       dashboard.button(
         "SPC fs",
-        "  > Find Word",
+        "  > Find String",
         "<cmd>Telescope live_grep<CR>"
       ),
       dashboard.button(
