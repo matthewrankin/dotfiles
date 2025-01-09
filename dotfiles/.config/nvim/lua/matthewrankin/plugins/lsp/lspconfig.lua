@@ -35,11 +35,65 @@ return {
     local lspconfig = require("lspconfig")
     local capabilities = require("blink.cmp").get_lsp_capabilities()
 
+    local keymap = vim.keymap
+    local opts = { noremap = true, silent = true }
+    local my_on_attach = function(_, bufnr)
+      opts.buffer = bufnr
+
+      opts.desc = "List LSP references in Telescope"
+      keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts)
+
+      opts.desc = "List all references in the quickfix window"
+      keymap.set("n", "grr", vim.lsp.buf.references, opts)
+
+      opts.desc = "Rename all references to the symbol under the cursor"
+      keymap.set("n", "grn", vim.lsp.buf.rename, opts)
+
+      opts.desc = "See available code actions"
+      keymap.set({ "n", "v" }, "gra", vim.lsp.buf.code_action, opts)
+
+      opts.desc = "List all implementations in the quickfix window"
+      keymap.set("n", "gri", "vim.lsp.buf.implementation", opts)
+
+      opts.desc = "List all implementations in Telescope"
+      keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
+
+      opts.desc = "Display signature information"
+      keymap.set("n", "<C-S>", "vim.lsp.buf.signature_help", opts)
+
+      opts.desc = "Go to declaration"
+      keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+
+      opts.desc = "Go or list all definitions in Telescope"
+      keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
+
+      opts.desc = "Go or list all type definitions in Telescope"
+      keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
+
+      opts.desc = "Show buffer diagnostics in Telescope"
+      keymap.set(
+        "n",
+        "<leader>D",
+        "<cmd>Telescope diagnostics bufnr=0<CR>",
+        opts
+      )
+
+      opts.desc = "Show line diagnostics"
+      keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
+
+      opts.desc = "Restart LSP"
+      keymap.set("n", "grs", "<cmd>LspRestart<CR>", opts)
+    end
+
     -- Configure the various language servers.
-    lspconfig.cssls.setup({ capabilities = capabilities })
+    lspconfig.cssls.setup({
+      capabilities = capabilities,
+      on_attach = my_on_attach,
+    })
 
     lspconfig.emmet_ls.setup({
       capabilities = capabilities,
+      on_attach = my_on_attach,
       filetypes = {
         "html",
         "typescriptreact",
@@ -54,25 +108,35 @@ return {
 
     lspconfig.html.setup({
       capabilities = capabilities,
+      on_attach = my_on_attach,
       filetypes = { "html", "templ" },
     })
 
     lspconfig.htmx.setup({
       capabilities = capabilities,
+      on_attach = my_on_attach,
       filetypes = { "html", "temp" },
     })
 
-    lspconfig.jsonls.setup({ capabilities = capabilities })
+    lspconfig.jsonls.setup({
+      capabilities = capabilities,
+      on_attach = my_on_attach,
+    })
 
-    lspconfig.jqls.setup({ capabilities = capabilities })
+    lspconfig.jqls.setup({
+      capabilities = capabilities,
+      on_attach = my_on_attach,
+    })
 
     lspconfig.golangci_lint_ls.setup({
       capabilities = capabilities,
+      on_attach = my_on_attach,
     })
 
     lspconfig.gopls.setup({
       cmd = { "gopls" },
       capabilities = capabilities,
+      on_attach = my_on_attach,
       filetypes = {
         "go",
         "gomod",
@@ -100,6 +164,7 @@ return {
 
     lspconfig.lua_ls.setup({
       capabilities = capabilities,
+      on_attach = my_on_attach,
       settings = { -- custom settings for lua
         Lua = {
           -- make the language server recognize "vim" global
@@ -117,10 +182,14 @@ return {
       },
     })
 
-    lspconfig.marksman.setup({ capabilities = capabilities })
+    lspconfig.marksman.setup({
+      capabilities = capabilities,
+      on_attach = my_on_attach,
+    })
 
     lspconfig.pyright.setup({
       capabilities = capabilities,
+      on_attach = my_on_attach,
       settings = {
         pyright = {
           disableOrganizeImports = true,
@@ -136,6 +205,7 @@ return {
 
     lspconfig.ruff.setup({
       capabilities = capabilities,
+      on_attach = my_on_attach,
       trace = "messages",
       init_options = {
         settings = {
@@ -147,6 +217,7 @@ return {
     lspconfig.svelte.setup({
       capabilities = capabilities,
       on_attach = function(client, bufnr)
+        my_on_attach(client, bufnr)
         vim.api.nvim_create_autocmd("BufWritePost", {
           pattern = { "*.js", "*.ts" },
           callback = function(ctx)
@@ -160,16 +231,29 @@ return {
 
     lspconfig.tailwindcss.setup({
       capabilities = capabilities,
+      on_attach = my_on_attach,
       filetypes = { "templ", "astro", "javascript", "typescript", "react" },
       init_options = { userLanguages = { templ = "html" } },
     })
 
-    lspconfig.taplo.setup({ capabilities = capabilities })
+    lspconfig.taplo.setup({
+      capabilities = capabilities,
+      on_attach = my_on_attach,
+    })
 
-    lspconfig.templ.setup({ capabilities = capabilities })
+    lspconfig.templ.setup({
+      capabilities = capabilities,
+      on_attach = my_on_attach,
+    })
 
-    lspconfig.texlab.setup({ capabilities = capabilities })
+    lspconfig.texlab.setup({
+      capabilities = capabilities,
+      on_attach = my_on_attach,
+    })
 
-    lspconfig.ts_ls.setup({ capabilities = capabilities })
+    lspconfig.ts_ls.setup({
+      capabilities = capabilities,
+      on_attach = my_on_attach,
+    })
   end,
 }
