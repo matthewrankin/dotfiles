@@ -23,6 +23,9 @@ return {
           },
         },
       },
+      extensions = {
+        fzf = {},
+      },
     })
 
     telescope.load_extension("fzf")
