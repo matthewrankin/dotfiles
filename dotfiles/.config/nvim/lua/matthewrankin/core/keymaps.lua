@@ -26,11 +26,15 @@ set("n", "<M-l>", "<c-w>5>")
 set("n", "<M-j>", "<C-W>+")
 set("n", "<M-k>", "<C-W>-")
 
--- Greatest remap ever. Delete highlighted word into the void register and then
--- paste, so that we keep our paste the same in the future. No longer needed as
--- of Vim 8.2.4881 and Neovim v0.8.0, as you can paste using P for the same
--- action.
+-- Greatest remap ever per ThePrimeagen. Delete highlighted word into the void
+-- register and then paste, so that we keep our paste the same in the future.
+-- No longer needed as of Vim 8.2.4881 and Neovim v0.8.0, as you can paste
+-- using P for the same action.
 -- set("x", "<leader>p", '"_dP')
+
+-- Instead of ThePrimeagen's greatest remap ever, I'm setting this up to paste
+-- from the yank register.
+set({ "n", "x" }, "<leader>p", [["0p]], { desc = "Paste from yank register" })
 
 -- Next greatest remap ever. Yank into the system clipboard using <leader>y in
 -- either normal or visual mode or in normal mode yank to the end of the line
