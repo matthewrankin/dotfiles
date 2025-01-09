@@ -13,6 +13,7 @@ return {
       { "<leader>f", group = "find commands" },
       { "<leader>t", group = "tab commands" },
       { "<leader>x", group = "trouble commands" },
+      { "gr", group = "LSP commands" },
     })
   end,
 }
