@@ -5,8 +5,6 @@ return {
   "nvim-tree/nvim-tree.lua",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
-    local nvimtree = require("nvim-tree")
-
     -- Disable netrw, since I'm using nvim-tree.
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
@@ -16,7 +14,10 @@ return {
     vim.cmd([[ highlight NvimTreeFolderArrowOpen guifg=#3FC5FF ]])
 
     -- configure nvim-tree
-    nvimtree.setup({
+    require("nvim-tree").setup({
+      diagnostics = {
+        enable = true,
+      },
       view = {
         width = 35,
         relativenumber = true,
