@@ -23,6 +23,11 @@ return {
           },
         },
       },
+      -- pickers = {
+      --   keymaps = {
+      --     theme = "ivy",
+      --   },
+      -- },
       extensions = {
         fzf = {},
       },
@@ -46,6 +51,10 @@ return {
 
     vim.keymap.set("n", "<leader>fr", builtin.oldfiles, {
       desc = "Fuzzy find recent files",
+    })
+
+    vim.keymap.set("n", "<leader>fk", builtin.keymaps, {
+      desc = "List normal mode keymappings",
     })
 
     vim.keymap.set("n", "<leader>fs", function()
