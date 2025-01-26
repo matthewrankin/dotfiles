@@ -56,6 +56,11 @@ js:
 npm:
 	stow -t ~ npm --dotfiles
 
+# Deploy Neovim dotfiles.
+[group('dotfiles')]
+nvim:
+	stow -t ~/.config/nvim nvim --dotfiles
+
 # Deploy readline dotfiles.
 [group('dotfiles')]
 readline:
