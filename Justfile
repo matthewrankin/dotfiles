@@ -21,12 +21,18 @@ loc:
 [group('dotfiles')]
 all: bash zsh
 
-# Deploy bash related dotfiles.
+# Deploy bash dotfiles.
 [group('dotfiles')]
 bash:
 	stow -t ~ bash --dotfiles
 
-# Deploy zsh related dotfiles.
+
+# Deploy vim dotfiles.
+[group('dotfiles')]
+vim:
+	stow -t ~ vim --dotfiles
+
+# Deploy zsh dotfiles.
 [group('dotfiles')]
 zsh:
 	stow -t ~ zsh --dotfiles
