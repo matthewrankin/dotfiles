@@ -36,6 +36,11 @@ hg:
 npm:
 	stow -t ~ npm --dotfiles
 
+# Deploy readline dotfiles.
+[group('dotfiles')]
+readline:
+	stow -t ~ readline --dotfiles
+
 # Deploy TeX/LaTeX dotfiles.
 [group('dotfiles')]
 tex:
