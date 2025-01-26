@@ -19,7 +19,7 @@ loc:
 
 # Deploy all dotfiles.
 [group('dotfiles')]
-all: bash ghostty gpg hg js npm readline tex vim zsh
+all: bash ghostty git gpg hg js npm readline tex tmux vim zsh
 
 # Deploy bash dotfiles.
 [group('dotfiles')]
@@ -30,6 +30,11 @@ bash:
 [group('dotfiles')]
 ghostty:
 	stow -t ~/.config/ghostty ghostty --dotfiles
+
+# Deploy git dotfiles.
+[group('dotfiles')]
+git:
+	stow -t ~/.config/git git --dotfiles
 
 # Deploy gpg dotfiles.
 [group('dotfiles')]
