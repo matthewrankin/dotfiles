@@ -19,12 +19,17 @@ loc:
 
 # Deploy all dotfiles.
 [group('dotfiles')]
-all: bash hg npm readline tex vim zsh
+all: bash gpg hg js npm readline tex vim zsh
 
 # Deploy bash dotfiles.
 [group('dotfiles')]
 bash:
 	stow -t ~ bash --dotfiles
+
+# Deploy gpg dotfiles.
+[group('dotfiles')]
+gpg:
+	stow -t ~/.gnupg gpg --dotfiles
 
 # Deploy hg (Mercurial) dotfiles.
 [group('dotfiles')]
