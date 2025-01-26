@@ -19,7 +19,7 @@ loc:
 
 # Deploy all dotfiles.
 [group('dotfiles')]
-all: bash hg npm tex vim zsh
+all: bash hg npm readline tex vim zsh
 
 # Deploy bash dotfiles.
 [group('dotfiles')]
@@ -30,6 +30,11 @@ bash:
 [group('dotfiles')]
 hg:
 	stow -t ~ hg --dotfiles
+
+# Deploy JavaScript dotfiles.
+[group('dotfiles')]
+js:
+	stow -t ~ js --dotfiles
 
 # Deploy npm dotfiles.
 [group('dotfiles')]
@@ -51,7 +56,7 @@ tex:
 vim:
 	stow -t ~ vim --dotfiles
 
-# Deploy zsh dotfiles.
+# Deploy zsh (inlucding p10k) dotfiles.
 [group('dotfiles')]
 zsh:
 	stow -t ~ zsh --dotfiles
