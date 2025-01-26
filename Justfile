@@ -19,7 +19,7 @@ loc:
 
 # Deploy all dotfiles.
 [group('dotfiles')]
-all: bash hg npm vim zsh
+all: bash hg npm tex vim zsh
 
 # Deploy bash dotfiles.
 [group('dotfiles')]
@@ -35,6 +35,11 @@ hg:
 [group('dotfiles')]
 npm:
 	stow -t ~ npm --dotfiles
+
+# Deploy TeX/LaTeX dotfiles.
+[group('dotfiles')]
+tex:
+	stow -t ~ tex --dotfiles
 
 # Deploy vim dotfiles.
 [group('dotfiles')]
