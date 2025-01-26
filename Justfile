@@ -61,6 +61,11 @@ readline:
 tex:
 	stow -t ~ tex --dotfiles
 
+# Deploy tmux dotfiles.
+[group('dotfiles')]
+tmux:
+	stow -t ~/.config/tmux tmux --dotfiles
+
 # Deploy vim dotfiles.
 [group('dotfiles')]
 vim:
