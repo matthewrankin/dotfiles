@@ -16,6 +16,10 @@ and Ubuntu servers/slices. Some of the configuration files include:
 In October 2023, I converted my old Vim configuration using mainly Vim script
 to Neovim using Lua.
 
+The dotfiles are categorized in different folders. Files that should be hidden
+have filenames starting with `dot-`, which will be converted to a `.` when
+deployed/symlinked using [GNU Stow][stow].
+
 ## Dependencies
 
 - [GNU Stow][stow]
