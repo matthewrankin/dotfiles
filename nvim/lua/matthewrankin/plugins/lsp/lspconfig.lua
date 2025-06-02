@@ -209,6 +209,19 @@ return {
       },
     })
 
+    lspconfig.rust_analyzer.setup({
+      settings = {
+        ["rust-analyzer"] = {
+          formatting = {
+            enable = true,
+          },
+          check = {
+            command = "clippy",
+          },
+        },
+      },
+    })
+
     lspconfig.svelte.setup({
       capabilities = capabilities,
       on_attach = function(client, bufnr)

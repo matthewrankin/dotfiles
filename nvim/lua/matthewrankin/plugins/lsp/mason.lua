@@ -37,6 +37,7 @@ return {
         "zls", -- Zig
         "ruff", -- Python linter/formatter
         "pyright", -- Python type checker
+        "rust_analyzer", -- Rust LSP
       },
       automatic_installation = true,
     })
