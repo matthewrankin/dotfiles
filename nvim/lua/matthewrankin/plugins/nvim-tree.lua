@@ -3,6 +3,8 @@ return {
   -- oil.nvim is a file explorer, whereas nvim-tree.lua is a file tree, so
   -- these aren't identical.
   "nvim-tree/nvim-tree.lua",
+  version = "*",
+  lazy = false,
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     -- Disable netrw, since I'm using nvim-tree.
