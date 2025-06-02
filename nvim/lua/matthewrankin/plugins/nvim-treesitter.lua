@@ -11,7 +11,6 @@ return {
 
     -- configure treesitter
     treesitter.setup({
-      -- enable indentation
       indent = { enable = true },
       -- enable autotagging (w/ nvim-ts-autotag plugin)
       autotag = {
@@ -38,7 +37,7 @@ return {
         "vim",
         "yaml",
       },
-      auto_install = false,
+      auto_install = true,
       -- don't enable highlighting if the file is large
       highlight = {
         enable = true,
