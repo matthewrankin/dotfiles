@@ -32,7 +32,6 @@ return {
     },
   },
   config = function()
-    local lspconfig = require("lspconfig")
     local capabilities = require("blink.cmp").get_lsp_capabilities()
 
     local keymap = vim.keymap
@@ -81,12 +80,10 @@ return {
     end
 
     -- Configure the various language servers.
-    lspconfig.cssls.setup({
-      capabilities = capabilities,
-      on_attach = my_on_attach,
-    })
+    vim.lsp.config.cssls = {}
+    vim.lsp.enable("cssls")
 
-    lspconfig.emmet_ls.setup({
+    vim.lsp.config("emmet_ls", {
       capabilities = capabilities,
       on_attach = my_on_attach,
       filetypes = {
@@ -100,35 +97,35 @@ return {
         "svelte",
       },
     })
+    vim.lsp.enable("emmet_ls")
 
-    lspconfig.html.setup({
+    vim.lsp.config("html", {
       capabilities = capabilities,
       on_attach = my_on_attach,
       filetypes = { "html", "templ" },
     })
+    vim.lsp.enable("html")
 
-    lspconfig.htmx.setup({
+    vim.lsp.config("htmx", {
       capabilities = capabilities,
       on_attach = my_on_attach,
       filetypes = { "html", "temp" },
     })
+    vim.lsp.enable("htmx")
 
-    lspconfig.jsonls.setup({
+    vim.lsp.config.jsonls = {}
+    vim.lsp.enable("jsonls")
+
+    vim.lsp.config("jqls", {
       capabilities = capabilities,
       on_attach = my_on_attach,
     })
+    vim.lsp.enable("jqls")
 
-    lspconfig.jqls.setup({
-      capabilities = capabilities,
-      on_attach = my_on_attach,
-    })
+    vim.lsp.config.golangci_lint_ls = {}
+    vim.lsp.enable("golangci_lint_ls")
 
-    lspconfig.golangci_lint_ls.setup({
-      capabilities = capabilities,
-      on_attach = my_on_attach,
-    })
-
-    lspconfig.gopls.setup({
+    vim.lsp.config("gopls", {
       cmd = { "gopls" },
       capabilities = capabilities,
       on_attach = my_on_attach,
@@ -157,7 +154,7 @@ return {
       },
     })
 
-    lspconfig.lua_ls.setup({
+    vim.lsp.config("lua_ls", {
       capabilities = capabilities,
       on_attach = my_on_attach,
       settings = { -- custom settings for lua
@@ -177,12 +174,10 @@ return {
       },
     })
 
-    lspconfig.marksman.setup({
-      capabilities = capabilities,
-      on_attach = my_on_attach,
-    })
+    vim.lsp.config.marksman = {}
+    vim.lsp.enable("marksman")
 
-    lspconfig.pyright.setup({
+    vim.lsp.config("pyright", {
       capabilities = capabilities,
       on_attach = my_on_attach,
       settings = {
@@ -197,8 +192,9 @@ return {
         },
       },
     })
+    vim.lsp.enable("pyright")
 
-    lspconfig.ruff.setup({
+    vim.lsp.config("ruff", {
       capabilities = capabilities,
       on_attach = my_on_attach,
       trace = "messages",
@@ -208,8 +204,9 @@ return {
         },
       },
     })
+    vim.lsp.enable("ruff")
 
-    lspconfig.rust_analyzer.setup({
+    vim.lsp.config("rust_analyzer", {
       settings = {
         ["rust-analyzer"] = {
           formatting = {
@@ -221,8 +218,9 @@ return {
         },
       },
     })
+    vim.lsp.enable("rust_analyzer")
 
-    lspconfig.svelte.setup({
+    vim.lsp.config("svelte", {
       capabilities = capabilities,
       on_attach = function(client, bufnr)
         my_on_attach(client, bufnr)
@@ -236,32 +234,30 @@ return {
         })
       end,
     })
+    vim.lsp.enable("svelte")
 
-    lspconfig.tailwindcss.setup({
+    vim.lsp.config("tailwindcss", {
       capabilities = capabilities,
       on_attach = my_on_attach,
       filetypes = { "templ", "astro", "javascript", "typescript", "react" },
       init_options = { userLanguages = { templ = "html" } },
     })
+    vim.lsp.enable("tailwindcss")
 
-    lspconfig.taplo.setup({
-      capabilities = capabilities,
-      on_attach = my_on_attach,
-    })
+    vim.lsp.config.taplo = {}
+    vim.lsp.enable("taplo")
 
-    lspconfig.templ.setup({
-      capabilities = capabilities,
-      on_attach = my_on_attach,
-    })
+    vim.lsp.config.templ = {}
+    vim.lsp.enable("templ")
 
-    lspconfig.texlab.setup({
-      capabilities = capabilities,
-      on_attach = my_on_attach,
-    })
+    vim.lsp.config.texlab = {}
+    vim.lsp.enable("texlab")
 
-    lspconfig.ts_ls.setup({
-      capabilities = capabilities,
-      on_attach = my_on_attach,
+    vim.lsp.config.ts_ls = {}
+    vim.lsp.enable("ts_ls")
+
+    vim.diagnostic.config({
+      virtual_lines = true,
     })
   end,
 }

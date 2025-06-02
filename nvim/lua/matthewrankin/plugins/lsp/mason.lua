@@ -5,11 +5,7 @@ return {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
   config = function()
-    local mason = require("mason")
-    local mason_lspconfig = require("mason-lspconfig")
-    local mason_tool_installer = require("mason-tool-installer")
-
-    mason.setup({
+    require("mason").setup({
       ui = {
         icons = {
           package_installed = "✓",
@@ -19,20 +15,20 @@ return {
       },
     })
 
-    mason_lspconfig.setup({
+    require("mason-lspconfig").setup({
       ensure_installed = {
-        "html", -- HTML
-        "cssls", -- CSS
-        "tailwindcss", -- Tailwind CSS
+        "html",
+        "cssls",
+        "tailwindcss",
         "templ",
-        -- "tsserver", -- JavaScript/TypeScript
-        "jsonls", -- JSON
+        "ts_ls", -- JavaScript/TypeScript
+        "jsonls",
         "marksman", -- Markdown
         "golangci_lint_ls", -- Go LSP
         "gopls", -- Gopls
         "texlab", -- LaTeX
-        "svelte", -- Svelte
-        "lua_ls", -- Lua
+        "svelte",
+        "lua_ls",
         "emmet_ls", -- Emmet HTML/CSS snippets
         "zls", -- Zig
         "ruff", -- Python linter/formatter
@@ -42,7 +38,7 @@ return {
       automatic_installation = true,
     })
 
-    mason_tool_installer.setup({
+    require("mason-tool-installer").setup({
       ensure_installed = {
         "prettier", -- prettier formatter
         "stylua", -- lua formatter
