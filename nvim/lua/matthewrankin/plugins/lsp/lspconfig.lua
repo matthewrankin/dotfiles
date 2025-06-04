@@ -13,27 +13,8 @@ return {
         },
       },
     },
-    { -- optional blink completion source for require statements and module annotations
-      "saghen/blink.cmp",
-      opts = {
-        sources = {
-          -- add lazydev to your completion providers
-          default = { "lazydev", "lsp", "path", "snippets", "buffer" },
-          providers = {
-            lazydev = {
-              name = "LazyDev",
-              module = "lazydev.integrations.blink",
-              -- make lazydev completions top priority (see `:h blink.cmp`)
-              score_offset = 100,
-            },
-          },
-        },
-      },
-    },
   },
   config = function()
-    local capabilities = require("blink.cmp").get_lsp_capabilities()
-
     local keymap = vim.keymap
     local opts = { noremap = true, silent = true }
     local my_on_attach = function(_, bufnr)
@@ -41,6 +22,9 @@ return {
 
       opts.desc = "List LSP references in Telescope"
       keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts)
+
+      opts.desc = "List all symbols in current buffer"
+      keymap.set("n", "gO", vim.lsp.buf.document_symbol, opts)
 
       opts.desc = "List all references in the quickfix window"
       keymap.set("n", "grr", vim.lsp.buf.references, opts)
@@ -84,7 +68,6 @@ return {
     vim.lsp.enable("cssls")
 
     vim.lsp.config("emmet_ls", {
-      capabilities = capabilities,
       on_attach = my_on_attach,
       filetypes = {
         "html",
@@ -100,14 +83,12 @@ return {
     vim.lsp.enable("emmet_ls")
 
     vim.lsp.config("html", {
-      capabilities = capabilities,
       on_attach = my_on_attach,
       filetypes = { "html", "templ" },
     })
     vim.lsp.enable("html")
 
     vim.lsp.config("htmx", {
-      capabilities = capabilities,
       on_attach = my_on_attach,
       filetypes = { "html", "temp" },
     })
@@ -117,7 +98,6 @@ return {
     vim.lsp.enable("jsonls")
 
     vim.lsp.config("jqls", {
-      capabilities = capabilities,
       on_attach = my_on_attach,
     })
     vim.lsp.enable("jqls")
@@ -127,7 +107,6 @@ return {
 
     vim.lsp.config("gopls", {
       cmd = { "gopls" },
-      capabilities = capabilities,
       on_attach = my_on_attach,
       filetypes = {
         "go",
@@ -155,7 +134,6 @@ return {
     })
 
     vim.lsp.config("lua_ls", {
-      capabilities = capabilities,
       on_attach = my_on_attach,
       settings = { -- custom settings for lua
         Lua = {
@@ -178,7 +156,6 @@ return {
     vim.lsp.enable("marksman")
 
     vim.lsp.config("pyright", {
-      capabilities = capabilities,
       on_attach = my_on_attach,
       settings = {
         pyright = {
@@ -195,7 +172,6 @@ return {
     vim.lsp.enable("pyright")
 
     vim.lsp.config("ruff", {
-      capabilities = capabilities,
       on_attach = my_on_attach,
       trace = "messages",
       init_options = {
@@ -221,7 +197,6 @@ return {
     vim.lsp.enable("rust_analyzer")
 
     vim.lsp.config("svelte", {
-      capabilities = capabilities,
       on_attach = function(client, bufnr)
         my_on_attach(client, bufnr)
         vim.api.nvim_create_autocmd("BufWritePost", {
@@ -237,7 +212,6 @@ return {
     vim.lsp.enable("svelte")
 
     vim.lsp.config("tailwindcss", {
-      capabilities = capabilities,
       on_attach = my_on_attach,
       filetypes = { "templ", "astro", "javascript", "typescript", "react" },
       init_options = { userLanguages = { templ = "html" } },
@@ -255,9 +229,5 @@ return {
 
     vim.lsp.config.ts_ls = {}
     vim.lsp.enable("ts_ls")
-
-    vim.diagnostic.config({
-      virtual_lines = true,
-    })
   end,
 }
