@@ -47,6 +47,7 @@ return {
         "goimports",
         "golines",
         "ruff", -- python linter/formatter
+        "tex-fmt", -- LaTeX formatter
       },
     })
   end,
