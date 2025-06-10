@@ -24,8 +24,7 @@ return {
         "ts_ls", -- JavaScript/TypeScript
         "jsonls",
         "marksman", -- Markdown
-        "golangci_lint_ls", -- Go LSP
-        "gopls", -- Gopls
+        "gopls", -- Go language server
         "texlab", -- LaTeX
         "svelte",
         "lua_ls",
@@ -43,7 +42,6 @@ return {
         "prettier", -- prettier formatter
         "stylua", -- lua formatter
         "eslint_d", -- js linter
-        "golangci_lint_ls",
         "goimports",
         "golines",
         "ruff", -- python linter/formatter
