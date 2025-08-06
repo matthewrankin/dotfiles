@@ -102,9 +102,6 @@ return {
     })
     vim.lsp.enable("jqls")
 
-    vim.lsp.config.golangci_lint_ls = {}
-    vim.lsp.enable("golangci_lint_ls")
-
     vim.lsp.config("gopls", {
       cmd = { "gopls" },
       on_attach = my_on_attach,
