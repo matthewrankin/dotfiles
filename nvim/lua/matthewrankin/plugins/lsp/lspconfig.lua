@@ -129,6 +129,7 @@ return {
         usePlaceholders = true,
       },
     })
+    vim.lsp.enable("gopls")
 
     vim.lsp.config("lua_ls", {
       on_attach = my_on_attach,
@@ -148,6 +149,7 @@ return {
         },
       },
     })
+    vim.lsp.enable("lua_ls")
 
     vim.lsp.config.marksman = {}
     vim.lsp.enable("marksman")
@@ -226,5 +228,8 @@ return {
 
     vim.lsp.config.ts_ls = {}
     vim.lsp.enable("ts_ls")
+
+    vim.lsp.config.zls = {}
+    vim.lsp.enable("zls")
   end,
 }

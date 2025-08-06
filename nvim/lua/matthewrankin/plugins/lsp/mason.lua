@@ -29,7 +29,7 @@ return {
         "svelte",
         "lua_ls",
         "emmet_ls", -- Emmet HTML/CSS snippets
-        "zls", -- Zig
+        "zls", -- Zig language server
         "ruff", -- Python linter/formatter
         "pyright", -- Python type checker
         "rust_analyzer", -- Rust LSP
