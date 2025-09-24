@@ -11,7 +11,10 @@ return {
 
     -- configure treesitter
     treesitter.setup({
-      indent = { enable = true },
+      indent = { 
+        enable = true,
+        disable = { "go" },  -- Disable treesitter indent for Go
+      },
       -- enable autotagging (w/ nvim-ts-autotag plugin)
       autotag = {
         enable = true,
