@@ -90,7 +90,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(ev)
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
     if client:supports_method("textDocument/completion") then
-      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+      -- Enable completion with more aggressive settings for Go
+      local completion_opts = { autotrigger = true }
+      if vim.bo[ev.buf].filetype == "go" then
+        -- More aggressive completion for Go files
+        vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+      end
+      vim.lsp.completion.enable(true, client.id, ev.buf, completion_opts)
     end
   end,
 })

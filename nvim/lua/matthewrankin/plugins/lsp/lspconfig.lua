@@ -118,15 +118,50 @@ return {
         gopls = {
           experimentalPostfixCompletions = true,
           completeUnimported = true,
+          usePlaceholders = true,
           analyses = {
             unusedparams = true,
             shadow = true,
           },
           staticcheck = true,
+          semanticTokens = false,  -- Disable to avoid conflicts with treesitter highlighting
+          hints = {
+            assignVariableTypes = false,
+            compositeLiteralFields = false,
+            compositeLiteralTypes = false,
+            constantValues = false,
+            functionTypeParameters = false,
+            parameterNames = false,
+            rangeVariableTypes = false,
+          },
+          -- Ensure completion includes all symbols
+          symbolMatcher = "CaseInsensitive",
+          symbolStyle = "Dynamic",
+          -- Better completion settings
+          completeFunctionCalls = true,
+          matcher = "CaseInsensitive",
         },
       },
       init_options = {
         usePlaceholders = true,
+      },
+      capabilities = {
+        textDocument = {
+          completion = {
+            completionItem = {
+              snippetSupport = true,
+              resolveSupport = {
+                properties = {
+                  "documentation",
+                  "detail",
+                  "additionalTextEdits",
+                },
+              },
+            },
+            contextSupport = true,
+            dynamicRegistration = true,
+          },
+        },
       },
     })
     vim.lsp.enable("gopls")
