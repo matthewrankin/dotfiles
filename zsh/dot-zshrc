@@ -98,6 +98,9 @@ case $(uname) in
     eval "$(pyenv init --path)"
     eval "$(pyenv init -)"
 
+    ## uv Python
+    export PATH="/Users/matthew/.local/bin:$PATH"
+
     # GitHub GPG signing
     export GPG_TTY=$(tty)
     gpgconf --launch gpg-agent
