@@ -92,12 +92,6 @@ case $(uname) in
     # Setup gmake as make
     PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
 
-    ## Python stuff starts here
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init --path)"
-    eval "$(pyenv init -)"
-
     ## uv Python
     export PATH="/Users/matthew/.local/bin:$PATH"
 
