@@ -1,21 +1,7 @@
 return {
-  "williamboman/mason.nvim",
-  dependencies = {
-    "williamboman/mason-lspconfig.nvim",
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-  },
-  config = function()
-    require("mason").setup({
-      ui = {
-        icons = {
-          package_installed = "✓",
-          package_pending = "➜",
-          package_uninstalled = "✗",
-        },
-      },
-    })
-
-    require("mason-lspconfig").setup({
+  {
+    "mason-org/mason-lspconfig.nvim",
+    opts = {
       ensure_installed = {
         "html",
         "cssls",
@@ -34,10 +20,26 @@ return {
         "pyright", -- Python type checker
         "rust_analyzer", -- Rust LSP
       },
-      automatic_installation = true,
-    })
-
-    require("mason-tool-installer").setup({
+    },
+    dependencies = {
+      {
+        "mason-org/mason.nvim",
+        opts = {
+          ui = {
+            icons = {
+              package_installed = "✓",
+              package_pending = "➜",
+              package_uninstalled = "✗",
+            },
+          },
+        },
+      },
+      "neovim/nvim-lspconfig",
+    },
+  },
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    opts = {
       ensure_installed = {
         "prettier", -- prettier formatter
         "stylua", -- lua formatter
@@ -47,6 +49,9 @@ return {
         "ruff", -- python linter/formatter
         "tex-fmt", -- LaTeX formatter
       },
-    })
-  end,
+      dependencies = {
+        "mason-org/mason.nvim",
+      },
+    },
+  },
 }
