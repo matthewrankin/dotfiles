@@ -32,3 +32,7 @@ alias mkpy3venv='python3 -m venv'
 
 # IBM Cloud aliases
 alias ic='ibmcloud'
+
+# Neovim aliases
+alias v='bob run stable'
+alias vv='NVIM_APPNAME=nvim-new bob run nightly'
