@@ -101,8 +101,20 @@ vim.lsp.config["gopls"] = {
 }
 
 vim.lsp.enable({
-  "gopls",
+  "html",
+  "cssls",
+  "tailwindcss",
+  "templ",
+  "ts_ls", -- JavaScript/TypeScript
+  "jsonls",
+  "marksman", -- Markdown
+  "gopls", -- Go language server
+  "texlab", -- LaTeX
+  "svelte",
   "lua_ls",
-  "rust_analyzer",
-  "ts_ls",
+  "emmet_ls", -- Emmet HTML/CSS snippets
+  "zls", -- Zig language server
+  "ruff", -- Python linter/formatter
+  "pyright", -- Python type checker
+  "rust_analyzer", -- Rust LSP
 })
