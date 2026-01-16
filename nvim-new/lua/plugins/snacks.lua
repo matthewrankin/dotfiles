@@ -1,155 +1,167 @@
 vim.pack.add({
-	"https://github.com/folke/snacks.nvim",
-	"https://github.com/nvim-tree/nvim-web-devicons",
+  "https://github.com/folke/snacks.nvim",
+  "https://github.com/nvim-tree/nvim-web-devicons",
 })
 
 local Snacks = require("snacks")
 
 Snacks.setup({
-	animate = { enabled = false }, -- using mini.animate
-	bigfile = { enabled = true },
-	dim = { enabled = true },
-	explorer = { enabled = true, replace_netrw = true },
-	image = { enabled = true },
-	indent = { enabled = false }, -- using mini.indentscope
-	input = { enabled = true },
-	layout = { enabled = true },
-	notifier = { enabled = true },
-	quickfile = { enabled = true },
-	scope = { enabled = false }, -- using mini.indentscope
-	scratch = { enabled = true },
-	statuscolumn = { enabled = false },
-	terminal = { enabled = true },
-	toggle = { enabled = true },
-	words = { enabled = false },
-	zen = { enabled = true },
+  animate = { enabled = false }, -- using mini.animate
+  bigfile = { enabled = true },
+  dim = { enabled = true },
+  explorer = { enabled = true, replace_netrw = true },
+  image = { enabled = true },
+  indent = { enabled = false }, -- using mini.indentscope
+  input = { enabled = true },
+  layout = { enabled = true },
+  notifier = { enabled = true },
+  quickfile = { enabled = true },
+  scope = { enabled = false }, -- using mini.indentscope
+  scratch = { enabled = true },
+  statuscolumn = { enabled = false },
+  terminal = { enabled = true },
+  toggle = { enabled = true },
+  words = { enabled = false },
+  zen = { enabled = true },
 
-	picker = {
-		sources = {
-			files = {
-				hidden = true,
-				ignored = false,
-				win = {
-					input = {
-						keys = {
-							["<S-h>"] = "toggle_hidden",
-							["<S-i>"] = "toggle_ignored",
-							["<S-f>"] = "toggle_follow",
-							["<C-y>"] = { "yazi_copy_relative_path", mode = { "n", "i" } },
-						},
-					},
-				},
-				exclude = {
-					"**/.git/*",
-					"**/node_modules/*",
-					"**/.yarn/cache/*",
-					"**/.yarn/install*",
-					"**/.yarn/releases/*",
-					"**/.pnpm-store/*",
-					"**/.idea/*",
-					"**/.DS_Store",
-					"build/*",
-					"coverage/*",
-					"dist/*",
-					"hodor-types/*",
-					"**/target/*",
-					"**/public/*",
-					"**/digest*.txt",
-					"**/.node-gyp/**",
-				},
-			},
-			grep = {
-				hidden = true,
-				ignored = true,
-				win = {
-					input = {
-						keys = {
-							["<S-h>"] = "toggle_hidden",
-							["<S-i>"] = "toggle_ignored",
-							["<S-f>"] = "toggle_follow",
-						},
-					},
-				},
-				exclude = {
-					"**/.git/*",
-					"**/node_modules/*",
-					"**/.yarn/cache/*",
-					"**/.yarn/install*",
-					"**/.yarn/releases/*",
-					"**/.pnpm-store/*",
-					"**/.venv/*",
-					"**/.idea/*",
-					"**/.DS_Store",
-					"**/yarn.lock",
-					"build*/*",
-					"coverage/*",
-					"dist/*",
-					"certificates/*",
-					"hodor-types/*",
-					"**/target/*",
-					"**/public/*",
-					"**/digest*.txt",
-					"**/.node-gyp/**",
-				},
-			},
-			grep_buffers = {},
-			explorer = {
-				hidden = true,
-				ignored = true,
-				supports_live = true,
-				auto_close = true,
-				diagnostics = true,
-				diagnostics_open = false,
-				focus = "list",
-				follow_file = true,
-				git_status = true,
-				git_status_open = false,
-				git_untracked = true,
-				jump = { close = true },
-				tree = true,
-				watch = true,
-				exclude = {
-					".git",
-					".pnpm-store",
-					".venv",
-					".DS_Store",
-					"**/.node-gyp/**",
-				},
-			},
-		},
-	},
+  picker = {
+    sources = {
+      files = {
+        hidden = true,
+        ignored = false,
+        win = {
+          input = {
+            keys = {
+              ["<S-h>"] = "toggle_hidden",
+              ["<S-i>"] = "toggle_ignored",
+              ["<S-f>"] = "toggle_follow",
+              ["<C-y>"] = { "yazi_copy_relative_path", mode = { "n", "i" } },
+            },
+          },
+        },
+        exclude = {
+          "**/.git/*",
+          "**/node_modules/*",
+          "**/.yarn/cache/*",
+          "**/.yarn/install*",
+          "**/.yarn/releases/*",
+          "**/.pnpm-store/*",
+          "**/.idea/*",
+          "**/.DS_Store",
+          "build/*",
+          "coverage/*",
+          "dist/*",
+          "hodor-types/*",
+          "**/target/*",
+          "**/public/*",
+          "**/digest*.txt",
+          "**/.node-gyp/**",
+        },
+      },
+      grep = {
+        hidden = true,
+        ignored = true,
+        win = {
+          input = {
+            keys = {
+              ["<S-h>"] = "toggle_hidden",
+              ["<S-i>"] = "toggle_ignored",
+              ["<S-f>"] = "toggle_follow",
+            },
+          },
+        },
+        exclude = {
+          "**/.git/*",
+          "**/node_modules/*",
+          "**/.yarn/cache/*",
+          "**/.yarn/install*",
+          "**/.yarn/releases/*",
+          "**/.pnpm-store/*",
+          "**/.venv/*",
+          "**/.idea/*",
+          "**/.DS_Store",
+          "**/yarn.lock",
+          "build*/*",
+          "coverage/*",
+          "dist/*",
+          "certificates/*",
+          "hodor-types/*",
+          "**/target/*",
+          "**/public/*",
+          "**/digest*.txt",
+          "**/.node-gyp/**",
+        },
+      },
+      grep_buffers = {},
+      explorer = {
+        hidden = true,
+        ignored = true,
+        supports_live = true,
+        auto_close = true,
+        diagnostics = true,
+        diagnostics_open = false,
+        focus = "list",
+        follow_file = true,
+        git_status = true,
+        git_status_open = false,
+        git_untracked = true,
+        jump = { close = true },
+        tree = true,
+        watch = true,
+        exclude = {
+          ".git",
+          ".pnpm-store",
+          ".venv",
+          ".DS_Store",
+          "**/.node-gyp/**",
+        },
+      },
+    },
+  },
 })
 
 vim.api.nvim_create_autocmd("User", {
-	pattern = "VeryLazy",
-	callback = function()
-		Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")
-		Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
-		Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>uL")
-		Snacks.toggle.diagnostics():map("<leader>ud")
-		Snacks.toggle.line_number():map("<leader>ul")
-		Snacks.toggle
-			.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2, name = "Conceal Level" })
-			:map("<leader>uc")
-		Snacks.toggle
-			.option("showtabline", { off = 0, on = vim.o.showtabline > 0 and vim.o.showtabline or 2, name = "Tabline" })
-			:map("<leader>uA")
-		Snacks.toggle.treesitter():map("<leader>uT")
-		Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map("<leader>ub")
-		Snacks.toggle.dim():map("<leader>uD")
-		Snacks.toggle.scroll():map("<leader>uS")
-		Snacks.toggle.profiler():map("<leader>dpp")
-		Snacks.toggle.profiler_highlights():map("<leader>dph")
-		Snacks.toggle.zoom():map("<leader>wm"):map("<leader>uZ")
-		Snacks.toggle.zen():map("<leader>uz")
-	end,
+  pattern = "VeryLazy",
+  callback = function()
+    Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")
+    Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
+    Snacks.toggle
+      .option("relativenumber", { name = "Relative Number" })
+      :map("<leader>uL")
+    Snacks.toggle.diagnostics():map("<leader>ud")
+    Snacks.toggle.line_number():map("<leader>ul")
+    Snacks.toggle
+      .option("conceallevel", {
+        off = 0,
+        on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2,
+        name = "Conceal Level",
+      })
+      :map("<leader>uc")
+    Snacks.toggle
+      .option("showtabline", {
+        off = 0,
+        on = vim.o.showtabline > 0 and vim.o.showtabline or 2,
+        name = "Tabline",
+      })
+      :map("<leader>uA")
+    Snacks.toggle.treesitter():map("<leader>uT")
+    Snacks.toggle
+      .option("background", { off = "light", on = "dark", name = "Dark Background" })
+      :map("<leader>ub")
+    Snacks.toggle.dim():map("<leader>uD")
+    Snacks.toggle.scroll():map("<leader>uS")
+    Snacks.toggle.profiler():map("<leader>dpp")
+    Snacks.toggle.profiler_highlights():map("<leader>dph")
+    Snacks.toggle.zoom():map("<leader>wm"):map("<leader>uZ")
+    Snacks.toggle.zen():map("<leader>uz")
+  end,
 })
 
 -- stylua: ignore start
 local   keymaps = {
-    { "<leader>l", function() vim.cmd("Lazy") end, desc = "Open Lazy tab", },
     -- Top Pickers & Explorer
-    { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
+    { "<leader><space>", function() Snacks.picker.smart() end, 
+    desc = "Smart Find Files" },
     { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
     { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
     { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
@@ -254,19 +266,19 @@ local   keymaps = {
 }
 -- stylua: ignore end
 for _, map in ipairs(keymaps) do
-	local opts = { desc = map.desc }
-	if map.silent ~= nil then
-		opts.silent = map.silent
-	end
-	if map.noremap ~= nil then
-		opts.noremap = map.noremap
-	else
-		opts.noremap = true
-	end
-	if map.expr ~= nil then
-		opts.expr = map.expr
-	end
+  local opts = { desc = map.desc }
+  if map.silent ~= nil then
+    opts.silent = map.silent
+  end
+  if map.noremap ~= nil then
+    opts.noremap = map.noremap
+  else
+    opts.noremap = true
+  end
+  if map.expr ~= nil then
+    opts.expr = map.expr
+  end
 
-	local mode = map.mode or "n"
-	vim.keymap.set(mode, map[1], map[2], opts)
+  local mode = map.mode or "n"
+  vim.keymap.set(mode, map[1], map[2], opts)
 end
