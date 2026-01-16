@@ -1,9 +1,10 @@
 return {
-  "echasnovski/mini.nvim",
-  version = "*", -- use the stable branch
+  "nvim-mini/mini.nvim",
+  version = false, -- use the main branch
   config = function()
     require("mini.ai").setup()
-    require("mini.statusline").setup({ use_icons = true })
+    require("mini.statusline").setup()
+    require("mini.tabline").setup()
     require("mini.surround").setup()
   end,
 }
