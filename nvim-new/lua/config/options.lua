@@ -124,7 +124,6 @@ vim.g.autoformat = true
 vim.g.trouble_lualine = true
 
 opt.jumpoptions = "view"
-opt.laststatus = 3 -- global statusline
 opt.linebreak = true -- Wrap lines at convenient points
 opt.shortmess:append({ W = true, I = true, c = true, C = true })
 

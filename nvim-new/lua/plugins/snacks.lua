@@ -6,17 +6,17 @@ vim.pack.add({
 local Snacks = require("snacks")
 
 Snacks.setup({
-	animate = { enabled = true },
+	animate = { enabled = false }, -- using mini.animate
 	bigfile = { enabled = true },
 	dim = { enabled = true },
 	explorer = { enabled = true, replace_netrw = true },
 	image = { enabled = true },
-	indent = { enabled = true },
+	indent = { enabled = false }, -- using mini.indentscope
 	input = { enabled = true },
 	layout = { enabled = true },
 	notifier = { enabled = true },
 	quickfile = { enabled = true },
-	scope = { enabled = true },
+	scope = { enabled = false }, -- using mini.indentscope
 	scratch = { enabled = true },
 	statuscolumn = { enabled = true },
 	terminal = { enabled = true },
@@ -137,8 +137,6 @@ vim.api.nvim_create_autocmd("User", {
 		Snacks.toggle.treesitter():map("<leader>uT")
 		Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map("<leader>ub")
 		Snacks.toggle.dim():map("<leader>uD")
-		Snacks.toggle.animate():map("<leader>ua")
-		Snacks.toggle.indent():map("<leader>ug")
 		Snacks.toggle.scroll():map("<leader>uS")
 		Snacks.toggle.profiler():map("<leader>dpp")
 		Snacks.toggle.profiler_highlights():map("<leader>dph")
@@ -214,7 +212,7 @@ local   keymaps = {
     { "<leader>su", function() Snacks.picker.undo() end, desc = "Undo History" },
     { "<leader>uC", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
     -- buffers
-    { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete buffer", mode = { "n" }, },
+    { "<leader>bd", function() MiniBufremove.delete() end, desc = "Delete buffer", mode = { "n" }, },
     { "<leader>bo", function() Snacks.bufdelete.other() end, desc = "Delete other buffers", mode = { "n" }, },
     -- terminal
     { "<leader>fT", function() Snacks.terminal() end, desc = "Terminal (cwd)", mode = "n", },
@@ -228,7 +226,6 @@ local   keymaps = {
     { "<leader>.",  function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
     { "<leader>S",  function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
     { "<leader>n",  function() Snacks.notifier.show_history() end, desc = "Notification History" },
-    { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
     { "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename File" },
     { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Git Browse", mode = { "n", "v" } },
     { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit" },
