@@ -28,7 +28,7 @@ Snacks.setup({
 		sources = {
 			files = {
 				hidden = true,
-				ignored = true,
+				ignored = false,
 				win = {
 					input = {
 						keys = {
