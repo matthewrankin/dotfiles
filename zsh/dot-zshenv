@@ -1,2 +1,8 @@
+# ~/.zshenv
+# Copyright (c) 2021-2026 Matthew Rankin. All rights reserved.
+# Project site: https://github.com/matthewrankin/dotfiles
+# Use of this source code is governed by a MIT-style license that
+# can be found in the LICENSE file for the project.
+
 . "$HOME/.cargo/env"
 . "/Users/matthew/.local/share/bob/env/env.sh"
