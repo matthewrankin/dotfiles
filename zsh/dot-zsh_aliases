@@ -7,9 +7,10 @@
 # ls aliases
 # Credit: Marco Peluso https://youtu.be/LnZdaNfQ86o
 alias l="eza -F --icons"
+alias la="eza -a -F --icons"
 alias ls="eza -F --icons"
 alias ll="eza -lg -F --icons"
-alias la="eza -lag -F --icons"
+alias lla="eza -lag -F --icons"
 alias lt="eza -lTg -F --icons"
 alias lt1="eza -lTg -F --level=1 --icons"
 alias lt2="eza -lTg -F --level=2 --icons"
