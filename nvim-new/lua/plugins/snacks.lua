@@ -18,7 +18,7 @@ Snacks.setup({
 	quickfile = { enabled = true },
 	scope = { enabled = false }, -- using mini.indentscope
 	scratch = { enabled = true },
-	statuscolumn = { enabled = true },
+	statuscolumn = { enabled = false },
 	terminal = { enabled = true },
 	toggle = { enabled = true },
 	words = { enabled = false },
