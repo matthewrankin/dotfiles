@@ -161,7 +161,9 @@ vim.api.nvim_create_autocmd("User", {
 local   keymaps = {
     -- Top Pickers & Explorer
     { "<leader><space>", function() Snacks.picker.smart() end, 
-    desc = "Smart Find Files" },
+      desc = "Smart Find Files" },
+    { "<C-p>", function() Snacks.picker.smart() end, 
+      desc = "Smart Find Files" },
     { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
     { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
     { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
