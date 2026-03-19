@@ -124,4 +124,3 @@ eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
 eval "$(zoxide init zsh)"
 
-alias claude="/Users/matthew/.claude/local/claude"
