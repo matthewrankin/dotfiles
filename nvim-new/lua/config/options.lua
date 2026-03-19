@@ -88,7 +88,6 @@ opt.showmode = false -- Don't show mode in command line
 opt.pumheight = 10 -- Popup menu height
 opt.pumblend = 10 -- Popup menu transparency
 opt.winblend = 0 -- Floating window transparency
-opt.conceallevel = 2 -- Hide * markup for bold and italic, but not markers with substitutions
 opt.confirm = true -- Confirm to save changes before exiting modified buffer
 opt.concealcursor = "" -- Don't hide cursor line markup
 opt.synmaxcol = 300 -- Syntax highlighting limit
@@ -142,4 +141,3 @@ vim.filetype.add({
     ["%.env%.[%w_.-]+"] = "dotenv",
   },
 })
-
