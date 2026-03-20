@@ -75,7 +75,9 @@ opt.maxmempattern = 5000
 -- Built-in autocompletion
 opt.completeopt = "menu,menuone,noselect"
 
-vim.diagnostic.config({ virtual_lines = { current_line = true } })
+vim.diagnostic.config({
+  virtual_text = false,
+})
 
 -- The following are from Duy NG.
 -- https://tduyng.com/blog/neovim-basic-setup/
