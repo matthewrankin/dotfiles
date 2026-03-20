@@ -1,42 +1,27 @@
 local set = vim.keymap.set
 
--- clear search highlights 
+-- clear search highlights
 -- set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- Allow moving lines when visually selected.
-set("v", "J", ":m '>+1<CR>gv=gv")
-set("v", "K", ":m '<-2<CR>gv=gv")
+set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
+set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 
 -- Keep cursor at beginning of line when joining lines.
-set("n", "J", "mzJ`z")
+set("n", "J", "mzJ`z", { desc = "Join lines and keep cursor position" })
 
--- Keep cursor in middle when half page jumping
-set("n", "<C-d>", "<C-d>zz")
-set("n", "<C-u>", "<C-u>zz")
+-- Keep cursor centered when half page jumping and searching
+set("n", "<C-d>", "<C-d>zz", { desc = "Move half page down (centered)" })
+set("n", "<C-u>", "<C-u>zz", { desc = "Move half page up (centered)" })
+set("n", "n", "nzzzv", { desc = "Next search result (centered)" })
+set("n", "N", "Nzzzv", { desc = "Previous search result (centered)" })
 
--- Keep cursor in middle when searching
-set("n", "n", "nzzzv")
-set("n", "N", "Nzzzv")
+-- Keep visual selection when indenting
+set("v", "<", "<gv", { desc = "Indent left and reselect" })
+set("v", ">", ">gv", { desc = "Indent right and reselect" })
 
--- Control size of splits (https://youtu.be/kJVqxFnhIuw?t=520)
-set("n", "<M-h>", "<c-w>5<")
-set("n", "<M-l>", "<c-w>5>")
-set("n", "<M-j>", "<C-W>+")
-set("n", "<M-k>", "<C-W>-")
-
--- Greatest remap ever per ThePrimeagen. Delete highlighted word into the void
--- register and then paste, so that we keep our paste the same in the future.
--- No longer needed as of Vim 8.2.4881 and Neovim v0.8.0, as you can paste
--- using P for the same action.
--- set("x", "<leader>p", '"_dP')
-
--- Instead of ThePrimeagen's greatest remap ever, I'm setting this up to paste
--- from the yank register.
+-- Control pasting and yanking text.
 set({ "n", "x" }, "<leader>p", [["0p]], { desc = "Paste from yank register" })
-
--- Next greatest remap ever. Yank into the system clipboard using <leader>y in
--- either normal or visual mode or in normal mode yank to the end of the line
--- using <leader>Y.
 set({ "n", "v" }, "<leader>y", '"+y', { desc = "Yank to system clipboard" })
 set("n", "<leader>Y", '"+Y', { desc = "Yank line to sys clipboard" })
 
