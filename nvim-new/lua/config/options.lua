@@ -79,13 +79,13 @@ vim.diagnostic.config({
   virtual_text = false,
 })
 
--- The following are from Duy NG.
+-- Hat tip to Duy NG for many of these settings.
 -- https://tduyng.com/blog/neovim-basic-setup/
 
 -- Visual settings
 opt.showmatch = true -- Highlight matching brackets
 opt.matchtime = 2 -- How long to show matching bracket
-opt.cmdheight = 1 -- Command line height
+opt.cmdheight = 1 -- Set command line height
 opt.showmode = false -- Don't show mode in command line
 opt.pumheight = 10 -- Popup menu height
 opt.pumblend = 10 -- Popup menu transparency
@@ -101,7 +101,7 @@ opt.winminwidth = 5 -- Minimum window width
 opt.autochdir = false -- Don't auto change directory
 opt.iskeyword:append("-") -- Treat dash as part of word
 opt.path:append("**") -- include subdirectories in search
-opt.selection = "exclusive" -- Selection behavior
+opt.selection = "inclusive" -- Selection behavior
 opt.modifiable = true -- Allow buffer modifications
 opt.encoding = "UTF-8" -- Set encoding
 
