@@ -76,7 +76,9 @@ opt.maxmempattern = 5000
 opt.completeopt = "menu,menuone,noselect"
 
 vim.diagnostic.config({
-  virtual_text = false,
+  virtual_text = { current_line = true },
+  virtual_lines = false,
+  float = { wrap = true, max_width = 80 },
 })
 
 -- Hat tip to Duy NG for many of these settings.
