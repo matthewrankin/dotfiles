@@ -45,4 +45,5 @@ alias ic='ibmcloud'
 
 # Neovim aliases
 alias v='bob run stable'
+alias v2='NVIM_APPNAME=nvim-v0_12 bob run stable'
 alias vv='NVIM_APPNAME=nvim-new bob run nightly'

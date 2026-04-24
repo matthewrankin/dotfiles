@@ -10,7 +10,7 @@ loc:
 
 # Deploy all dotfiles.
 [group('dotfiles')]
-all: bash ghostty git gpg hg js npm nvim nvimnew readline tex tmux vim zsh
+all: bash ghostty git gpg hg js npm nvim nvimnew nvimv0_12 readline tex tmux vim zsh
 
 # Deploy bash dotfiles.
 [group('dotfiles')]
@@ -60,6 +60,12 @@ nvim:
 nvimnew:
   mkdir -p ~/.config/nvim-new
   stow -R -t ~/.config/nvim-new nvim-new --dotfiles
+
+# Deploy Neovim v0.12 dotfiles.
+[group('dotfiles')]
+nvimv0_12:
+  mkdir -p ~/.config/nvim-v0_12
+  stow -R -t ~/.config/nvim-v0_12 nvim-v0_12 --dotfiles
 
 # Deploy readline dotfiles.
 [group('dotfiles')]
