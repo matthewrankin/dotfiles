@@ -20,6 +20,10 @@ set("n", "<C-u>", "<C-u>zz")
 set("n", "n", "nzzzv")
 set("n", "N", "Nzzzv")
 
+-- Keep visual selection when indenting
+set("v", "<", "<gv", { desc = "Indent left and reselect" })
+set("v", ">", ">gv", { desc = "Indent right and reselect" })
+
 -- Control size of splits (https://youtu.be/kJVqxFnhIuw?t=520)
 set("n", "<M-h>", "<c-w>5<")
 set("n", "<M-l>", "<c-w>5>")
