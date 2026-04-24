@@ -1,10 +1,5 @@
 vim.pack.add({
-  "https://github.com/folke/tokyonight.nvim",
+  "https://github.com/rose-pine/neovim",
 })
 
-require("tokyonight").setup({
-  style = "night",
-  transparent = true,
-})
-
-vim.cmd("colorscheme tokyonight")
+vim.cmd("colorscheme rose-pine")
