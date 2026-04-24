@@ -85,3 +85,6 @@ set(
   "<cmd>tabnew %<CR>",
   { desc = "Open current buffer in new tab" }
 ) --  move current buffer to new tab
+
+-- Open NetRW
+set("n", "<leader>ee", "<cmd>Explore<cr>", { desc = "Open NetRW" })
