@@ -1,9 +1,7 @@
 [user]
   name = "Matthew Rankin"
-	email = matthewrankin@users.noreply.github.com
+	email = 369937+matthewrankin@users.noreply.github.com
 	signingkey = 536F1B03E9308185
-;[include]
-  ;path = ~/.gitconfig.local
 [color]
   ui = auto
 [alias]
@@ -22,7 +20,6 @@
   resetperm = !git diff -p -R --no-ext-diff --no-color --diff-filter=M | rg \"^(diff|(old|new) mode)\" --color=never | git apply
   aliases = config --get-regexp '^alias\\.'
 [core]
-  ; excludesfile = /Users/matthew/.gitignore
   editor = nvim
 [gui]
   recentrepo = /Users/matthew/development/python/cloneqsvn
