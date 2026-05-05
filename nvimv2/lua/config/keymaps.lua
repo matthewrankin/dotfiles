@@ -75,6 +75,3 @@ end, { expr = true, desc = "Next completion item" })
 set("i", "<C-k>", function()
   return vim.fn.pumvisible() == 1 and "<C-p>" or "<C-k>"
 end, { expr = true, desc = "Prev completion item" })
-
--- Toggle NetRW
-set("n", "<leader>ee", "<cmd>Explore<cr>", { desc = "Open NetRW" })
