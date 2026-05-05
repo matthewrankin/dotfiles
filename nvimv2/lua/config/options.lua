@@ -128,7 +128,7 @@ vim.g.trouble_lualine = true
 
 opt.jumpoptions = "view"
 opt.linebreak = true -- Wrap lines at convenient points
-opt.shortmess:append({ W = true, I = true, c = true, C = true })
+opt.shortmess:append({ W = true, c = true, C = true })
 
 vim.g.markdown_recommended_style = 0
 
