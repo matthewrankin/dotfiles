@@ -65,3 +65,17 @@ end, { expr = true, desc = "Next completion item" })
 set("i", "<C-k>", function()
   return vim.fn.pumvisible() == 1 and "<C-p>" or "<C-k>"
 end, { expr = true, desc = "Prev completion item" })
+
+-- Snippet navigation (vim.snippet, 0.10+).
+set({ "i", "s" }, "<Tab>", function()
+  if vim.snippet.active({ direction = 1 }) then
+    return "<cmd>lua vim.snippet.jump(1)<CR>"
+  end
+  return "<Tab>"
+end, { expr = true, silent = true, desc = "Snippet jump forward" })
+set({ "i", "s" }, "<S-Tab>", function()
+  if vim.snippet.active({ direction = -1 }) then
+    return "<cmd>lua vim.snippet.jump(-1)<CR>"
+  end
+  return "<S-Tab>"
+end, { expr = true, silent = true, desc = "Snippet jump backward" })

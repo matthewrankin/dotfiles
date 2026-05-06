@@ -66,48 +66,40 @@ opt.undodir = undodir
 -- Performance
 opt.updatetime = 150
 opt.timeoutlen = 300
-opt.redrawtime = 5000
-opt.maxmempattern = 5000
 
--- Built-in autocompletion
-opt.completeopt = "menu,menuone,noselect"
-
--- Hat tip to Duy NG for many of these settings.
--- https://tduyng.com/blog/neovim-basic-setup/
+-- Built-in autocompletion (popup adds LSP doc preview, fuzzy is 0.11+)
+opt.completeopt = "menu,menuone,noselect,popup,fuzzy"
 
 -- Visual settings
-opt.showmatch = true -- Highlight matching brackets
-opt.matchtime = 2 -- How long to show matching bracket
-opt.cmdheight = 1 -- Set command line height
-opt.showmode = false -- Don't show mode in command line
-opt.pumheight = 10 -- Popup menu height
-opt.pumblend = 10 -- Popup menu transparency
-opt.winblend = 0 -- Floating window transparency
-opt.confirm = true -- Confirm to save changes before exiting modified buffer
-opt.concealcursor = "" -- Don't hide cursor line markup
-opt.synmaxcol = 300 -- Syntax highlighting limit
-opt.ruler = false -- Disable the default ruler
+opt.showmatch = true      -- Highlight matching brackets
+opt.matchtime = 2         -- How long to show matching bracket
+opt.cmdheight = 1         -- Set command line height
+opt.showmode = false      -- Don't show mode in command line
+opt.pumheight = 10        -- Popup menu height
+opt.pumblend = 10         -- Popup menu transparency
+opt.winblend = 0          -- Floating window transparency
+opt.confirm = true        -- Confirm to save changes before exiting modified buffer
+opt.concealcursor = ""    -- Don't hide cursor line markup
+opt.ruler = false         -- Disable the default ruler
 opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
-opt.winminwidth = 5 -- Minimum window width
+opt.winminwidth = 5       -- Minimum window width
 
 -- Behavior settings
-opt.autochdir = false -- Don't auto change directory
+opt.autochdir = false     -- Don't auto change directory
 opt.iskeyword:append("-") -- Treat dash as part of word
-opt.path:append("**") -- include subdirectories in search
-opt.selection = "inclusive" -- Selection behavior
 
 -- Folding settings
 opt.smoothscroll = true
 opt.foldmethod = "expr"
 opt.foldlevel = 99 -- Start with all folds open
-opt.foldtext = "" -- Use treesitter-rendered fold lines (0.10+)
+opt.foldtext = ""  -- Use treesitter-rendered fold lines (0.10+)
 opt.fillchars = {
   fold = " ",
   foldopen = "▾",
   foldclose = "▸",
   foldsep = " ",
   diff = "╱",
-  eob = " ", -- Hide ~ on empty lines past end of buffer
+  eob = " ",                   -- Hide ~ on empty lines past end of buffer
 }
 opt.formatoptions = "jcroqlnt" -- tcqj
 opt.grepformat = "%f:%l:%c:%m"
