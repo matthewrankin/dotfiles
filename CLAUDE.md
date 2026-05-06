@@ -37,13 +37,14 @@ All three deploy independently and select via `NVIM_APPNAME`. The zsh aliases (`
 |---|---|---|
 | `nvim/` | **Lazy.nvim** | Established config. Source under `lua/matthewrankin/{core,plugins}/`. |
 | `nvim-new/` | Built-in **`vim.pack`** | Uses Snacks.nvim (UI: picker/explorer/terminal), Mini.nvim (editing), Mason (LSP). Targets Neovim nightly. |
-| `nvimv2/` | Built-in **`vim.pack`** | Targets Neovim v0.12 stable. Smaller plugin set (treesitter, lsp, surround, which-key). |
+| `nvimv2/` | Built-in **`vim.pack`** | Targets Neovim v0.12 stable. Smaller plugin set (treesitter, lsp, fzf-lua, oil, gitsigns, nvim-surround, which-key). |
 
 The two `vim.pack` configs (`nvim-new/`, `nvimv2/`) share a structure:
 - `init.lua` sets leader to Space, then `require("config")` and `require("plugins")`
 - `lua/config/` — options, keymaps, autocmds, diagnostics
 - `lua/plugins/init.lua` auto-requires every other `*.lua` in that directory (drop a file to add a plugin spec)
-- `lsp/<server>.lua` — per-server LSP settings (only in `nvim-new/`)
+- `lsp/<server>.lua` — per-server LSP settings (present in both `nvim-new/` and `nvimv2/`; `nvim/` configures servers inline under `lua/matthewrankin/plugins/`)
+- Plugin versions are pinned per config: `nvim/lazy-lock.json` for Lazy, `nvim-pack-lock.json` for `vim.pack`
 
 ### Neovim LSP Servers (configured in `nvim/`)
 Go (gopls), Python (pyright + ruff), TypeScript (ts_ls), Rust (rust_analyzer), Web (emmet_ls, html, cssls, tailwindcss, svelte), Lua (lua_ls), Zig (zls), LaTeX (texlab), Markdown (marksman), TOML (taplo), JSON (jsonls)
