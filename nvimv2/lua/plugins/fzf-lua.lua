@@ -19,7 +19,9 @@ local set = vim.keymap.set
 
 -- File finders
 set("n", "<leader>ff", fzf.files, { desc = "Find files (respect .gitignore)" })
-set("n", "<C-p>", fzf.git_files, { desc = "Find git files" })
+set("n", "<C-p>", function()
+  fzf.git_files({ cmd = "git ls-files --exclude-standard --cached --others" })
+end, { desc = "Find git files (incl. untracked)" })
 set("n", "<leader>fr", fzf.oldfiles, { desc = "Fuzzy find recent files" })
 
 -- Search
