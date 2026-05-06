@@ -121,7 +121,6 @@ opt.wildignore:append({ "*.o", "*.obj", "*.pyc", "*.class", "*.jar" })
 opt.diffopt:append("linematch:60")
 
 vim.g.autoformat = true
-vim.g.trouble_lualine = true
 
 opt.jumpoptions = "view"
 opt.linebreak = true -- Wrap lines at convenient points
