@@ -14,10 +14,8 @@ opt.tabstop = 2
 opt.softtabstop = 2
 opt.shiftwidth = 2
 opt.shiftround = true
-opt.autoindent = true
 opt.expandtab = true
 opt.smartindent = true
-opt.smarttab = true
 
 -- Line numbering, wrapping, columns, and ending
 opt.number = true
@@ -30,9 +28,6 @@ opt.signcolumn = "yes"
 opt.scrolloff = 3
 opt.sidescrolloff = 5
 opt.isfname:append("@-@")
-
--- Backspace
-opt.backspace = "indent,eol,start"
 
 -- Clipboard
 opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Use system clipboard unless SSHing.
@@ -55,7 +50,6 @@ opt.list = true
 opt.ignorecase = true
 opt.smartcase = true
 opt.hlsearch = false
-opt.incsearch = true
 opt.inccommand = "split"
 
 -- Undo and backups
@@ -70,8 +64,8 @@ end
 opt.undodir = undodir
 
 -- Performance
-vim.opt.updatetime = 150
-vim.opt.timeoutlen = 300
+opt.updatetime = 150
+opt.timeoutlen = 300
 opt.redrawtime = 5000
 opt.maxmempattern = 5000
 
@@ -101,19 +95,16 @@ opt.autochdir = false -- Don't auto change directory
 opt.iskeyword:append("-") -- Treat dash as part of word
 opt.path:append("**") -- include subdirectories in search
 opt.selection = "inclusive" -- Selection behavior
-opt.modifiable = true -- Allow buffer modifications
-opt.encoding = "UTF-8" -- Set encoding
 
 -- Folding settings
 opt.smoothscroll = true
-vim.wo.foldmethod = "expr"
+opt.foldmethod = "expr"
 opt.foldlevel = 99 -- Start with all folds open
 opt.formatoptions = "jcroqlnt" -- tcqj
 opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"
 
 -- Command-line completion
-opt.wildmenu = true
 opt.wildmode = "longest:full,full"
 opt.wildignore:append({ "*.o", "*.obj", "*.pyc", "*.class", "*.jar" })
 

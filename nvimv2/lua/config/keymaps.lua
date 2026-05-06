@@ -1,8 +1,5 @@
 local set = vim.keymap.set
 
--- clear search highlights
--- set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
-
 -- Allow moving lines when visually selected.
 set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
 set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
@@ -25,7 +22,6 @@ set({ "n", "x" }, "<leader>p", [["0p]], { desc = "Paste from yank register" })
 set({ "n", "v" }, "<leader>y", '"+y', { desc = "Yank to system clipboard" })
 set("n", "<leader>Y", '"+Y', { desc = "Yank line to sys clipboard" })
 
--- This keymap in normal mode is overwritten in my lspconfig.lua
 set({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete to void register" })
 
 -- Never press Q per ThePrimeagen <https://youtu.be/w7i4amO_zaE?t=1692>
@@ -46,12 +42,6 @@ set(
   [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
   { desc = "Replace all current word" }
 )
-
--- Make file executable
--- keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", {
---   desc = "Make file executable",
---   silent = true,
--- })
 
 -- tab management
 set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
