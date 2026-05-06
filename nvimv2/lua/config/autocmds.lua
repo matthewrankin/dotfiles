@@ -3,13 +3,20 @@ local function augroup(name)
   return vim.api.nvim_create_augroup("user_" .. name, { clear = true })
 end
 
--- Highight when yanking (copying) text
+-- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight when yanking (copying) text",
   group = augroup("highlight_yank"),
   callback = function()
     vim.hl.on_yank()
   end,
+})
+
+-- Notice external file changes (used with autoread, default true).
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
+  desc = "Check for external file modifications",
+  group = augroup("checktime"),
+  command = "checktime",
 })
 
 -- Set textwidth if this is a markdown document.

@@ -2,6 +2,8 @@ local opt = vim.opt
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+vim.g.autoformat = true
+vim.g.markdown_recommended_style = 0
 
 -- Color
 opt.termguicolors = true
@@ -21,6 +23,7 @@ opt.smartindent = true
 opt.number = true
 opt.relativenumber = true
 opt.wrap = false
+opt.linebreak = true -- Break at word boundaries when wrap is on
 opt.colorcolumn = "80"
 opt.signcolumn = "yes"
 
@@ -75,6 +78,7 @@ opt.showmatch = true      -- Highlight matching brackets
 opt.matchtime = 2         -- How long to show matching bracket
 opt.cmdheight = 1         -- Set command line height
 opt.showmode = false      -- Don't show mode in command line
+opt.shortmess:append({ W = true, c = true, C = true })
 opt.pumheight = 10        -- Popup menu height
 opt.pumblend = 10         -- Popup menu transparency
 opt.winblend = 0          -- Floating window transparency
@@ -87,6 +91,7 @@ opt.winminwidth = 5       -- Minimum window width
 -- Behavior settings
 opt.autochdir = false     -- Don't auto change directory
 opt.iskeyword:append("-") -- Treat dash as part of word
+opt.jumpoptions = "view"  -- Preserve view (cursor + scroll) on jumps
 
 -- Folding settings
 opt.smoothscroll = true
@@ -101,7 +106,7 @@ opt.fillchars = {
   diff = "╱",
   eob = " ",                   -- Hide ~ on empty lines past end of buffer
 }
-opt.formatoptions = "jcroqlnt" -- tcqj
+opt.formatoptions = "jcroqlnt"
 opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"
 
@@ -111,11 +116,3 @@ opt.wildignore:append({ "*.o", "*.obj", "*.pyc", "*.class", "*.jar" })
 
 -- Better diff options
 opt.diffopt:append("linematch:60")
-
-vim.g.autoformat = true
-
-opt.jumpoptions = "view"
-opt.linebreak = true -- Wrap lines at convenient points
-opt.shortmess:append({ W = true, c = true, C = true })
-
-vim.g.markdown_recommended_style = 0
