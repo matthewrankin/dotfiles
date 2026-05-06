@@ -92,6 +92,7 @@ opt.winminwidth = 5       -- Minimum window width
 opt.autochdir = false     -- Don't auto change directory
 opt.iskeyword:append("-") -- Treat dash as part of word
 opt.jumpoptions = "view"  -- Preserve view (cursor + scroll) on jumps
+opt.formatoptions = "jcroqlnt"
 
 -- Folding settings
 opt.smoothscroll = true
@@ -104,9 +105,10 @@ opt.fillchars = {
   foldclose = "▸",
   foldsep = " ",
   diff = "╱",
-  eob = " ",                   -- Hide ~ on empty lines past end of buffer
+  eob = " ", -- Hide ~ on empty lines past end of buffer
 }
-opt.formatoptions = "jcroqlnt"
+
+-- Grep
 opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"
 

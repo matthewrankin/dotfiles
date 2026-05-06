@@ -36,7 +36,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
     set("n", "gd", vim.lsp.buf.definition, opts("Go to definition"))
     set("n", "gD", vim.lsp.buf.declaration, opts("Go to declaration"))
-    set("n", "<leader>th", function()
+    set("n", "<leader>uh", function()
       vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }), { bufnr = bufnr })
     end, opts("Toggle inlay hints"))
 

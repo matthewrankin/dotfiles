@@ -11,6 +11,7 @@ wk.add({
   { "<leader>f", group = "find commands" },
   { "<leader>s", group = "search commands" },
   { "<leader>t", group = "tab commands" },
+  { "<leader>u", group = "ui toggles" },
   { "<leader>x", group = "diagnostic commands" },
   { "gr", group = "LSP commands" },
 })
