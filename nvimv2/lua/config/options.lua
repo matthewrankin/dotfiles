@@ -100,6 +100,15 @@ opt.selection = "inclusive" -- Selection behavior
 opt.smoothscroll = true
 opt.foldmethod = "expr"
 opt.foldlevel = 99 -- Start with all folds open
+opt.foldtext = "" -- Use treesitter-rendered fold lines (0.10+)
+opt.fillchars = {
+  fold = " ",
+  foldopen = "▾",
+  foldclose = "▸",
+  foldsep = " ",
+  diff = "╱",
+  eob = " ", -- Hide ~ on empty lines past end of buffer
+}
 opt.formatoptions = "jcroqlnt" -- tcqj
 opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"
@@ -118,17 +127,3 @@ opt.linebreak = true -- Wrap lines at convenient points
 opt.shortmess:append({ W = true, c = true, C = true })
 
 vim.g.markdown_recommended_style = 0
-
-vim.filetype.add({
-  extension = {
-    env = "dotenv",
-  },
-  filename = {
-    [".env"] = "dotenv",
-    ["env"] = "dotenv",
-  },
-  pattern = {
-    ["[jt]sconfig.*.json"] = "jsonc",
-    ["%.env%.[%w_.-]+"] = "dotenv",
-  },
-})
