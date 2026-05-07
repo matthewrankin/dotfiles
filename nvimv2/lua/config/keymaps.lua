@@ -66,6 +66,12 @@ set("i", "<C-k>", function()
   return vim.fn.pumvisible() == 1 and "<C-p>" or "<C-k>"
 end, { expr = true, desc = "Prev completion item" })
 
+-- UI toggles
+set("n", "<leader>uf", function()
+  vim.g.autoformat = not vim.g.autoformat
+  vim.notify(("Autoformat %s"):format(vim.g.autoformat and "enabled" or "disabled"))
+end, { desc = "Toggle format on save" })
+
 -- Snippet navigation (vim.snippet, 0.10+).
 set({ "i", "s" }, "<Tab>", function()
   if vim.snippet.active({ direction = 1 }) then
