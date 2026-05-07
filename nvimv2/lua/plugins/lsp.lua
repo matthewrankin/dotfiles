@@ -54,6 +54,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
     set("n", "gd", vim.lsp.buf.definition, opts("Go to definition"))
     set("n", "gD", vim.lsp.buf.declaration, opts("Go to declaration"))
+    -- Mirrors K (hover) — <C-s> is the built-in insert-mode binding.
+    set("n", "gK", vim.lsp.buf.signature_help, opts("Signature help"))
     set("n", "<leader>uh", function()
       vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }), { bufnr = bufnr })
     end, opts("Toggle inlay hints"))
