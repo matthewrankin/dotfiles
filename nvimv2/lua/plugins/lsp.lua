@@ -37,10 +37,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
       return
     end
 
-    -- Built-in autocompletion (0.11+).
-    if client:supports_method("textDocument/completion") then
-      vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
-    end
+    -- Autocompletion is provided by blink.cmp (see plugins/blink-cmp.lua).
+    -- Capabilities are advertised globally via vim.lsp.config("*", ...).
 
     -- Inlay hints off by default.
     if client:supports_method("textDocument/inlayHint") then
