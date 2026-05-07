@@ -10,6 +10,7 @@ vim.pack.add({
 vim.lsp.enable({
   "cssls",
   "emmet_ls",
+  "eslint",
   "gopls",
   "html",
   "jsonls",
@@ -57,10 +58,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }), { bufnr = bufnr })
     end, opts("Toggle inlay hints"))
 
-    -- Format on save, gated by vim.g.autoformat. For Go, also organize
-    -- imports via gopls's source.organizeImports code action — gofumpt
-    -- formats but does not add missing imports.
-    if client:supports_method("textDocument/formatting") then
+    -- Formatting on save is handled by conform.nvim (see plugins/conform.lua).
+    -- We only run gopls's source.organizeImports code action here, because
+    -- gofumpt formats but does not add missing imports.
+    if client.name == "gopls" then
       vim.api.nvim_clear_autocmds({ group = format_augroup, buffer = bufnr })
       vim.api.nvim_create_autocmd("BufWritePre", {
         group = format_augroup,
@@ -69,19 +70,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
           if not vim.g.autoformat then
             return
           end
-          if client.name == "gopls" then
-            local params = vim.lsp.util.make_range_params(0, client.offset_encoding)
-            params.context = { only = { "source.organizeImports" }, diagnostics = {} }
-            local results = vim.lsp.buf_request_sync(bufnr, "textDocument/codeAction", params, 3000)
-            for _, res in pairs(results or {}) do
-              for _, action in ipairs(res.result or {}) do
-                if action.edit then
-                  vim.lsp.util.apply_workspace_edit(action.edit, client.offset_encoding)
-                end
+          local params = vim.lsp.util.make_range_params(0, client.offset_encoding)
+          params.context = { only = { "source.organizeImports" }, diagnostics = {} }
+          local results = vim.lsp.buf_request_sync(bufnr, "textDocument/codeAction", params, 3000)
+          for _, res in pairs(results or {}) do
+            for _, action in ipairs(res.result or {}) do
+              if action.edit then
+                vim.lsp.util.apply_workspace_edit(action.edit, client.offset_encoding)
               end
             end
           end
-          vim.lsp.buf.format({ async = false, bufnr = bufnr })
         end,
       })
     end
