@@ -6,9 +6,6 @@ vim.pack.add({
 require("blink.cmp").setup({
   keymap = {
     preset = "default",
-    -- Match the existing <C-j>/<C-k> pum-nav keymaps in keymaps.lua.
-    ["<C-j>"] = { "select_next", "fallback" },
-    ["<C-k>"] = { "select_prev", "fallback" },
   },
   appearance = {
     nerd_font_variant = "mono",

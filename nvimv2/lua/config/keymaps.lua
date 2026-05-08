@@ -58,30 +58,13 @@ set(
 -- Jump to last edited file.
 set("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Jump to last edited file." })
 
--- Completion navigation
-set("i", "<C-j>", function()
-  return vim.fn.pumvisible() == 1 and "<C-n>" or "<C-j>"
-end, { expr = true, desc = "Next completion item" })
-set("i", "<C-k>", function()
-  return vim.fn.pumvisible() == 1 and "<C-p>" or "<C-k>"
-end, { expr = true, desc = "Prev completion item" })
-
 -- UI toggles
 set("n", "<leader>uf", function()
   vim.g.autoformat = not vim.g.autoformat
   vim.notify(("Autoformat %s"):format(vim.g.autoformat and "enabled" or "disabled"))
 end, { desc = "Toggle format on save" })
 
--- Snippet navigation (vim.snippet, 0.10+).
-set({ "i", "s" }, "<Tab>", function()
-  if vim.snippet.active({ direction = 1 }) then
-    return "<cmd>lua vim.snippet.jump(1)<CR>"
-  end
-  return "<Tab>"
-end, { expr = true, silent = true, desc = "Snippet jump forward" })
-set({ "i", "s" }, "<S-Tab>", function()
-  if vim.snippet.active({ direction = -1 }) then
-    return "<cmd>lua vim.snippet.jump(-1)<CR>"
-  end
-  return "<S-Tab>"
-end, { expr = true, silent = true, desc = "Snippet jump backward" })
+-- Stop an active snippet without finishing it.
+set({ "i", "s" }, "<C-c>", function()
+  if vim.snippet.active() then vim.snippet.stop() end
+end, { desc = "Stop active snippet" })
