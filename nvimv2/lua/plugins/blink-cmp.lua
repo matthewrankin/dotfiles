@@ -6,6 +6,9 @@ vim.pack.add({
 require("blink.cmp").setup({
   keymap = {
     preset = "default",
+    -- Free <C-k> for built-in digraph entry; move signature toggle to <C-s>.
+    ["<C-k>"] = {},
+    ["<C-s>"] = { "show_signature", "hide_signature" },
   },
   appearance = {
     nerd_font_variant = "mono",
