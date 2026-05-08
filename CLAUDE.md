@@ -26,7 +26,7 @@ There are two deployment patterns depending on the target location:
 **XDG config (`~/.config/<app>`)** — recipes `mkdir -p` the target first, then stow:
 - `nvim/`, `nvim-new/`, `nvimv2/`, `ghostty/`, `git/`, `tmux/` → `stow -R -t ~/.config/<app> <dir> --dotfiles`
 
-**`.stow-local-ignore`** at the repo root excludes top-level files from every stow target: `README*`, `LICENSE*`, `Justfile`, `.git*`, `.luarc.json`, plus RCS/CVS/SVN/darcs/hg artifacts and emacs backup/autosave files. Without it, stow would try to symlink these into `~`. Edit this file when adding new repo-root files that shouldn't deploy.
+**`.stow-local-ignore`** at the repo root excludes top-level files from every stow target: `README*`, `LICENSE*`, `Justfile`, `Makefile`, `COPYING`, `.git*`, `.luarc.json`, plus RCS/CVS/SVN/darcs/hg artifacts and emacs backup/autosave files. Without it, stow would try to symlink these into `~`. Edit this file when adding new repo-root files that shouldn't deploy.
 
 ### Three Neovim Configurations
 
@@ -67,3 +67,7 @@ Format-on-save is owned by **conform.nvim** (`lua/plugins/conform.lua`), gated o
 - `.stylua.toml` at the repo root governs Lua formatting for all three Neovim configs
 - `.luarc.json` at the repo root configures lua-language-server (LuaJIT runtime, `vim` global, `$VIMRUNTIME/lua` + luv on the workspace library) — applies across all three Neovim configs
 - Just recipe names drop hyphens (`just nvimnew` deploys the `nvim-new/` directory)
+
+## Conventions
+
+- **Commit messages** use a topic prefix (e.g., `nvimv2:`, `zsh:`, `Update CLAUDE.md:`) followed by an imperative summary. One topic per commit.
