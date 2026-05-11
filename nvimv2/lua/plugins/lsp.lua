@@ -61,8 +61,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end, opts("Toggle inlay hints"))
 
     -- Formatting on save is handled by conform.nvim (see plugins/conform.lua).
-    -- We only run gopls's source.organizeImports code action here, because
-    -- gofumpt formats but does not add missing imports.
+    -- We run two gopls code actions here:
+    --   source.organizeImports — gofumpt formats but does not add imports.
+    --   source.fixAll — applies modernize and other auto-fixable diagnostics
+    --     (rangeint, minmax, slicessort, mapsloop, etc.).
     if client.name == "gopls" then
       vim.api.nvim_clear_autocmds({ group = format_augroup, buffer = bufnr })
       vim.api.nvim_create_autocmd("BufWritePre", {
@@ -73,7 +75,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
             return
           end
           local params = vim.lsp.util.make_range_params(0, client.offset_encoding)
-          params.context = { only = { "source.organizeImports" }, diagnostics = {} }
+          params.context = {
+            only = { "source.organizeImports", "source.fixAll" },
+            diagnostics = {},
+          }
           local results = vim.lsp.buf_request_sync(bufnr, "textDocument/codeAction", params, 3000)
           for _, res in pairs(results or {}) do
             for _, action in ipairs(res.result or {}) do
