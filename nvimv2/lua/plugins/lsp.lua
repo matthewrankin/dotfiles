@@ -28,6 +28,7 @@ vim.lsp.enable({
 })
 
 local format_augroup = vim.api.nvim_create_augroup("user_lsp_format", { clear = false })
+local go_fix_augroup = vim.api.nvim_create_augroup("user_go_fix", { clear = false })
 
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("user_lsp_attach", { clear = true }),
@@ -61,10 +62,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end, opts("Toggle inlay hints"))
 
     -- Formatting on save is handled by conform.nvim (see plugins/conform.lua).
-    -- We run two gopls code actions here:
-    --   source.organizeImports — gofumpt formats but does not add imports.
-    --   source.fixAll — applies modernize and other auto-fixable diagnostics
-    --     (rangeint, minmax, slicessort, mapsloop, etc.).
+    -- We run gopls's source.organizeImports code action here, because gofumpt
+    -- formats but does not add missing imports. Modernize-style rewrites
+    -- (rangeint, minmax, slicessort, etc.) are not part of source.fixAll, so
+    -- we shell out to `go fix` on BufWritePost instead (see below).
     if client.name == "gopls" then
       vim.api.nvim_clear_autocmds({ group = format_augroup, buffer = bufnr })
       vim.api.nvim_create_autocmd("BufWritePre", {
@@ -75,10 +76,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
             return
           end
           local params = vim.lsp.util.make_range_params(0, client.offset_encoding)
-          params.context = {
-            only = { "source.organizeImports", "source.fixAll" },
-            diagnostics = {},
-          }
+          params.context = { only = { "source.organizeImports" }, diagnostics = {} }
           local results = vim.lsp.buf_request_sync(bufnr, "textDocument/codeAction", params, 3000)
           for _, res in pairs(results or {}) do
             for _, action in ipairs(res.result or {}) do
@@ -87,6 +85,28 @@ vim.api.nvim_create_autocmd("LspAttach", {
               end
             end
           end
+        end,
+      })
+
+      -- Apply `go fix` (cmd/fix modernize analyzers) on save, async. Runs
+      -- against the saved file's package; reloads the buffer via checktime
+      -- if it changed on disk.
+      vim.api.nvim_clear_autocmds({ group = go_fix_augroup, buffer = bufnr })
+      vim.api.nvim_create_autocmd("BufWritePost", {
+        group = go_fix_augroup,
+        buffer = bufnr,
+        callback = function(ev)
+          if not vim.g.autoformat then
+            return
+          end
+          local dir = vim.fn.fnamemodify(ev.file, ":h")
+          vim.system({ "go", "fix", "." }, { cwd = dir }, function(obj)
+            if obj.code == 0 then
+              vim.schedule(function()
+                vim.cmd("checktime")
+              end)
+            end
+          end)
         end,
       })
     end
