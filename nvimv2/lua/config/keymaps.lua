@@ -64,6 +64,14 @@ set("n", "<leader>uf", function()
   vim.notify(("Autoformat %s"):format(vim.g.autoformat and "enabled" or "disabled"))
 end, { desc = "Toggle format on save" })
 
+-- Plugin management (vim.pack)
+set("n", "<leader>Pu", function()
+  vim.pack.update()
+end, { desc = "Update plugins" })
+set("n", "<leader>Ps", function()
+  vim.print(vim.pack.get())
+end, { desc = "Plugin status" })
+
 -- Stop an active snippet without finishing it.
 set({ "i", "s" }, "<C-c>", function()
   if vim.snippet.active() then vim.snippet.stop() end
