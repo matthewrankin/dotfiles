@@ -44,8 +44,22 @@ if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 fi
 
+# compinit's security check over the completion dump costs ~270 ms. Run it in
+# full at most once a day; use the cached dump (-C) otherwise. A missing or
+# stale dump falls through to the full rebuild.
 autoload -Uz compinit
-compinit
+() {
+  setopt local_options extended_glob
+  if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh-24) ]]; then
+    compinit -C
+  else
+    # compinit only rewrites the dump when the available completions change,
+    # so stamp it here; otherwise its mtime never advances and every shell
+    # takes the slow path forever.
+    compinit
+    touch ${ZDOTDIR:-$HOME}/.zcompdump
+  fi
+}
 
 # load bashcompinit for some old bash completions 
 autoload bashcompinit && bashcompinit
