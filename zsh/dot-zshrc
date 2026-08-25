@@ -120,3 +120,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
 eval "$(zoxide init zsh)"
+
+# Inline suggestions from history; accept with the right arrow key.
+[ -r /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] &&
+  source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
