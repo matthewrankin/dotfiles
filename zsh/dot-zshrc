@@ -26,8 +26,10 @@ fi
 
 # history file
 HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
-SAVEHIST=20000
+# Keep SAVEHIST >= HISTSIZE; a smaller SAVEHIST silently drops the difference
+# when the shell writes the history file on exit.
 HISTSIZE=50000
+SAVEHIST=50000
 
 # Setup the path
 path+=~/bin
