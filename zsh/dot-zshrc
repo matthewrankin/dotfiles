@@ -42,10 +42,10 @@ zstyle :compinstall filename '/Users/matthew/.zshrc'
 # load zsh completions
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
-  autoload -Uz compinit
-  compinit
 fi
+
+autoload -Uz compinit
+compinit
 
 # load bashcompinit for some old bash completions 
 autoload bashcompinit && bashcompinit
