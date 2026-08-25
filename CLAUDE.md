@@ -10,7 +10,7 @@ Personal dotfiles repository for macOS and Ubuntu systems. Uses GNU Stow for sym
 Config-only repo: there is no build, test, or lint pipeline. The only commands are deployment (via `Justfile` at the repo root, capital J) and a LOC counter:
 - `just` - List all available recipes
 - `just all` - Deploy everything
-- `just <name>` - Deploy a specific config (bash, claude, ghostty, git, gpg, hg, js, npm, nvim, nvimnew, nvimv2, readline, tex, tmux, vim, zsh)
+- `just <name>` - Deploy a specific config (bash, claude, ghostty, git, gpg, js, npm, nvim, nvimnew, nvimv2, readline, tex, tmux, vim, zsh)
 - `just loc` - Count lines of code (requires `scc`)
 
 ## Architecture
@@ -20,7 +20,7 @@ Config-only repo: there is no build, test, or lint pipeline. The only commands a
 There are two deployment patterns depending on the target location:
 
 **Home directory (`~`)** — files use `dot-` prefix, stow converts them to dotfiles:
-- `bash/`, `zsh/`, `vim/`, `readline/`, `npm/`, `js/`, `tex/`, `hg/` → `stow -R -t ~ <dir> --dotfiles`
+- `bash/`, `zsh/`, `vim/`, `readline/`, `npm/`, `js/`, `tex/` → `stow -R -t ~ <dir> --dotfiles`
 - `gpg/` → `stow -R -t ~/.gnupg gpg --dotfiles`
 - `claude/` → `stow -R -t ~/.claude claude --dotfiles` (Claude Code `settings.json` + `statusline-command.sh`; the recipe `mkdir -p`s the target first)
 

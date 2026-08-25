@@ -10,7 +10,7 @@ loc:
 
 # Deploy all dotfiles.
 [group('dotfiles')]
-all: bash claude ghostty git gpg hg js npm nvim nvimnew nvimv2 readline tex tmux vim zsh
+all: bash claude ghostty git gpg js npm nvim nvimnew nvimv2 readline tex tmux vim zsh
 
 # Deploy bash dotfiles.
 [group('dotfiles')]
@@ -39,11 +39,6 @@ git:
 [group('dotfiles')]
 gpg:
 	stow -R -t ~/.gnupg gpg --dotfiles
-
-# Deploy hg (Mercurial) dotfiles.
-[group('dotfiles')]
-hg:
-	stow -R -t ~ hg --dotfiles
 
 # Deploy JavaScript dotfiles.
 [group('dotfiles')]
