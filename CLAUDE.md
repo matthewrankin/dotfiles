@@ -54,7 +54,7 @@ The two `vim.pack` configs (`nvim-new/`, `nvimv2/`) share a structure:
 ### Neovim LSP Servers
 `nvim/` (Lazy): Go (gopls), Python (pyright + ruff), TypeScript (ts_ls), Rust (rust_analyzer), Web (emmet_ls, html, cssls, tailwindcss, svelte), Lua (lua_ls), Zig (zls), LaTeX (texlab), Markdown (marksman), TOML (taplo), JSON (jsonls).
 
-`nvimv2/`: same set minus taplo, plus `eslint` and `templ`. Servers are listed in `vim.lsp.enable({...})` in `lua/plugins/lsp.lua`; per-server overrides go in `lsp/<server>.lua` (auto-loaded from runtimepath in 0.11+). Mason is intentionally not used — install LSP binaries and conform.nvim formatters (prettierd, stylua, latexindent) via the system package manager.
+`nvimv2/`: same set minus taplo, plus `eslint`, `templ`, and `ty`. Servers are listed in `vim.lsp.enable({...})` in `lua/plugins/lsp.lua`; per-server overrides go in `lsp/<server>.lua` (auto-loaded from runtimepath in 0.11+). Mason is intentionally not used — install LSP binaries and conform.nvim formatters (prettierd, stylua, latexindent) via the system package manager.
 
 ### nvimv2 formatting pipeline
 Format-on-save is owned by **conform.nvim** (`lua/plugins/conform.lua`), gated on `vim.g.autoformat`. Web/JSON/YAML/Markdown/Svelte/tex/Lua run external formatters (prettierd, latexindent, stylua); Go/Rust/Python/Zig fall back to LSP formatting via `lsp_format = "fallback"`. The only LSP-side BufWritePre logic left in `lua/plugins/lsp.lua` is gopls's `source.organizeImports` code action — gofumpt formats but doesn't add missing imports.

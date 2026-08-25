@@ -24,11 +24,14 @@ vim.lsp.enable({
   "templ",
   "texlab",
   "ts_ls",
+  "ty",
   "zls",
 })
 
-local format_augroup = vim.api.nvim_create_augroup("user_lsp_format", { clear = false })
-local go_fix_augroup = vim.api.nvim_create_augroup("user_go_fix", { clear = false })
+local format_augroup =
+  vim.api.nvim_create_augroup("user_lsp_format", { clear = false })
+local go_fix_augroup =
+  vim.api.nvim_create_augroup("user_go_fix", { clear = false })
 
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("user_lsp_attach", { clear = true }),
@@ -58,7 +61,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- Mirrors K (hover) — <C-s> is the built-in insert-mode binding.
     set("n", "gK", vim.lsp.buf.signature_help, opts("Signature help"))
     set("n", "<leader>uh", function()
-      vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }), { bufnr = bufnr })
+      vim.lsp.inlay_hint.enable(
+        not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }),
+        { bufnr = bufnr }
+      )
     end, opts("Toggle inlay hints"))
 
     -- Formatting on save is handled by conform.nvim (see plugins/conform.lua).
@@ -75,13 +81,23 @@ vim.api.nvim_create_autocmd("LspAttach", {
           if not vim.g.autoformat then
             return
           end
-          local params = vim.lsp.util.make_range_params(0, client.offset_encoding)
-          params.context = { only = { "source.organizeImports" }, diagnostics = {} }
-          local results = vim.lsp.buf_request_sync(bufnr, "textDocument/codeAction", params, 3000)
+          local params =
+            vim.lsp.util.make_range_params(0, client.offset_encoding)
+          params.context =
+            { only = { "source.organizeImports" }, diagnostics = {} }
+          local results = vim.lsp.buf_request_sync(
+            bufnr,
+            "textDocument/codeAction",
+            params,
+            3000
+          )
           for _, res in pairs(results or {}) do
             for _, action in ipairs(res.result or {}) do
               if action.edit then
-                vim.lsp.util.apply_workspace_edit(action.edit, client.offset_encoding)
+                vim.lsp.util.apply_workspace_edit(
+                  action.edit,
+                  client.offset_encoding
+                )
               end
             end
           end
