@@ -10,12 +10,18 @@ loc:
 
 # Deploy all dotfiles.
 [group('dotfiles')]
-all: bash ghostty git gpg hg js npm nvim nvimnew nvimv2 readline tex tmux vim zsh
+all: bash claude ghostty git gpg hg js npm nvim nvimnew nvimv2 readline tex tmux vim zsh
 
 # Deploy bash dotfiles.
 [group('dotfiles')]
 bash:
 	stow -R -t ~ bash --dotfiles
+
+# Deploy Claude Code dotfiles.
+[group('dotfiles')]
+claude:
+  mkdir -p ~/.claude
+  stow -R -t ~/.claude claude --dotfiles
 
 # Deploy ghostty dotfiles.
 [group('dotfiles')]
