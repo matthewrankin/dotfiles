@@ -95,6 +95,10 @@ esac
 
 # Set the editor to vim regardless of OS
 export EDITOR='vim'
+
+# Vi mode. KEYTIMEOUT is in hundredths of a second and defaults to 40, which
+# stalls `jj` and Escape for 400 ms before the mode switches.
+KEYTIMEOUT=1
 bindkey -v
 bindkey -M viins 'jj' vi-cmd-mode
 bindkey '^R' history-incremental-search-backward
