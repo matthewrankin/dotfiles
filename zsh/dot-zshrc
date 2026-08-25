@@ -32,13 +32,11 @@ HISTSIZE=50000
 # Setup the path
 path+=~/bin
 
-### Add Go
+# Add Go
 export GOPATH=$HOME/development/go
 path+="$GOPATH/bin"
 
-#######################
-##### Completions #####
-#######################
+# Enable completions.
 zstyle :compinstall filename '/Users/matthew/.zshrc'
 
 # load zsh completions
@@ -64,19 +62,8 @@ zstyle ':completion:*' matcher-list \
 zstyle ':completion:*' list-suffixes
 zstyle ':completion:*' expand prefix suffix
 
-############################
-##### Configure Prompt #####
-############################
+# Configure the prompt using Starship.
 eval "$(starship init zsh)"
-
-################################
-##### OS Agnostic Settings #####
-################################
-
-# Load nvm if it exists
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 ###################################
 ##### macOS Specific Settings #####
@@ -92,6 +79,11 @@ case $(uname) in
     # Setup gmake as make
     PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
 
+    # Load nvm if it exists
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+    [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
     ## uv Python
     export PATH="/Users/matthew/.local/bin:$PATH"
 
@@ -99,6 +91,10 @@ case $(uname) in
     export GPG_TTY=$(tty)
     gpgconf --launch gpg-agent
 esac
+
+################################
+##### OS Agnostic Settings #####
+################################
 
 # Set the editor to vim regardless of OS
 export EDITOR='vim'
