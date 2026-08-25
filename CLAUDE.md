@@ -64,7 +64,7 @@ Go is the exception and carries two extra save hooks in `lua/plugins/lsp.lua`, b
 - **BufWritePost** — shells out to `go fix .` async in the buffer's directory, then `checktime` to reload. This exists because the cmd/fix modernize analyzers (rangeint, minmax, slicessort) aren't reachable through gopls's `source.fixAll`.
 
 ### Key Integration Points
-- Zsh integrates with: pyenv, nvm, fzf, zoxide, uv, bun, Powerlevel10k (the prompt)
+- Zsh integrates with: nvm (lazy-loaded), fzf, zoxide, uv, bun, zsh-autosuggestions, Powerlevel10k (the prompt)
 - All Neovim configs use the **Rose Pine** colorscheme (also used by Ghostty)
 - GPG signing configured for Git commits; SSH signing key per recent commits
 - Tmux uses vi-mode with Ctrl-A prefix
