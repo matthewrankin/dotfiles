@@ -46,7 +46,7 @@ The split between `nvim-new/` (nightly) and `nvimv2/` (v0.12 stable) exists so u
 
 The two `vim.pack` configs (`nvim-new/`, `nvimv2/`) share a structure:
 - `init.lua` sets leader to Space, then `require("config")` and `require("plugins")`
-- `lua/config/` — options, keymaps, autocmds, diagnostics
+- `lua/config/` — options, keymaps, autocmds, diagnostics (plus `filetypes.lua` in `nvimv2/`, which registers the `dotenv` filetype and maps `[jt]sconfig.*.json` to jsonc)
 - `lua/plugins/init.lua` auto-requires every other `*.lua` in that directory (drop a file to add a plugin spec)
 - `lsp/<server>.lua` — per-server LSP settings (present in both `nvim-new/` and `nvimv2/`; `nvim/` configures servers inline under `lua/matthewrankin/plugins/`)
 - Plugin versions are pinned per config: `nvim/lazy-lock.json` for Lazy, `nvim-pack-lock.json` for `vim.pack`
@@ -57,7 +57,11 @@ The two `vim.pack` configs (`nvim-new/`, `nvimv2/`) share a structure:
 `nvimv2/`: same set minus taplo, plus `eslint`, `templ`, and `ty`. Servers are listed in `vim.lsp.enable({...})` in `lua/plugins/lsp.lua`; per-server overrides go in `lsp/<server>.lua` (auto-loaded from runtimepath in 0.11+). Mason is intentionally not used — install LSP binaries and conform.nvim formatters (prettierd, stylua, latexindent) via the system package manager.
 
 ### nvimv2 formatting pipeline
-Format-on-save is owned by **conform.nvim** (`lua/plugins/conform.lua`), gated on `vim.g.autoformat`. Web/JSON/YAML/Markdown/Svelte/tex/Lua run external formatters (prettierd, latexindent, stylua); Go/Rust/Python/Zig fall back to LSP formatting via `lsp_format = "fallback"`. The only LSP-side BufWritePre logic left in `lua/plugins/lsp.lua` is gopls's `source.organizeImports` code action — gofumpt formats but doesn't add missing imports.
+Format-on-save is owned by **conform.nvim** (`lua/plugins/conform.lua`), gated on `vim.g.autoformat`. Web/JSON/YAML/Markdown/Svelte/tex/Lua run external formatters (prettierd, latexindent, stylua); Go/Rust/Python/Zig fall back to LSP formatting via `lsp_format = "fallback"`.
+
+Go is the exception and carries two extra save hooks in `lua/plugins/lsp.lua`, both gated on `vim.g.autoformat` and registered per-buffer under their own augroups:
+- **BufWritePre** — gopls's `source.organizeImports` code action, because gofumpt formats but doesn't add missing imports.
+- **BufWritePost** — shells out to `go fix .` async in the buffer's directory, then `checktime` to reload. This exists because the cmd/fix modernize analyzers (rangeint, minmax, slicessort) aren't reachable through gopls's `source.fixAll`.
 
 ### Key Integration Points
 - Zsh integrates with: pyenv, nvm, fzf, zoxide, starship, uv, bun, Powerlevel10k
