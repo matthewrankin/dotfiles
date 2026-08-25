@@ -67,9 +67,6 @@ zstyle ':completion:*' expand prefix suffix
 ###################################
 case $(uname) in
   Darwin)
-    # Add fuzzy finder.
-    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
     PATH="/usr/local/sbin:$PATH"
     PATH="$HOME/.luarocks/bin:$PATH"
 
@@ -101,7 +98,10 @@ export EDITOR='vim'
 KEYTIMEOUT=1
 bindkey -v
 bindkey -M viins 'jj' vi-cmd-mode
-bindkey '^R' history-incremental-search-backward
+
+# Fuzzy finder: Ctrl-R history, Ctrl-T files, Alt-C cd. Sourced after
+# `bindkey -v` so the bindings land on the vi keymaps.
+command -v fzf >/dev/null && eval "$(fzf --zsh)"
 
 [ -f "/Users/matthew/.ghcup/env" ] && source "/Users/matthew/.ghcup/env" # ghcup-env
 
