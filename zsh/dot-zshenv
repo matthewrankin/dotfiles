@@ -6,4 +6,10 @@
 
 . "$HOME/.cargo/env"
 
+# Homebrew's rustup is keg-only, so its cargo/rustc/rustfmt shims are never
+# linked into the prefix. Set here rather than in .zshrc so non-interactive
+# shells get them too.
+[ -d /opt/homebrew/opt/rustup/bin ] &&
+  export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
+
 . "/Users/matthew/.local/share/bob/env/env.sh"
