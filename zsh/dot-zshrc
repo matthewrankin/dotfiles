@@ -73,10 +73,22 @@ case $(uname) in
     # Setup gmake as make
     PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
 
-    # Load nvm if it exists
+    # Load nvm lazily: sourcing nvm.sh costs ~280 ms, which every shell paid
+    # whether or not it touched Node. These stubs replace themselves with the
+    # real thing on first use.
     export NVM_DIR="$HOME/.nvm"
-    [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-    [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+    if [ -s "/opt/homebrew/opt/nvm/nvm.sh" ]; then
+      _load_nvm() {
+        unfunction nvm node npm npx corepack _load_nvm 2>/dev/null
+        \. "/opt/homebrew/opt/nvm/nvm.sh"
+        [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] &&
+          \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+      }
+      for _cmd in nvm node npm npx corepack; do
+        eval "${_cmd}() { _load_nvm; ${_cmd} \"\$@\"; }"
+      done
+      unset _cmd
+    fi
 
     ## uv Python
     export PATH="/Users/matthew/.local/bin:$PATH"
