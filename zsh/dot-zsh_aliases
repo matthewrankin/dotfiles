@@ -22,7 +22,7 @@ alias lta3="eza -lTag -F --level=3 --icons=auto"
 
 # history aliases
 alias h="history | tail -n 15"
-alias hg="history | rg"
+alias hg="fc -l 1 | rg"
 
 # cd aliases
 alias ...='cd ../..'
