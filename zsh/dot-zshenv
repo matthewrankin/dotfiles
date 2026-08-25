@@ -5,4 +5,5 @@
 # can be found in the LICENSE file for the project.
 
 . "$HOME/.cargo/env"
+
 . "/Users/matthew/.local/share/bob/env/env.sh"
