@@ -84,9 +84,9 @@ case $(uname) in
     ## uv Python
     export PATH="/Users/matthew/.local/bin:$PATH"
 
-    # GitHub GPG signing
-    export GPG_TTY=$(tty)
-    gpgconf --launch gpg-agent
+    # GitHub GPG signing. gpg launches gpg-agent on demand, so don't pay
+    # ~300 ms per shell running `gpgconf --launch gpg-agent` here.
+    export GPG_TTY=$TTY
 esac
 
 ################################
