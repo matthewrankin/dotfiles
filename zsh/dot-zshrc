@@ -62,9 +62,6 @@ zstyle ':completion:*' matcher-list \
 zstyle ':completion:*' list-suffixes
 zstyle ':completion:*' expand prefix suffix
 
-# Configure the prompt using Starship.
-eval "$(starship init zsh)"
-
 ###################################
 ##### macOS Specific Settings #####
 ###################################
